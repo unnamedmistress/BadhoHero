@@ -17,13 +17,15 @@
   "dependencies": {
     "@ai-sdk/deepinfra": "^0.2.15",
     "@ai-sdk/groq": "^1.2.9",
+    "@types/styled-components": "^5.1.34",
     "@vercel/analytics": "^1.5.0",
     "canvas-confetti": "^1.9.3",
     "framer-motion": "^12.16.0",
     "next": "15.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "^7.6.2"
+    "react-router-dom": "^7.6.2",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
     "@eslint/js": "^9.28.0",

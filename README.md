@@ -27,6 +27,8 @@ Drag cards to assemble a prompt. Each round now fetches fresh card text from the
   (5s at 40+, 10s at 50+, 15s at 60+).
 - Points and badges now sync to a small server so progress follows you across devices.
 - High contrast theme preference persists via `ThemeToggle`.
+- Styles are unified across projects via a shared `badhoTheme` loaded with
+  `styled-components`.
 - A unified leaderboard with tabs displays top points for every game.
 - A dedicated Badges page lets you track all achievements.
 - A hidden `/stats` page displays server-recorded metrics, while page views
