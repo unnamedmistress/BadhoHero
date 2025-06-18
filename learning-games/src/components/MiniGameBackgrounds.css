@@ -1,0 +1,21 @@
+.willpower-bg {
+  background: linear-gradient(#8EC5FC, #E0C3FC);
+  background-attachment: fixed;
+}
+.goal-orb-bg {
+  background: radial-gradient(circle at center, #1e3a8a 0%, #000 80%);
+  color: #fff;
+  background-attachment: fixed;
+}
+.time-tunnel-bg {
+  background: radial-gradient(circle, #2196f3 0%, #303f9f 100%);
+  background-attachment: fixed;
+}
+.confidence-bg {
+  background: linear-gradient(#FFDEE9, #B5FFFC);
+  background-attachment: fixed;
+}
+.triumph-bg {
+  background: linear-gradient(#a8e063, #56ab2f);
+  background-attachment: fixed;
+}

@@ -64,20 +64,20 @@
   position: relative;
   padding: 0;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 16px;
   text-decoration: none;
   display: block;
   overflow: hidden;
-  background: var(--color-background);
+  background: var(--badho-hero-gradient);
   color: var(--color-text-dark);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 8px 32px rgba(48, 63, 159, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
   height: 200px;
   cursor: pointer;
 }
 .game-card:hover {
-  transform: scale(1.05);
-  border-color: var(--color-brand);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(48, 63, 159, 0.25);
 }
 
 .game-card:hover .game-icon {

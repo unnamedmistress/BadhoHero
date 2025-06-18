@@ -1,0 +1,67 @@
+.icon {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+}
+
+.willpower-badge {
+  fill: var(--badho-sky-blue);
+  stroke: var(--badho-accent-indigo);
+  stroke-width: 2;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.goal-orb {
+  fill: var(--badho-sunflower);
+  stroke: var(--badho-accent-indigo);
+  stroke-width: 2;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.time-clock .hand {
+  stroke: var(--badho-accent-indigo);
+  stroke-linecap: round;
+  animation: spin 60s linear infinite;
+  transform-origin: 32px 32px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.confidence-torch .flame {
+  fill: var(--badho-warm-orange);
+  animation: flicker 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(1.1); opacity: 1; }
+}
+
+.triumph-tree {
+  fill: var(--badho-leaf-green);
+  stroke: var(--badho-accent-indigo);
+  stroke-width: 2;
+}
+
+.triumph-tree .leaf {
+  fill: var(--badho-leaf-green);
+  animation: fall 3s ease-in-out infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(8px); opacity: 0; }
+}

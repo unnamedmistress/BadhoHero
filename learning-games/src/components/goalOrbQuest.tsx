@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { fetchChallenge, postAction } from '../services/aiService'
 import PointsTracker from './PointsTracker'
 import BadgesStore from './BadgesStore'
+import './MiniGameBackgrounds.css'
+import { GoalOrb } from './icons'
 
 interface Props {
   ageGroup: string
@@ -21,7 +23,8 @@ export default function GoalOrbQuest({ ageGroup, onComplete }: Props) {
   }
 
   return (
-    <div>
+    <div className="goal-orb-bg">
+      <GoalOrb />
       <h2>Goal Orb Quest</h2>
       <p>Collect orbs by setting clear goals.</p>
       <button className="btn-primary" onClick={handleAction}>Finish</button>
