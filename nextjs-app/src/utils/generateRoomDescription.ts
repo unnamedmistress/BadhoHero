@@ -1,4 +1,4 @@
-import type { AgeGroup } from '../../../shared/getAgeGroup'
+import type { AgeGroup } from '../shared/types/user'
 
 export async function generateRoomDescription(ageGroup: AgeGroup): Promise<string> {
   try {

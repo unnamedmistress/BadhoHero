@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 import type { UserData, UserContextType, AgeGroup } from './types/user'
-import { getAgeGroup } from '../../../shared/getAgeGroup'
+import { getAgeGroup } from './getAgeGroup'
 
 export const defaultUser: UserData = {
   id: '',
