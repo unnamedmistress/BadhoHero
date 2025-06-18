@@ -1,0 +1,17 @@
+.neumorphic-button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+.neumorphic-button.raised {
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2), -2px -2px 5px rgba(255,255,255,0.5);
+}
+.neumorphic-button.inset {
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(255,255,255,0.5);
+}
+.neumorphic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
