@@ -1,0 +1,6 @@
+.mood-lighting {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.4), transparent);
+}

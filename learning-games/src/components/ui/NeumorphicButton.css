@@ -1,0 +1,11 @@
+.neumorphic-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  cursor: pointer;
+}
+.neumorphic-btn:active {
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
