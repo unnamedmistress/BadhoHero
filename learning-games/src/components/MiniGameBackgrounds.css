@@ -19,3 +19,7 @@
   background: linear-gradient(#a8e063, #56ab2f);
   background-attachment: fixed;
 }
+.fogland-bg {
+  background: linear-gradient(#ececec, #b5b5b5);
+  background-attachment: fixed;
+}

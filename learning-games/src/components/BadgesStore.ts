@@ -1,4 +1,10 @@
-export type Badge = 'willpower' | 'goal' | 'timekeeper' | 'confidence' | 'triumph'
+export type Badge =
+  | 'origin'
+  | 'willpower'
+  | 'goal'
+  | 'timekeeper'
+  | 'confidence'
+  | 'triumph'
 
 class BadgesStore {
   private badges = new Set<Badge>()

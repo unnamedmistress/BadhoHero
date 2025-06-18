@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import FoglandAwakening from './foglandAwakening'
 import WillpowerWarrior from './willpowerWarrior'
 import GoalOrbQuest from './goalOrbQuest'
 import TimeTunnelTracker from './timeTunnelTracker'
@@ -10,6 +11,7 @@ import { UserContext } from '../shared/UserContext'
 import type { UserContextType } from '../../shared/types/user'
 
 const games = [
+  FoglandAwakening,
   WillpowerWarrior,
   GoalOrbQuest,
   TimeTunnelTracker,
