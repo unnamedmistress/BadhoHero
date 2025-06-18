@@ -1,0 +1,90 @@
+/* Confidence Cavern Styles */
+.confidence-cavern {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.torch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.torch {
+  width: 60px;
+  height: 120px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  position: relative;
+}
+
+.torch.lit::after {
+  content: '🔥';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+.cavern-fox {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Tree of Triumph Styles */
+.tree-of-triumph {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #14532d 0%, #022c22 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.badge-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.soil {
+  height: 100px;
+  background: #4b2e05;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.tree {
+  width: 10px;
+  background: #3f6212;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fruit {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fbbf24;
+  border-radius: 50%;
+}
