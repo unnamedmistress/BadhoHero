@@ -41,6 +41,7 @@ Drag cards to assemble a prompt. Each round now fetches fresh card text from the
    ```bash
    cd learning-games
    npm install
+   npm install styled-components
    npm run dev
    ```
 2. In a separate terminal start the API server to persist user info,
@@ -139,6 +140,10 @@ by setting `FIREBASE_SERVICE_ACCOUNT` to a JSON string or path, or use
 `GOOGLE_APPLICATION_CREDENTIALS` to point to a credentials file.
 
 Without this key, the RobotChat and recipe features will not work.
+
+## Documentation
+Detailed component props and usage can be found in
+[`docs/Component_Reference.md`](docs/Component_Reference.md).
 
 ## License
 This project is released under the [MIT License](LICENSE). Contributions are welcome under the same terms.
