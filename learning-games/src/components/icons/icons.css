@@ -65,3 +65,12 @@
   0% { transform: translateY(0); opacity: 1; }
   100% { transform: translateY(8px); opacity: 0; }
 }
+
+.origin-badge {
+  fill: var(--badho-sunflower);
+  stroke: var(--badho-accent-indigo);
+  stroke-width: 2;
+}
+.origin-badge .star {
+  fill: var(--badho-accent-indigo);
+}

@@ -5,6 +5,7 @@ This document summarizes the main React components in the `learning-games` appli
 ## Core Game Modules
 
 - **GameOrchestrator** – sequences the mini games. It reads the `ageGroup` from `UserContext`, renders each game component and advances when a game calls `onComplete`.
+- **FoglandAwakening** (`ageGroup: string`, `onComplete: () => void`) – introductory challenge clearing fog tiles.
 - **WillpowerWarrior** (`ageGroup: string`, `onComplete: () => void`) – fetches the `willpowerWarrior` challenge and awards points when the player finishes.
 - **GoalOrbQuest** (`ageGroup: string`, `onComplete: () => void`) – similar flow for the goal setting challenge.
 - **TimeTunnelTracker** (`ageGroup: string`, `onComplete: () => void`) – time management mini game.
@@ -37,7 +38,7 @@ This document summarizes the main React components in the `learning-games` appli
 
 ### Icon Components
 
-`WillpowerBadge`, `GoalOrb`, `TimeClock`, `ConfidenceTorch`, and `TriumphTree` render SVG icons used by the games.
+`OriginBadge`, `WillpowerBadge`, `GoalOrb`, `TimeClock`, `ConfidenceTorch`, and `TriumphTree` render SVG icons used by the games.
 
 ### UI Components
 

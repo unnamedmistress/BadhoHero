@@ -1,0 +1,52 @@
+.fogland-bg {
+  background: linear-gradient(#d7d7d7, #a1a1a1);
+  background-attachment: fixed;
+  padding: 1rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.fog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.fog-tile {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.fog-tile.revealed {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.question-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 320px;
+  width: 90%;
+  text-align: left;
+}
+
+.question-card button {
+  margin-top: 0.5rem;
+}
