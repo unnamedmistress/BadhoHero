@@ -3,6 +3,8 @@ import Head from 'next/head'
 import { UserProvider } from '../shared/UserProvider'
 import { NotificationProvider } from '../contexts/NotificationContext'
 import { ErrorBoundary } from '../../../shared/ErrorBoundary'
+import { ThemeProvider } from 'styled-components'
+import { badhoTheme } from '../../../src/theme/theme.config'
 import ModernNavBar from '../components/layout/ModernNavBar'
 import SkipLink from '../components/layout/SkipLink'
 import Footer from '../components/layout/Footer'
@@ -68,19 +70,21 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="StrawberryTech" />
         <meta name="keywords" content="AI prompting, artificial intelligence, learning games, prompt engineering, AI skills, interactive learning" /></Head>
-      <NotificationProvider>
-        <UserProvider>
-          <ErrorBoundary>
-            <ScrollToTop />
-            <SkipLink />
-            <ModernNavBar />
-            <AnalyticsTracker />
-            <Component {...pageProps} />
-            <Footer />
-            <Analytics />
-          </ErrorBoundary>
-        </UserProvider>
-      </NotificationProvider>
+      <ThemeProvider theme={badhoTheme}>
+        <NotificationProvider>
+          <UserProvider>
+            <ErrorBoundary>
+              <ScrollToTop />
+              <SkipLink />
+              <ModernNavBar />
+              <AnalyticsTracker />
+              <Component {...pageProps} />
+              <Footer />
+              <Analytics />
+            </ErrorBoundary>
+          </UserProvider>
+        </NotificationProvider>
+      </ThemeProvider>
     </>
   )
 }

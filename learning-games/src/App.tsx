@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { badhoTheme } from '../../src/theme/theme.config'
 import Home from './pages/Home'
 import AgeInputForm from './pages/AgeInputForm'
 import SplashPage from './pages/SplashPage'
@@ -23,7 +25,8 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
+    <ThemeProvider theme={badhoTheme}>
+      <Router>
       <ScrollToTop />
       <SkipLink />
       <NavBar />
@@ -46,8 +49,9 @@ function App() {
         <Route path="/stats" element={<StatsPage />} />
       </Routes>
       {/* Verification comment: routes render correctly with context */}
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </ThemeProvider>
   )
 }
 
