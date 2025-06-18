@@ -6,10 +6,11 @@ This document summarizes the main React components in the `learning-games` appli
 
 - **GameOrchestrator** – sequences the mini games. It reads the `ageGroup` from `UserContext`, renders each game component and advances when a game calls `onComplete`.
 - **FoglandAwakening** (`ageGroup: string`, `onComplete: () => void`) – introductory challenge clearing fog tiles.
-- **WillpowerWarrior** (`ageGroup: string`, `onComplete: () => void`) – fetches the `willpowerWarrior` challenge and awards points when the player finishes.
+- **WillpowerWarrior** (`ageGroup: string`, `onComplete: () => void`) – morning routine game where players choose healthy habits against the clock.
 - **GoalOrbQuest** (`ageGroup: string`, `onComplete: () => void`) – similar flow for the goal setting challenge.
 - **TimeTunnelTracker** (`ageGroup: string`, `onComplete: () => void`) – time management mini game.
 - **ConfidenceCavern** (`ageGroup: string`, `onComplete: () => void`) – confidence building challenge.
+- **ConfidenceCastle** (`ageGroup: string`, `onComplete: () => void`) – quick power‑pose exercise for facing fears.
 - **TreeOfTriumph** (`ageGroup: string`, `onComplete: () => void`) – success tracking challenge.
 - **PointsTracker** – singleton object with `addPoints(p: number)` and `getPoints()` methods.
 - **BadgesStore** – singleton with `earn(badge)` and `getBadges()`.
