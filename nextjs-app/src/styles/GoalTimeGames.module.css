@@ -1,0 +1,66 @@
+.goalGame {
+  padding: 2rem 1rem;
+}
+
+.orbList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.orb {
+  padding: 0.5rem 0.75rem;
+  background: var(--color-purple);
+  color: #fff;
+  border-radius: 20px;
+  cursor: grab;
+  user-select: none;
+}
+
+.portals {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.portal {
+  border: 2px dashed var(--color-blue);
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 60px;
+  width: 100%;
+  max-width: 260px;
+  text-align: center;
+}
+
+.portalFull {
+  opacity: 0.6;
+}
+
+.timeGame {
+  padding: 2rem 1rem;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.task {
+  padding: 0.5rem 0.75rem;
+  background: var(--color-green);
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.completed {
+  background: var(--color-purple);
+}
