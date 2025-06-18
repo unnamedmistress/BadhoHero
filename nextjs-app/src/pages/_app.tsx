@@ -51,7 +51,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content="StrawberryTech - Master AI Prompting Through Games" />
         <meta property="og:description" content={description} />
-        <meta property="og:site_name" content="StrawberryTech" />        <meta property="og:image" content="https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
+        <meta property="og:site_name" content="StrawberryTech" />        <meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
         <meta property="og:image:width" content="1024" />
         <meta property="og:image:height" content="1024" />
         <meta property="og:image:alt" content="StrawberryTech - Learn AI Prompting Skills" />
@@ -63,7 +63,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta name="twitter:site" content="@strawberrytech" />
         <meta name="twitter:creator" content="@strawberrytech" />
         <meta name="twitter:title" content="StrawberryTech - Master AI Prompting Through Games" />
-        <meta name="twitter:description" content={description} />        <meta name="twitter:image" content="https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
+        <meta name="twitter:description" content={description} />        <meta name="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
         <meta name="twitter:image:alt" content="StrawberryTech - Learn AI Prompting Skills" />
         
         {/* Additional meta tags for better social sharing */}

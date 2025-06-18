@@ -347,7 +347,7 @@ export function Head() {
       <meta property="og:url" content="https://strawberry-tech.vercel.app/prompt-library" />
       <meta property="og:title" content="AI Prompt Library | StrawberryTech" />
       <meta property="og:description" content="Discover and share powerful AI prompts for education, creativity, business, and more. Browse our curated collection of prompts to enhance your AI interactions." />
-      <meta property="og:image" content="https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
+      <meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
       <meta property="og:image:width" content="1024" />
       <meta property="og:image:height" content="1024" />
       <meta property="og:image:alt" content="StrawberryTech Prompt Library - AI Prompts Collection" />
@@ -359,7 +359,7 @@ export function Head() {
       <meta property="twitter:url" content="https://strawberry-tech.vercel.app/prompt-library" />
       <meta property="twitter:title" content="AI Prompt Library | StrawberryTech" />
       <meta property="twitter:description" content="Discover and share powerful AI prompts for education, creativity, business, and more." />
-      <meta property="twitter:image" content="https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
+      <meta property="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
       
       <meta name="keywords" content="AI prompts, artificial intelligence, prompt engineering, ChatGPT prompts, AI tools, machine learning" />
     </>

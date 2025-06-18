@@ -6,13 +6,13 @@ This plan explains how to incorporate a themed strawberry image on every page in
 
 | File Name | Description | URL |
 | --- | --- | --- |
-| ChatGPT Image Jun 7, 2025, 07_51_28 PM.png | Detective-themed strawberry examining statement cards under magnifying glass to spot false claim. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_51_28%20PM.png |
-| ChatGPT Image Jun 7, 2025, 07_47_46 PM.png | Strawberry calling out sick wrapped in blanket, holding phone with polite sick day message bubble. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_46%20PM.png |
-| ChatGPT Image Jun 7, 2025, 07_47_29 PM.png | Another version of strawberry calling out sick, same description. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_29%20PM.png |
-| ChatGPT Image Jun 7, 2025, 07_24_00 PM.png | Strawberry throwing dart hitting "Clear Prompt" bullseye on prompt darts target. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png |
-| ChatGPT Image Jun 7, 2025, 07_19_23 PM.png | Prompt recipe builder strawberry chef tossing cards labeled Action, Context, Format, Constraints. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png |
-| ChatGPT Image Jun 7, 2025, 07_16_34 PM.png | Earlier prompt recipe builder with similar strawberry chef and cards. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_16_34%20PM.png |
-| ChatGPT Image Jun 7, 2025, 07_12_36 PM.png | Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones. | https://github.com/unnamedmistress/images/blob/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_51_28 PM.png | Detective-themed strawberry examining statement cards under magnifying glass to spot false claim. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_51_28%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_47_46 PM.png | Strawberry calling out sick wrapped in blanket, holding phone with polite sick day message bubble. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_46%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_47_29 PM.png | Another version of strawberry calling out sick, same description. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_29%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_24_00 PM.png | Strawberry throwing dart hitting "Clear Prompt" bullseye on prompt darts target. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_19_23 PM.png | Prompt recipe builder strawberry chef tossing cards labeled Action, Context, Format, Constraints. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_16_34 PM.png | Earlier prompt recipe builder with similar strawberry chef and cards. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_16_34%20PM.png |
+| ChatGPT Image Jun 7, 2025, 07_12_36 PM.png | Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones. | https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png |
 
 All images are hosted on GitHub. Use the direct URL in the `src` attribute of an `<img>` tag and include an `alt` text that matches the description above.
 
