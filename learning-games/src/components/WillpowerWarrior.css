@@ -1,0 +1,28 @@
+.willpower-warrior {
+  padding: 1rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.routine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.routine-tile {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.routine-tile.selected {
+  opacity: 0.6;
+}
