@@ -1,29 +1,15 @@
 import React from 'react'
 import './NeumorphicButton.css'
 
-export interface NeumorphicButtonProps {
+
+export interface NeumorphicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
-  className?: string
-  onClick?: () => void
-  variant?: 'raised' | 'inset'
-  disabled?: boolean
 }
 
-export default function NeumorphicButton({
-  children,
-  className = '',
-  onClick,
-  variant = 'raised',
-  disabled = false,
-}: NeumorphicButtonProps) {
+export default function NeumorphicButton({ children, className = '', ...props }: NeumorphicButtonProps) {
   return (
-    <button
-      className={`neumorphic-button ${variant} ${className}`.trim()}
-      onClick={onClick}
-      disabled={disabled}
-      data-testid="neumorphic-button"
-      type="button"
-    >
+    <button className={`neumorphic-btn ${className}`} {...props}>
+
       {children}
     </button>
   )

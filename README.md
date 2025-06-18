@@ -27,6 +27,8 @@ Drag cards to assemble a prompt. Each round now fetches fresh card text from the
   (5s at 40+, 10s at 50+, 15s at 60+).
 - Points and badges now sync to a small server so progress follows you across devices.
 - High contrast theme preference persists via `ThemeToggle`.
+- Styles are unified across projects via a shared `badhoTheme` loaded with
+  `styled-components`.
 - A unified leaderboard with tabs displays top points for every game.
 - A dedicated Badges page lets you track all achievements.
 - A hidden `/stats` page displays server-recorded metrics, while page views
@@ -39,6 +41,7 @@ Drag cards to assemble a prompt. Each round now fetches fresh card text from the
    ```bash
    cd learning-games
    npm install
+   npm install styled-components
    npm run dev
    ```
 2. In a separate terminal start the API server to persist user info,
@@ -137,6 +140,10 @@ by setting `FIREBASE_SERVICE_ACCOUNT` to a JSON string or path, or use
 `GOOGLE_APPLICATION_CREDENTIALS` to point to a credentials file.
 
 Without this key, the RobotChat and recipe features will not work.
+
+## Documentation
+Detailed component props and usage can be found in
+[`docs/Component_Reference.md`](docs/Component_Reference.md).
 
 ## License
 This project is released under the [MIT License](LICENSE). Contributions are welcome under the same terms.

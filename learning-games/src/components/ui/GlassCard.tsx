@@ -4,25 +4,14 @@ import './GlassCard.css'
 export interface GlassCardProps {
   children: React.ReactNode
   className?: string
-  onClick?: () => void
-  variant?: 'light' | 'dark'
-  blur?: number
+
+  style?: React.CSSProperties
 }
 
-export default function GlassCard({
-  children,
-  className = '',
-  onClick,
-  variant = 'light',
-  blur = 10,
-}: GlassCardProps) {
+export default function GlassCard({ children, className = '', style }: GlassCardProps) {
   return (
-    <div
-      className={`glass-card ${variant} ${className}`.trim()}
-      style={{ backdropFilter: `blur(${blur}px)` }}
-      onClick={onClick}
-      data-testid="glass-card"
-    >
+    <div className={`glass-card ${className}`} style={style}>
+
       {children}
     </div>
   )
