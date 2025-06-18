@@ -4,6 +4,7 @@ import WillpowerWarrior from './willpowerWarrior'
 import GoalOrbQuest from './goalOrbQuest'
 import TimeTunnelTracker from './timeTunnelTracker'
 import ConfidenceCavern from './confidenceCavern'
+import ConfidenceCastle from './confidenceCastle'
 import TreeOfTriumph from './treeOfTriumph'
 import PointsTracker from './PointsTracker'
 import BadgesStore from './BadgesStore'
@@ -16,6 +17,7 @@ const games = [
   GoalOrbQuest,
   TimeTunnelTracker,
   ConfidenceCavern,
+  ConfidenceCastle,
   TreeOfTriumph,
 ]
 
