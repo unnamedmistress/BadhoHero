@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getApiBase } from '../utils/api'
+import ProgressRing from './ui/ProgressRing'
 
 interface ProgressSummaryProps {
   totalPoints?: number
@@ -27,7 +28,7 @@ export default function ProgressSummary({ totalPoints, badges, goalPoints }: Pro
   return (
     <div className="progress-summary">
       <p>Total Points: {pts}</p>
-      <progress value={pts} max={goalPoints} />
+      <ProgressRing progress={(pts / goalPoints) * 100} />
       <p>Badges Earned: {earned.length}</p>
       <div className="badge-icons">
         {earned.map((b) => (

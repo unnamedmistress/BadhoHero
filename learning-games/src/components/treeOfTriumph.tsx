@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { fetchChallenge, postAction } from '../services/aiService'
 import PointsTracker from './PointsTracker'
 import BadgesStore from './BadgesStore'
+import './MiniGameBackgrounds.css'
+import { TriumphTree } from './icons'
 
 interface Props {
   ageGroup: string
@@ -21,7 +23,8 @@ export default function TreeOfTriumph({ ageGroup, onComplete }: Props) {
   }
 
   return (
-    <div>
+    <div className="triumph-bg">
+      <TriumphTree />
       <h2>Tree of Triumph</h2>
       <p>Grow your tree with every success.</p>
       <button className="btn-primary" onClick={handleAction}>Finish</button>

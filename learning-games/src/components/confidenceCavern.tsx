@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { fetchChallenge, postAction } from '../services/aiService'
 import PointsTracker from './PointsTracker'
 import BadgesStore from './BadgesStore'
+import './MiniGameBackgrounds.css'
+import { ConfidenceTorch } from './icons'
 
 interface Props {
   ageGroup: string
@@ -21,7 +23,8 @@ export default function ConfidenceCavern({ ageGroup, onComplete }: Props) {
   }
 
   return (
-    <div>
+    <div className="confidence-bg">
+      <ConfidenceTorch />
       <h2>Confidence Cavern</h2>
       <p>Face challenges to boost confidence.</p>
       <button className="btn-primary" onClick={handleAction}>Finish</button>

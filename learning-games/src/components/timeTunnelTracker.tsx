@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { fetchChallenge, postAction } from '../services/aiService'
 import PointsTracker from './PointsTracker'
 import BadgesStore from './BadgesStore'
+import './MiniGameBackgrounds.css'
+import { TimeClock } from './icons'
 
 interface Props {
   ageGroup: string
@@ -21,7 +23,8 @@ export default function TimeTunnelTracker({ ageGroup, onComplete }: Props) {
   }
 
   return (
-    <div>
+    <div className="time-tunnel-bg">
+      <TimeClock />
       <h2>Time Tunnel Tracker</h2>
       <p>Manage tasks against the clock.</p>
       <button className="btn-primary" onClick={handleAction}>Finish</button>

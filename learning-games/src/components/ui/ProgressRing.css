@@ -1,0 +1,14 @@
+.progress-ring {
+  display: block;
+}
+.ring-bg {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.1);
+}
+.ring-progress {
+  fill: none;
+  stroke: var(--badho-accent-indigo);
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 0.35s;
+}
