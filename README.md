@@ -1,6 +1,6 @@
-# StrawberryTech Learning Games
+# BadhoHero Learning Games
 
-StrawberryTech is a collection of small web games built with **React**, **TypeScript** and **Vite**. Each game adapts content based on the player's age, which is stored locally so progress persists between sessions.
+BadhoHero is a collection of small web games built with **React**, **TypeScript** and **Vite**. Each game adapts content based on the player's age, which is stored locally so progress persists between sessions.
 
 ## Mini Games
 :)
