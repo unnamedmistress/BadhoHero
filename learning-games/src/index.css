@@ -9,15 +9,15 @@
   --color-lime: #a3e635;
   --color-blue: #1e3a8a;
   --color-purple-dark: #6d28d9;
-  /* Strawberry palette */
+  /* BadhoHero palette */
 
-  --color-brand: #ee3a57;
-  --color-background: #f8d7e1;
-  --color-accent: #6dbf4d;
-  --color-secondary: #f8b7b6;
-  --color-deep-red: #b41c2d;
-  --color-mint: #a8e6cf;
-  --color-yellow: #fef08a;
+  --color-brand: #4caf50; /* Leaf Green */
+  --color-background: #ffc107; /* Sunflower Yellow */
+  --color-accent: #2196f3; /* Sky Blue */
+  --color-secondary: #ff9800; /* Warm Orange */
+  --color-deep-red: #303f9f; /* Accent Indigo */
+  --color-mint: #2196f3;
+  --color-yellow: #ffc107;
   --color-text-dark: #333;
   /* legacy variable names */
   --color-purple: var(--color-brand);
