@@ -1,0 +1,103 @@
+.introGame {
+  background: var(--color-background);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.prompt {
+  font-size: 1.1rem;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.feedback {
+  font-size: 0.9rem;
+  color: var(--color-brand);
+}
+
+.storyText {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  min-height: 150px;
+}
+
+.inputArea {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.inputArea input {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.explanation {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--color-brand);
+  margin-top: 0.5rem;
+}
+
+.debug {
+  white-space: pre-wrap;
+  background: #f0f0f0;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.quiz {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.quiz label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.final-score {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-brand);
+  margin: 1rem 0;
+}
+
+.completion-tips {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.completion-tips h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--color-brand);
+}
+
+.completion-tips ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.completion-tips li {
+  margin-bottom: 0.3rem;
+  color: var(--color-text);
+  line-height: 1.4;
+}

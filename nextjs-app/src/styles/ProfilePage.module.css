@@ -1,0 +1,108 @@
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 1rem;
+}
+
+/* Card container with Strawberry gradient */
+.profile-card {
+  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-secondary) 100%);
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 320px;
+  max-width: 100%;
+  color: #fff;
+}
+
+.profile-card h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile-card label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.profile-card input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.profile-card button {
+  background-color: var(--color-deep-red);
+  color: #fff;
+  font-weight: 700;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-card button:hover {
+  background-color: #7d121a;
+}
+
+.return-link {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--color-brand);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.return-link:hover {
+  color: var(--color-deep-red);
+}
+
+.stats-card {
+  background: #fff;
+  color: var(--color-text-dark);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 320px;
+  max-width: 100%;
+}
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.score-table th,
+.score-table td {
+  text-align: left;
+  padding: 0.25rem 0.5rem;
+}
+
+.score-table th {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+.score-table tbody tr:nth-child(odd) {
+  background: #f7f7f7;
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    width: 100%;
+  }
+}
