@@ -7,6 +7,7 @@ export interface NotificationModalProps {
   onClose: () => void
   autoClose?: boolean
   autoCloseDelay?: number
+  priority?: 'polite' | 'assertive'
 }
 
 export default function NotificationModal({
@@ -15,6 +16,7 @@ export default function NotificationModal({
   onClose,
   autoClose = true,
   autoCloseDelay = 3000,
+  priority = 'polite',
 }: NotificationModalProps) {
   useEffect(() => {
     if (isOpen && autoClose) {
@@ -54,37 +56,48 @@ export default function NotificationModal({
   }
 
   return (
-    <div 
-      className={styles['notification-overlay']}
-      onClick={handleOverlayClick}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="notification-message"
-    >
-      <div className={styles['notification-modal']}>
-        <div 
-          id="notification-message"
-          className={styles['notification-message']}
-        >
-          {message}
-        </div>
-        <button
-          className={styles['notification-close']}
-          onClick={onClose}
-          aria-label="Close notification"
-          type="button"
-        >
-          ✕
-        </button>
-        {autoClose && (
-          <div className={styles['notification-progress']}>
-            <div 
-              className={styles['notification-progress-bar']}
-              style={{ animationDuration: `${autoCloseDelay}ms` }}
-            />
-          </div>
-        )}
+    <>
+      {/* ARIA live region for screen reader announcements */}
+      <div 
+        aria-live={priority}
+        aria-atomic="true"
+        className="sr-only"
+      >
+        {isOpen ? message : ''}
       </div>
-    </div>
+      
+      <div 
+        className={styles['notification-overlay']}
+        onClick={handleOverlayClick}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="notification-message"
+      >
+        <div className={styles['notification-modal']}>
+          <div 
+            id="notification-message"
+            className={styles['notification-message']}
+          >
+            {message}
+          </div>
+          <button
+            className={styles['notification-close']}
+            onClick={onClose}
+            aria-label="Close notification"
+            type="button"
+          >
+            ✕
+          </button>
+          {autoClose && (
+            <div className={styles['notification-progress']}>
+              <div 
+                className={styles['notification-progress-bar']}
+                style={{ animationDuration: `${autoCloseDelay}ms` }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   )
 }

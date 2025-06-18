@@ -475,6 +475,36 @@
   }
 }
 
+/* Collapse to single column below 400px */
+@media (max-width: 400px) {
+  .gamesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gameCard {
+    padding: 1rem;
+    margin: 0;
+  }
+  
+  .progressCard {
+    padding: 1rem;
+  }
+  
+  .heroContent {
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
 /* Ensure no overflow on very small screens */
 @media (max-width: 360px) {
   .home {

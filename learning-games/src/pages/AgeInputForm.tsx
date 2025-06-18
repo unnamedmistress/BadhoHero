@@ -47,35 +47,44 @@ export default function AgeInputForm({
   return (
     <div id="main-content" className="age-form">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name:</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setNameState(e.target.value)}
-          required
-        />
-        <label htmlFor="age">Enter your age:</label>
-        <input
-          id="age"
-          type="number"
-          value={age}
-          onChange={(e) => {
-            const { value } = e.target
-            setAgeState(value === '' ? '' : Number(value))
-          }}
-          required
-        />
-        <label htmlFor="difficulty">Difficulty:</label>
-        <select
-          id="difficulty"
-          value={difficulty}
-          onChange={e => setDifficultyState(e.target.value as 'easy' | 'medium' | 'hard')}
-        >
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
+        <div className="form-field">
+          <label htmlFor="name">Enter your name:</label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setNameState(e.target.value)}
+            required
+          />
+        </div>
+        
+        <div className="form-field">
+          <label htmlFor="age">Enter your age:</label>
+          <input
+            id="age"
+            type="number"
+            value={age}
+            onChange={(e) => {
+              const { value } = e.target
+              setAgeState(value === '' ? '' : Number(value))
+            }}
+            required
+          />
+        </div>
+        
+        <div className="form-field">
+          <label htmlFor="difficulty">Difficulty:</label>
+          <select
+            id="difficulty"
+            value={difficulty}
+            onChange={e => setDifficultyState(e.target.value as 'easy' | 'medium' | 'hard')}
+          >
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        
         <button type="submit" className="btn-primary">Save</button>
       </form>
       <p style={{ marginTop: '1rem' }}>

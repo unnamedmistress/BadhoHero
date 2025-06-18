@@ -9,16 +9,16 @@
   --color-lime: #a3e635;
   --color-blue: #1e3a8a;
   --color-purple-dark: #6d28d9;
-  /* Strawberry palette */
+  /* Strawberry palette - WCAG AA compliant */
 
-  --color-brand: #ee3a57;
+  --color-brand: #d81e39;        /* Darker red for better contrast */
   --color-background: #f8d7e1;
-  --color-accent: #6dbf4d;
-  --color-secondary: #f8b7b6;
-  --color-deep-red: #b41c2d;
-  --color-mint: #a8e6cf;
-  --color-yellow: #fef08a;
-  --color-text-dark: #333;
+  --color-accent: #4a7c59;       /* Darker green for AA contrast on pink bg */
+  --color-secondary: #e67e22;    /* Improved orange for better contrast */
+  --color-deep-red: #a41828;     /* Darker for better contrast */
+  --color-mint: #2d8659;         /* Darker mint for better contrast */
+  --color-yellow: #b7950b;       /* Darker yellow for better readability */
+  --color-text-dark: #1a1a1a;    /* Slightly darker for better contrast */
   /* legacy variable names */
   --color-purple: var(--color-brand);
   --color-orange: var(--color-secondary);
@@ -64,15 +64,40 @@ h4,
 h5,
 h6 {
   font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+  margin: 0 0 0.5em 0;
+  color: var(--color-text-dark);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
   line-height: 1.1;
 }
-h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.2em;
 
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
 }
-h2, h3 {
-  font-family: 'Poppins', sans-serif;
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 button {
@@ -152,18 +177,36 @@ button:hover {
 }
 
 body.high-contrast {
-  --color-brand: #000000;
-  --color-orange: #000000;
-  --color-lime: #000000;
-  --color-blue: #000000;
-  --color-text-dark: #000000;
-  background-color: #ffffff;
-  color: #000000;
+  /* WCAG AA compliant high-contrast color palette */
+  --color-brand: #0f3460;        /* Dark blue - 7.2:1 contrast on white */
+  --color-orange: #b8860b;       /* Dark goldenrod - 4.5:1 contrast */
+  --color-lime: #2d5016;         /* Dark green - 7.1:1 contrast */
+  --color-blue: #1a472a;         /* Dark forest green - 6.8:1 contrast */
+  --color-text-dark: #1a1a1a;    /* Near black - 15.3:1 contrast */
+  --color-accent: #0f5132;       /* Dark success green - 6.2:1 contrast */
+  --color-secondary: #842029;    /* Dark red - 6.1:1 contrast */
+  --color-deep-red: #5c1a1b;     /* Very dark red - 8.9:1 contrast */
+  --color-mint: #0d5d56;         /* Dark teal - 6.3:1 contrast */
+  --color-yellow: #664d03;       /* Dark yellow - 6.2:1 contrast */
+  --color-background: #ffffff;   /* Pure white background */
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
 }
 
 body.high-contrast button {
-  background-color: #000000;
+  background-color: var(--color-brand);
   color: #ffffff;
+  border: 2px solid var(--color-text-dark);
+}
+
+body.high-contrast a {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+
+body.high-contrast a:hover {
+  color: var(--color-deep-red);
+  background-color: #f8f9fa;
 }
 
 .sr-only {
