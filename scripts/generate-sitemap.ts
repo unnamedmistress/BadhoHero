@@ -2,6 +2,10 @@ import { promises as fs } from 'fs'
 import path from 'path'
 import COURSES from '../nextjs-app/src/data/courses'
 
+// Ensure we have Node.js globals in TypeScript
+declare const __dirname: string;
+declare const process: { env: Record<string, string | undefined>, exit: (code: number) => never };
+
 const SITE_URL = process.env.SITE_URL || 'https://example.com'
 const pagesDir = path.join(__dirname, '../nextjs-app/src/pages')
 const publicDir = path.join(__dirname, '../nextjs-app/public')

@@ -179,6 +179,7 @@ export default function GoalsGame() {
   const [gameStarted, setGameStarted] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
   const [draggedOrb, setDraggedOrb] = useState<Orb | null>(null)
+  const [dragOverPortal, setDragOverPortal] = useState<string | null>(null)
   const [showJustification, setShowJustification] = useState(false)
   const [currentOrb, setCurrentOrb] = useState<Orb | null>(null)
   const [targetPortal, setTargetPortal] = useState<'short' | 'medium' | 'long' | null>(null)
@@ -199,8 +200,23 @@ export default function GoalsGame() {
     setDraggedOrb(orb)
   }
 
+  const handleDragEnd = () => {
+    setDraggedOrb(null)
+    setDragOverPortal(null)
+  }
+
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
+  }
+
+  const handleDragEnter = (portalType: 'short' | 'medium' | 'long') => {
+    if (draggedOrb) {
+      setDragOverPortal(portalType)
+    }
+  }
+
+  const handleDragLeave = () => {
+    setDragOverPortal(null)
   }
 
   const handleDrop = (e: React.DragEvent, portalType: 'short' | 'medium' | 'long') => {
@@ -310,6 +326,20 @@ export default function GoalsGame() {
 
   // Check if all orbs are placed
   const allOrbsPlaced = orbs.every(orb => orb.assignedPortal !== null)
+  // Touch event handlers for mobile drag and drop
+  const [touchOrb, setTouchOrb] = useState<Orb | null>(null)
+
+  const handleTouchStart = (e: React.TouchEvent, orb: Orb) => {
+    if (orb.assignedPortal) return
+    setTouchOrb(orb)
+    // Prevent default to avoid scrolling while dragging
+    e.preventDefault()
+  }
+
+  const handleTouchEnd = () => {
+    setTouchOrb(null)
+    setDragOverPortal(null)
+  }
 
   if (gameComplete) {
     return (      <CompletionModal
@@ -432,11 +462,20 @@ export default function GoalsGame() {
     return (
       <div className={styles.modalOverlay}>
         <div className={styles.feedbackModal}>
-          <h2>Your Goal Plan Feedback</h2>
-          <div className={styles.feedbackList}>
-            {feedback.map((item, index) => (
-              <p key={index} className={styles.feedbackItem}>{item}</p>
-            ))}
+          <h2>Your Goal Plan Feedback</h2>          <div className={styles.feedbackList}>
+            {feedback.map((item, index) => {
+              let feedbackClass = styles.feedbackItem;
+              if (item.includes('✅')) {
+                feedbackClass += ` ${styles.success}`;
+              } else if (item.includes('⚠️')) {
+                feedbackClass += ` ${styles.warning}`;
+              } else if (item.includes('❌')) {
+                feedbackClass += ` ${styles.error}`;
+              }
+              return (
+                <p key={index} className={feedbackClass}>{item}</p>
+              );
+            })}
           </div>
           <p className={styles.scoreDisplay}>Final Score: {score} points</p>
           <div className={styles.feedbackButtons}>
@@ -475,51 +514,90 @@ export default function GoalsGame() {
             <div className={styles.pathLine}></div>
             <div className={styles.festival}>🎪</div>
           </div>
-        </div>
-
-        <div className={styles.portalsArea}>
-          {portals.map(portal => (
-            <div
-              key={portal.type}
-              className={styles.portal}
-              style={{ borderColor: portal.color }}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, portal.type)}
-            >
-              <div className={styles.portalHeader}>
-                <span className={styles.portalIcon}>{portal.icon}</span>
-                <h3>{portal.name}</h3>
-                <span className={styles.portalCount}>
-                  {portal.orbs.length}/{portal.maxOrbs}
-                </span>
-              </div>
-              <div className={styles.portalContent}>
-                {portal.orbs.map(orb => (
-                  <div key={orb.id} className={styles.placedOrb}>
-                    {orb.name}
-                  </div>
-                ))}
-                {portal.orbs.length < portal.maxOrbs && (
-                  <div className={styles.emptySlot}>Drop orb here</div>
-                )}
-              </div>
+        </div>        <div className={styles.gameBoard}>
+          {/* Left side: Orbs to sort */}
+          <div className={styles.orbsSection}>
+            <div className={styles.sectionHeader}>
+              <h3>🔮 Goal Orbs to Sort</h3>
+              <p className={styles.sectionSubtitle}>Drag each orb to the right portal</p>
+            </div>            <div className={styles.orbsList}>
+              {orbs.filter(orb => !orb.assignedPortal).map(orb => (
+                <div
+                  key={orb.id}
+                  className={`${styles.orb} ${draggedOrb?.id === orb.id ? styles.orbDragging : ''} ${touchOrb?.id === orb.id ? styles.orbTouching : ''}`}
+                  draggable
+                  onDragStart={() => handleDragStart(orb)}
+                  onDragEnd={handleDragEnd}                  onTouchStart={(e) => handleTouchStart(e, orb)}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  <span className={styles.orbIcon}>🔮</span>
+                  <span className={styles.orbText}>{orb.name}</span>
+                </div>
+              ))}
+              {orbs.filter(orb => !orb.assignedPortal).length === 0 && (
+                <div className={styles.allOrbsPlaced}>
+                  <span style={{ fontSize: '3rem', marginBottom: '1rem', display: 'block' }}>🎉</span>
+                  <p>All orbs sorted!</p>
+                  <p>Ready to check your plan?</p>
+                </div>
+              )}
             </div>
-          ))}
+          </div>
+
+          {/* Right side: Portals/Buckets */}
+          <div className={styles.portalsSection}>
+            <div className={styles.sectionHeader}>
+              <h3>⚡ Time Portals</h3>
+              <p className={styles.sectionSubtitle}>Sort goals by timeline using SMARTY principles</p>
+            </div>
+            <div className={styles.portalsGrid}>
+              {portals.map(portal => (                <div
+                  key={portal.type}
+                  className={`${styles.portal} ${dragOverPortal === portal.type ? styles.portalDragOver : ''}`}
+                  style={{ borderColor: portal.color }}
+                  data-portal-type={portal.type}
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(e, portal.type)}
+                  onDragEnter={() => handleDragEnter(portal.type)}
+                  onDragLeave={handleDragLeave}
+                >
+                  <div className={styles.portalHeader}>
+                    <span className={styles.portalIcon}>{portal.icon}</span>
+                    <h4>{portal.name}</h4>
+                    <span className={styles.portalCount}>
+                      {portal.orbs.length}/{portal.maxOrbs}
+                    </span>
+                  </div>
+                  <div className={styles.portalContent}>
+                    {portal.orbs.map(orb => (
+                      <div key={orb.id} className={styles.placedOrb}>
+                        <span className={styles.placedOrbIcon}>🔮</span>
+                        <span className={styles.placedOrbText}>{orb.name}</span>
+                      </div>
+                    ))}
+                    {portal.orbs.length < portal.maxOrbs && (
+                      <div className={styles.emptySlot}>
+                        <div className={styles.emptySlotIcon}>⭕</div>
+                        <div className={styles.emptySlotText}>Drop orb here</div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className={styles.orbsArea}>
-          <h3>Goal Orbs to Sort:</h3>
-          <div className={styles.orbsList}>
-            {orbs.filter(orb => !orb.assignedPortal).map(orb => (
-              <div
-                key={orb.id}
-                className={styles.orb}
-                draggable
-                onDragStart={() => handleDragStart(orb)}
-              >
-                🔮 {orb.name}
-              </div>
-            ))}
+        {/* Progress Indicator */}
+        <div className={styles.progressIndicator}>
+          <div className={styles.progressBar}>
+            <div 
+              className={styles.progressFill}
+              style={{ width: `${(orbs.filter(orb => orb.assignedPortal).length / orbs.length) * 100}%` }}
+            ></div>
+          </div>
+          <div className={styles.progressText}>
+            {orbs.filter(orb => orb.assignedPortal).length} of {orbs.length} orbs sorted
           </div>
         </div>
 
@@ -531,6 +609,21 @@ export default function GoalsGame() {
             >
               📋 Check My Plan
             </button>
+          </div>
+        )}
+
+        {/* Drag Helper - Shows when dragging */}
+        {(draggedOrb || touchOrb) && (
+          <div className={styles.dragHelper}>
+            <div className={styles.dragHelperContent}>
+              <h4>🎯 Dragging: "{(draggedOrb || touchOrb)?.name}"</h4>
+              <p>Drop it in the right time portal!</p>
+              <div className={styles.portalHints}>
+                <span className={styles.portalHint}>⚡ Short-Term: Today/This week</span>
+                <span className={styles.portalHint}>🎯 Medium-Term: This month/Few months</span>
+                <span className={styles.portalHint}>🌟 Long-Term: This year/Long-term</span>
+              </div>
+            </div>
           </div>
         )}
       </div>
