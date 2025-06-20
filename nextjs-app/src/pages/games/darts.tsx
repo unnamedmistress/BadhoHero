@@ -410,9 +410,8 @@ export default function PromptDartsGame() {
 
   if (round >= rounds.length) {
     return (
-      <div className={styles['darts-page']}>
-        <CompletionModal
-          imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png"          buttonHref="/games/chain"
+      <div className={styles['darts-page']}>        <CompletionModal
+          buttonHref="/games/chain"
           buttonLabel="Play Prompt Chain"
         >
           <h3>Congratulations!</h3>
@@ -484,14 +483,8 @@ export default function PromptDartsGame() {
             Next: Prompt Chain →
           </button>
         }
-      >
-        <div className={styles['darts-game']}>
-          <img
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png"
-            alt="Strawberry throwing dart hitting 'Clear Prompt' bullseye on prompt darts target."
-            className="hero-img"
-            style={{ width: '200px' }}
-          />
+      >        <div className={styles['darts-game']}>
+          <span style={{ fontSize: '4rem', lineHeight: 1, display: 'inline-block' }}>🦊</span>
           <h3>Round {round + 1} of {rounds.length}</h3>
           <TimerBar timeLeft={timeLeft} TOTAL_TIME={TOTAL_TIME} />
           <p className="timer">Time: {timeLeft}s</p>

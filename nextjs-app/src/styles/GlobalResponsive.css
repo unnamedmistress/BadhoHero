@@ -6,6 +6,13 @@
 
 /* CSS Custom Properties for responsive design */
 :root {
+  /* Layout constants - responsive navbar heights */
+  --navbar-height: 70px;
+  --navbar-height-tablet: 60px;
+  --navbar-height-mobile: 52px;
+  --safe-area-top: calc(var(--navbar-height) + 1rem);
+  --safe-area-bottom: 2rem;
+  
   /* Responsive spacing scale */
   --space-xs: clamp(0.25rem, 1vw, 0.5rem);
   --space-sm: clamp(0.5rem, 2vw, 1rem);
@@ -21,6 +28,10 @@
   --font-xl: clamp(1.25rem, 4vw, 1.5rem);
   --font-2xl: clamp(1.5rem, 5vw, 2rem);
   --font-3xl: clamp(2rem, 6vw, 2.5rem);
+  
+  /* Game-specific sizes */
+  --game-title-size: clamp(1.75rem, 5vw, 2.75rem);
+  --game-icon-size: clamp(50px, 10vw, 80px);
   
   /* Responsive border radius */
   --radius-sm: clamp(4px, 1vw, 6px);
@@ -378,5 +389,103 @@ img[width][height] {
     padding-right: max(var(--space-sm), env(safe-area-inset-right));
     padding-top: max(var(--space-sm), env(safe-area-inset-top));
     padding-bottom: max(var(--space-sm), env(safe-area-inset-bottom));
+  }
+}
+
+/* Global utility classes for layout spacing */
+
+/* Safe area utilities - use these to prevent navbar/footer overlap */
+.safe-top {
+  margin-top: var(--safe-area-top);
+}
+
+.safe-bottom {
+  margin-bottom: var(--safe-area-bottom);
+}
+
+.safe-vertical {
+  margin-top: var(--safe-area-top);
+  margin-bottom: var(--safe-area-bottom);
+}
+
+/* Page container utility */
+.page-container {
+  min-height: calc(100vh - var(--navbar-height));
+  padding-bottom: var(--safe-area-bottom);
+}
+
+/* Content wrapper with proper spacing */
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+/* Game content specific utilities */
+.game-page {
+  min-height: calc(100vh - var(--navbar-height) - 4rem);
+  margin-bottom: 2rem;
+}
+
+/* Anti-overlap utility classes */
+.safe-top {
+  margin-top: var(--navbar-height) !important;
+  padding-top: 1rem !important;
+}
+
+.safe-top-small {
+  margin-top: calc(var(--navbar-height) + 0.5rem) !important;
+}
+
+.safe-top-large {
+  margin-top: calc(var(--navbar-height) + 2rem) !important;
+}
+
+/* Responsive anti-overlap utilities */
+@media (max-width: 768px) {
+  .safe-top {
+    margin-top: var(--navbar-height-tablet) !important;
+  }
+  
+  .safe-top-small {
+    margin-top: calc(var(--navbar-height-tablet) + 0.5rem) !important;
+  }
+  
+  .safe-top-large {
+    margin-top: calc(var(--navbar-height-tablet) + 2rem) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .safe-top {
+    margin-top: var(--navbar-height-mobile) !important;
+  }
+  
+  .safe-top-small {
+    margin-top: calc(var(--navbar-height-mobile) + 0.5rem) !important;
+  }
+  
+  .safe-top-large {
+    margin-top: calc(var(--navbar-height-mobile) + 2rem) !important;
+  }
+}
+
+/* Fix for any page content that might overlap */
+main,
+.main-content,
+.page-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

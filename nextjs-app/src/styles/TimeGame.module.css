@@ -8,8 +8,22 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  padding-top: 80px; /* Prevent navbar overlap on desktop */
   position: relative;
   overflow: hidden;
+}
+
+/* Responsive top margin for navbar overlap prevention */
+@media (max-width: 768px) {
+  .gameContainer {
+    padding-top: 70px; /* Adjust for mobile navbar */
+  }
+}
+
+@media (max-width: 480px) {
+  .gameContainer {
+    padding-top: 62px; /* Adjust for smaller mobile screens */
+  }
 }
 
 .gameContainer::before {
@@ -27,6 +41,7 @@
   text-align: center;
   margin-bottom: 2rem;
   z-index: 1;
+  position: relative;
 }
 
 .title {
@@ -50,13 +65,20 @@
   background: linear-gradient(90deg, #ee3a57, #dc2626);
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1.2rem;
+  padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(238, 58, 87, 0.3);
+  position: relative;
+  z-index: 10;
+  user-select: none;
+  min-height: 44px; /* Touch-friendly minimum */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .startButton:hover {
@@ -64,7 +86,21 @@
   box-shadow: 0 6px 20px rgba(238, 58, 87, 0.4);
 }
 
-/* Modal Styles */
+.startButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(238, 58, 87, 0.3);
+}
+
+/* Mobile start button optimization */
+@media (max-width: 480px) {
+  .startButton {
+    min-height: 48px;
+    width: 90%;
+    max-width: 280px;
+  }
+}
+
+/* Modal Styles - Responsive Design */
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -74,20 +110,70 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 1rem;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  overscroll-behavior: contain; /* Prevent background scrolling on mobile */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .instructionsModal,
 .scenarioModal {
   background: white;
-  border-radius: 20px;
-  padding: 2rem;
-  max-width: 500px;
+  border-radius: clamp(12px, 3vw, 20px);
+  padding: clamp(1rem, 4vw, 2rem);
+  max-width: min(500px, 90vw);
   width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
   text-align: center;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   animation: modalSlideIn 0.3s ease-out;
   color: #1e293b;
+  margin: auto;
+  position: relative;
+  /* Improve touch scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: 0.25rem;
+    align-items: flex-start;
+    padding-top: 5vh; /* Give some top spacing on mobile */
+  }
+  
+  .instructionsModal,
+  .scenarioModal {
+    max-width: 95vw;
+    max-height: 90vh;
+    padding: clamp(0.75rem, 3vw, 1rem);
+    border-radius: 12px;
+    margin: 0;
+    /* Ensure content is scrollable on small screens */
+    overflow-y: auto;
+  }
+}
+
+/* Tablet optimizations */
+@media (max-width: 768px) {
+  .instructionsModal,
+  .scenarioModal {
+    max-width: 85vw;
+    padding: clamp(1rem, 3vw, 1.75rem);
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .modalOverlay {
+    padding-top: 2vh;
+  }
+  
+  .instructionsModal,
+  .scenarioModal {
+    max-height: 95vh;
+  }
 }
 
 @keyframes modalSlideIn {
@@ -102,61 +188,93 @@
 }
 
 .foxAvatar {
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.foxAvatar span {
+  font-size: clamp(3rem, 8vw, 4rem) !important;
+  line-height: 1 !important;
+  display: block;
+}
+
+/* Mobile fox avatar optimization */
+@media (max-width: 480px) {
+  .foxAvatar span {
+    font-size: 3rem !important;
+  }
 }
 
 .foxImage {
-  width: 80px;
-  height: 80px;
+  width: clamp(60px, 15vw, 80px);
+  height: clamp(60px, 15vw, 80px);
   border-radius: 50%;
   border: 3px solid #ee3a57;
 }
 
 .instructionsTitle,
 .scenarioTitle {
-  font-size: 1.8rem;
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+  line-height: 1.2;
 }
 
 .instructionsList {
   text-align: left;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
 }
 
 .instructionsList p {
-  margin: 0.75rem 0;
-  font-size: 1rem;
+  margin: clamp(0.5rem, 2vw, 0.75rem) 0;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   color: #374151;
+  line-height: 1.4;
 }
 
 .bookQuote {
   background: #f0fdf4;
   border-left: 4px solid #059669;
-  padding: 1rem;
-  border-radius: 8px;
+  padding: clamp(0.75rem, 3vw, 1rem);
+  border-radius: clamp(6px, 2vw, 8px);
   font-style: italic;
   color: #065f46;
-  margin: 1rem 0;
+  margin: clamp(0.75rem, 2vw, 1rem) 0;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  line-height: 1.3;
 }
 
 .continueButton {
   background: linear-gradient(90deg, #ee3a57, #dc2626);
   color: white;
   border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 12px;
-  font-size: 1rem;
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 2rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 12px rgba(238, 58, 87, 0.3);
+  min-height: 44px; /* Ensure touch-friendly size */
+  width: auto;
+  min-width: 120px;
 }
 
 .continueButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(238, 58, 87, 0.4);
+}
+
+/* Mobile button optimizations */
+@media (max-width: 480px) {
+  .continueButton {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }
 
 /* Game Area */
@@ -425,67 +543,119 @@
 /* Scenario Modal */
 .scenarioQuestion {
   color: #374151;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  line-height: 1.5;
+  text-align: center;
 }
 
 .scenarioOptions {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  margin-top: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* Tablet and mobile adjustments */
+@media (max-width: 768px) {
+  .scenarioOptions {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scenarioOptions {
+    gap: 0.5rem;
+  }
 }
 
 .scenarioButton {
   background: #f8fafc;
   border: 2px solid #e2e8f0;
-  padding: 1rem;
-  border-radius: 12px;
+  padding: clamp(0.75rem, 3vw, 1rem);
+  border-radius: clamp(8px, 2vw, 12px);
   cursor: pointer;
   text-align: left;
   transition: all 0.2s ease;
   color: #1e293b;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  line-height: 1.4;
+  min-height: 44px; /* Touch-friendly minimum */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .scenarioButton:hover {
   border-color: #3b82f6;
   background: #eff6ff;
+  transform: translateY(-1px);
+}
+
+.scenarioButton:active {
+  transform: translateY(0);
+}
+
+/* Mobile scenario button optimizations */
+@media (max-width: 480px) {
+  .scenarioButton {
+    padding: 1rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
 }
 
 .effectsPreview {
-  font-size: 0.8rem;
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
   color: #64748b;
-  margin-top: 0.5rem;
+  margin-top: clamp(0.25rem, 1vw, 0.5rem);
+  line-height: 1.3;
 }
 
 /* Feedback */
 .feedback {
   background: rgba(59, 130, 246, 0.2);
   border: 1px solid #3b82f6;
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem 0;
+  border-radius: clamp(6px, 2vw, 8px);
+  padding: clamp(0.75rem, 3vw, 1rem);
+  margin: clamp(0.75rem, 2vw, 1rem) 0;
   text-align: center;
   color: white;
   font-weight: 500;
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  line-height: 1.4;
 }
 
 .finishButton {
   background: linear-gradient(90deg, #10b981, #059669);
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1.1rem;
+  padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  font-size: clamp(1rem, 3vw, 1.1rem);
   font-weight: 600;
   cursor: pointer;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: clamp(0.75rem, 2vw, 1rem);
   transition: all 0.3s ease;
+  min-height: 44px; /* Touch-friendly size */
 }
 
 .finishButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.finishButton:active {
+  transform: translateY(0);
+}
+
+/* Mobile finish button optimizations */
+@media (max-width: 480px) {
+  .finishButton {
+    min-height: 48px;
+    font-size: 1rem;
+  }
 }
 
 /* Responsive Design */
@@ -510,13 +680,25 @@
   
   .instructionsModal,
   .scenarioModal {
-    padding: 1.5rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
     margin: 0.5rem;
+    max-width: 85vw;
+  }
+
+  .scenarioOptions {
+    gap: 0.75rem;
+  }
+
+  .statsBar {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .gameContainer {    padding: 0.5rem;
+  .gameContainer {
+    padding: 0.5rem;
+    padding-top: 62px;
   }
   
   .gameArea {
@@ -525,6 +707,26 @@
   
   .taskSlots {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instructionsModal,
+  .scenarioModal {
+    max-width: 95vw;
+    max-height: 95vh;
+    padding: clamp(0.75rem, 3vw, 1rem);
+    margin: 0.25rem;
+  }
+
+  .scenarioOptions {
+    gap: 0.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 }
 
@@ -632,76 +834,93 @@
 
 .gameComplete {
   text-align: center;
-  padding: 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  max-width: min(600px, 90vw);
+  margin: 0 auto;
 }
 
 .finalScore {
-  font-size: 3rem;
+  font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
   background: linear-gradient(45deg, #fbbf24, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.2;
 }
 
 .scoreBreakdown {
   background: rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 2rem 0;
+  border-radius: clamp(8px, 2vw, 12px);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  margin: clamp(1rem, 3vw, 2rem) 0;
+  backdrop-filter: blur(10px);
 }
 
 .scoreItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: clamp(0.25rem, 1vw, 0.5rem) 0;
   border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
 }
 
 .scoreItem:last-child {
   border-bottom: none;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  margin-top: clamp(0.25rem, 1vw, 0.5rem);
+  padding-top: clamp(0.5rem, 2vw, 0.75rem);
 }
 
 .whyCard {
   background: linear-gradient(135deg, #fef3c7, #fde68a);
   color: #92400e;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
+  border-radius: clamp(8px, 2vw, 12px);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  margin-top: clamp(1rem, 3vw, 1.5rem);
   border-left: 4px solid #f59e0b;
+  text-align: left;
 }
 
 .whyTitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
+}
+
+.whyCard p {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  line-height: 1.5;
+  margin: 0;
 }
 
 .actionButtons {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.75rem, 2vw, 1rem);
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: clamp(1.5rem, 4vw, 2rem);
   flex-wrap: wrap;
 }
 
 .homeButton, .nextGameButton {
-  padding: 0.75rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 4vw, 2rem);
+  border-radius: clamp(6px, 2vw, 8px);
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: clamp(0.25rem, 1vw, 0.5rem);
   transition: all 0.3s ease;
+  min-height: 44px; /* Touch-friendly */
+  justify-content: center;
+  min-width: 120px;
 }
 
 .homeButton {
@@ -727,6 +946,21 @@
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
+/* Mobile action buttons optimization */
+@media (max-width: 480px) {
+  .actionButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .homeButton, .nextGameButton {
+    width: 100%;
+    max-width: 280px;
+    min-height: 48px;
+  }
+}
+
 .tunnelEffect {
   position: absolute;
   width: 100%;
@@ -747,7 +981,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive Design */
+/* Responsive Design - Additional breakpoints for the game completion and scenario elements */
 @media (max-width: 768px) {
   .title {
     font-size: 2rem;
@@ -784,6 +1018,20 @@
     justify-content: center;
     max-width: 250px;
   }
+
+  .gameComplete {
+    padding: 1.5rem;
+  }
+
+  .scoreBreakdown {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .whyCard {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -809,5 +1057,31 @@
   
   .questionText {
     font-size: 1rem;
+  }
+
+  .gameComplete {
+    padding: 1rem;
+  }
+
+  .finalScore {
+    font-size: 2.5rem;
+  }
+
+  .scoreBreakdown {
+    padding: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .whyCard {
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .whyTitle {
+    font-size: 1rem;
+  }
+
+  .actionButtons {
+    margin-top: 1rem;
   }
 }

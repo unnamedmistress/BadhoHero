@@ -309,14 +309,8 @@ export default function PromptChainGame() {
           </button>
         }
       >
-      <div className="chain-page">
-        <div className={styles['chain-wrapper']}>
-          <img
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_29%20PM.png"
-            alt="Prompt chain challenge"
-            className="hero-img"
-            style={{ width: '150px', display: 'inline-block' }}
-          />
+      <div className="chain-page">        <div className={styles['chain-wrapper']}>
+          <span style={{ fontSize: '4rem', lineHeight: 1, display: 'inline-block' }}>🦊</span>
           <aside className={styles['chain-sidebar']}>
             <h3>Challenge {currentChallenge + 1}/{CHALLENGES.length}</h3>
             <h4>{challenge.title}</h4>
@@ -428,9 +422,7 @@ export default function PromptChainGame() {
         </div>
       </ModernGameLayout>
 
-      {gameComplete && (
-        <CompletionModal
-          imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_29%20PM.png"
+      {gameComplete && (        <CompletionModal
           buttonHref="/community"
           buttonLabel="View Community"
         >

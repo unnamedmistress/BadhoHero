@@ -235,13 +235,8 @@ export default function FoglandGame() {
   if (showIntro) {
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.introModal}>
-          <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt="Mentor Fox guiding you through the fog"
-              className={styles.foxImage}
-            />
+        <div className={styles.introModal}>          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.introTitle}>Welcome to Fogland Awakening!</h2>
           <p className={styles.introText}>
@@ -266,13 +261,8 @@ export default function FoglandGame() {
   if (showInstructions) {
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.instructionsModal}>
-          <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt="Mentor Fox explaining the game"
-              className={styles.foxImage}
-            />
+        <div className={styles.instructionsModal}>          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.instructionsTitle}>How to Clear the Fog</h2>
           <div className={styles.instructionsList}>
@@ -296,13 +286,8 @@ export default function FoglandGame() {
   if (showMidGameEncouragement) {
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.encouragementModal}>
-          <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt="Mentor Fox cheering you on"
-              className={styles.foxImageCheer}
-            />
+        <div className={styles.encouragementModal}>          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.encouragementTitle}>You're halfway there!</h2>
           <p className={styles.encouragementText}>
@@ -324,13 +309,8 @@ export default function FoglandGame() {
   if (showReflection) {
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.reflectionModal}>
-          <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt="Mentor Fox reflecting with you"
-              className={styles.foxImage}
-            />
+        <div className={styles.reflectionModal}>          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.reflectionTitle}>Congratulations! You have cleared the fog of laziness.</h2>
           <p className={styles.mentorQuote}>
@@ -376,9 +356,7 @@ export default function FoglandGame() {
   }
   // Game completion
   if (gameComplete) {
-    return (
-      <CompletionModal
-        imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
+    return (      <CompletionModal
         buttonHref="/games/willpower"
         buttonLabel="Continue to Willpower Warrior →"
       >
@@ -506,14 +484,8 @@ export default function FoglandGame() {
               <span className={styles.cleared}>{clearedTiles}/{totalTiles} cleared</span>
             </div>
           </div>
-        </div>
-
-        <div className={styles.foxGuide}>
-          <img 
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-            alt="Mentor Fox guiding your journey"
-            className={`${styles.foxMentor} ${progress > 50 ? styles.foxConfident : ''}`}
-          />
+        </div>        <div className={styles.foxGuide}>
+          <span style={{ fontSize: '3rem', lineHeight: 1 }}>🦊</span>
           <div className={styles.foxSpeech}>
             {clearedTiles === 0 && "Tap any fog tile to begin your awakening!"}
             {clearedTiles > 0 && clearedTiles < totalTiles && "Keep going! The fog is clearing..."}

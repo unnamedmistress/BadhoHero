@@ -1,46 +1,75 @@
 /* Modern Game Layout Styles */
 .modernGameLayout {
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for better mobile support */
+  min-height: calc(100vh - 140px); /* Account for navbar (70px) and footer (70px estimated) */
+  min-height: calc(100dvh - 140px); /* Dynamic viewport height for better mobile support */
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
   gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-bottom: 2rem; /* Add bottom margin to prevent footer overlap */
+  /* Add top margin to ensure no overlap with fixed navbar */
+  margin-top: 80px; /* Extra 10px buffer beyond navbar height */
+}
+
+@media (max-width: 768px) {
+  .modernGameLayout {
+    margin-top: 70px; /* 60px navbar + 10px buffer */
+  }
+}
+
+@media (max-width: 360px) {
+  .modernGameLayout {
+    margin-top: 62px; /* 52px navbar + 10px buffer */
+  }
 }
 
 /* Game Header */
 .gameHeader {
   background: white;
   border-radius: clamp(12px, 2vw, 16px);
-  padding: clamp(0.75rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
+  padding: clamp(1rem, 3vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(238, 58, 87, 0.1);
+  border-top: 4px solid var(--color-brand, #ee3a57); /* Add accent border */
 }
 
 .gameTitleSection {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem, 2vw, 1rem);
+  gap: clamp(0.75rem, 2vw, 1.25rem);
 }
 
 .gameHeaderIcon {
-  width: clamp(40px, 8vw, 60px);
-  height: clamp(40px, 8vw, 60px);
-  border-radius: clamp(8px, 2vw, 12px);
+  width: clamp(50px, 10vw, 80px);
+  height: clamp(50px, 10vw, 80px);
+  border-radius: clamp(10px, 2vw, 15px);
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.gameHeaderEmoji {
+  width: clamp(50px, 10vw, 80px);
+  height: clamp(50px, 10vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(32px, 8vw, 56px);
+  border-radius: clamp(10px, 2vw, 15px);
+  background: rgba(238, 58, 87, 0.1);
   flex-shrink: 0;
 }
 
 .gameTitle {
   font-family: 'Fredoka One', 'Poppins', sans-serif;
-  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-size: var(--game-title-size, clamp(1.75rem, 5vw, 2.75rem));
   color: var(--color-brand);
   margin: 0;
-  font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  line-height: 1.2;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 /* Main Game Grid */

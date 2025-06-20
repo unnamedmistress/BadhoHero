@@ -23,8 +23,8 @@
   text-align: center;
 }
 
-.completion-img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
+.completion-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  line-height: 1;
 }

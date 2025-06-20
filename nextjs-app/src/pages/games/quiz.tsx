@@ -236,13 +236,7 @@ export default function QuizGame() {
           >
             🔄
           </button>
-          </div>
-          <img
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_51_28%20PM.png"
-            alt="Detective-themed strawberry examining statement cards under magnifying glass to spot false claim."
-            className="hero-img"
-            style={{ width: '150px', display: 'inline-block' }}
-          />
+          </div>          <span style={{ fontSize: '4rem', lineHeight: 1, display: 'inline-block' }}>🦊</span>
           <p className={styles['header-instruction']}>
             Pick the hallucination from the {NUM_STATEMENTS} statements.
           </p>
@@ -295,9 +289,7 @@ export default function QuizGame() {
         <ChatBox />
         </div>
       </ModernGameLayout>
-    {finished && (
-      <CompletionModal
-        imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_51_28%20PM.png"
+    {finished && (      <CompletionModal
         buttonHref="/games/escape"
         buttonLabel="Play Escape Room"
       >

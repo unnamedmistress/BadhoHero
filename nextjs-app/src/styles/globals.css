@@ -26,18 +26,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 70px; /* Account for fixed navbar */
+  padding-top: 70px !important; /* Account for fixed navbar - important to override conflicts */
+  padding-bottom: 2rem; /* Add padding to prevent footer overlap */
+  min-height: calc(100vh - 70px); /* Ensure full height minus navbar */
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 60px; /* Mobile navbar height */
+    padding-top: 60px !important; /* Mobile navbar height - important to override conflicts */
+    min-height: calc(100vh - 60px);
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   body {
-    padding-top: 56px; /* Small mobile navbar height */
+    padding-top: 52px !important; /* Small mobile navbar height - important to override conflicts */
+    min-height: calc(100vh - 52px);
   }
 }
 

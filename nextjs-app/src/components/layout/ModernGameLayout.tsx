@@ -26,11 +26,14 @@ export default function ModernGameLayout({
   nextGameButton
 }: ModernGameLayoutProps) {
   return (
-    <div id="main-content" className={`${styles.modernGameLayout} ${className}`}>
-      {/* Game Header */}
+    <div id="main-content" className={`${styles.modernGameLayout} ${className}`}>      {/* Game Header */}
       <header className={styles.gameHeader}>
         <div className={styles.gameTitleSection}>
-          {gameIcon && <img src={gameIcon} alt="" className={styles.gameHeaderIcon} />}
+          {gameIcon && (
+            (gameIcon.startsWith('http') || gameIcon.startsWith('/') || gameIcon.includes('.')) ? 
+              <img src={gameIcon} alt="" className={styles.gameHeaderIcon} /> :
+              <span className={styles.gameHeaderEmoji}>{gameIcon}</span>
+          )}
           <h1 className={styles.gameTitle}>{gameTitle}</h1>
         </div>
       </header>

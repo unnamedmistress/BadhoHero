@@ -113,13 +113,8 @@ export default function DragDropGame() {
         }
       >
       <div className={styles['dragdrop-wrapper']}>
-        <div className={`${styles['dragdrop-game']} clearfix`}>
-            <h2>Drag a tone into the blank</h2>
-            <img
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
-              alt="Tone game illustration"
-              className="game-card-image"
-            />
+        <div className={`${styles['dragdrop-game']} clearfix`}>            <h2>Drag a tone into the blank</h2>
+            <span style={{ fontSize: '3rem', lineHeight: 1, display: 'block', textAlign: 'center', margin: '1rem 0' }}>🦊</span>
             <p className={`${styles.sentence} game-text`}>
               Write a
               <span

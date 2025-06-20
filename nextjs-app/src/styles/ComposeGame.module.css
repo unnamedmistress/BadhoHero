@@ -1,0 +1,365 @@
+/* Compose Tweet Game Styles */
+
+.introScreen {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.gameDescription {
+  margin-bottom: 2rem;
+}
+
+.gameDescription h3 {
+  color: var(--color-brand, #ee3a57);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.gameDescription p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark, #333);
+  margin-bottom: 2rem;
+}
+
+.gameFeatures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(238, 58, 87, 0.1);
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.featureIcon {
+  font-size: 1.2rem;
+}
+
+.startButton {
+  background: var(--color-brand, #ee3a57);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(238, 58, 87, 0.3);
+}
+
+.startButton:hover {
+  background: var(--color-deep-red, #c4324a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(238, 58, 87, 0.4);
+}
+
+.gameContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.progressSection {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.progressBar {
+  width: 100%;
+  height: 12px;
+  background: rgba(238, 58, 87, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-brand, #ee3a57), var(--color-accent, #ff7b7b));
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 0.9rem;
+  color: var(--color-text-dark, #666);
+  font-weight: 500;
+}
+
+.promptSection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--color-brand, #ee3a57);
+}
+
+.promptTitle {
+  color: var(--color-brand, #ee3a57);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.promptText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-dark, #333);
+  margin-bottom: 1.5rem;
+}
+
+.tips {
+  background: rgba(238, 58, 87, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.tips h4 {
+  color: var(--color-brand, #ee3a57);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tips li {
+  padding: 0.25rem 0;
+  color: var(--color-text-dark, #555);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.tips li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-brand, #ee3a57);
+  font-weight: bold;
+}
+
+.tweetComposer {
+  margin-bottom: 2rem;
+}
+
+.tweetBox {
+  background: white;
+  border: 2px solid #e1e8ed;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+
+.tweetBox:focus-within {
+  border-color: #1da1f2;
+}
+
+.tweetTextarea {
+  width: 100%;
+  padding: 1.5rem;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  background: transparent;
+}
+
+.tweetTextarea::placeholder {
+  color: #657786;
+}
+
+.tweetFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: #f7f9fa;
+  border-top: 1px solid #e1e8ed;
+}
+
+.characterCount {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.overLimit {
+  color: #e0245e;
+}
+
+.warning {
+  color: #ffad1f;
+}
+
+.tweetActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.skipButton {
+  background: #657786;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.skipButton:hover:not(:disabled) {
+  background: #536471;
+}
+
+.skipButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tweetButton {
+  background: #1da1f2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.tweetButton:hover:not(:disabled) {
+  background: #1991db;
+}
+
+.tweetButton:disabled {
+  background: #aab8c2;
+  cursor: not-allowed;
+}
+
+.scoreSection {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-brand, #ee3a57);
+  background: rgba(238, 58, 87, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.completedTweets {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.completedTweets h4 {
+  color: var(--color-brand, #ee3a57);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.tweetsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.completedTweet {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: #f7f9fa;
+  border-radius: 8px;
+  border-left: 3px solid var(--color-brand, #ee3a57);
+}
+
+.tweetIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.completedTweet p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--color-text-dark, #333);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gameFeatures {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature {
+    justify-content: center;
+  }
+  
+  .tweetFooter {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  
+  .tweetActions {
+    justify-content: center;
+  }
+  
+  .promptSection {
+    padding: 1.5rem;
+  }
+  
+  .completedTweet {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameContainer {
+    padding: 0.5rem;
+  }
+  
+  .introScreen {
+    padding: 1rem;
+  }
+  
+  .startButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .tweetTextarea {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .promptSection {
+    padding: 1rem;
+  }
+}

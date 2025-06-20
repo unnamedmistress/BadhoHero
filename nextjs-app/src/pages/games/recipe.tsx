@@ -430,9 +430,7 @@ export default function PromptRecipeGame() {
   }
 
   if (finished) {
-    return (
-      <CompletionModal
-        imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
+    return (      <CompletionModal
         buttonHref="/games/darts"
         buttonLabel="Play Prompt Darts"
       >
@@ -517,13 +515,7 @@ export default function PromptRecipeGame() {
           </button>
         }
       >
-      <div className={styles['recipe-wrapper']}>
-        <div className={styles['recipe-game']}>          <img
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
-            alt="Prompt recipe builder fox chef tossing cards labeled Action, Context, Format, Constraints."
-            className="hero-img"
-            style={{ width: '150px', display: 'inline-block' }}
-          />
+      <div className={styles['recipe-wrapper']}>        <div className={styles['recipe-game']}>          <span style={{ fontSize: '4rem', lineHeight: 1, display: 'inline-block' }}>🦊</span>
           <div className={styles['status-bar']}>
             <span className={styles['round-info']}>Round {round + 1} / {TOTAL_ROUNDS}</span>
             <span className="score">Points: {points}</span>
@@ -586,11 +578,7 @@ export default function PromptRecipeGame() {
             <div className={styles.plate}>
               <h3>Your Prompt</h3>
               <p>{promptText}</p>
-              {example && <p className={styles['sample-output']}>{example}</p>}              <img
-                className={styles['prompt-image']}
-                src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
-                alt="Prompt recipe builder fox chef tossing cards labeled Action, Context, Format, Constraints."
-              />
+              {example && <p className={styles['sample-output']}>{example}</p>}              <span style={{ fontSize: '3rem', lineHeight: 1, display: 'block', textAlign: 'center', margin: '1rem 0' }}>🦊</span>
               <button className={`btn-primary ${styles['copy-btn']}`} onClick={copyPrompt}>
                 Copy Prompt
               </button>

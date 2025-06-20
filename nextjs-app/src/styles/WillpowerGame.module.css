@@ -4,6 +4,20 @@
   background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
   padding: 1rem;
   font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  /* Add top margin to prevent navbar overlap */
+  margin-top: 80px; /* 70px navbar + 10px buffer */
+}
+
+@media (max-width: 768px) {
+  .gameContainer {
+    margin-top: 70px; /* 60px navbar + 10px buffer */
+  }
+}
+
+@media (max-width: 360px) {
+  .gameContainer {
+    margin-top: 62px; /* 52px navbar + 10px buffer */
+  }
 }
 
 .gameHeader {

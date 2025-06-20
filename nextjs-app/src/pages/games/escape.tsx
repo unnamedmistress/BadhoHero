@@ -357,14 +357,8 @@ export default function ClarityEscapeRoom() {
       >
       <div className={styles['escape-wrapper']}>
         <div className={styles.room}>
-          <div className={styles['room-grid']}>
-            <div className={styles['room-main']}>
-              <img
-                src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-                alt="Escape room with doors and prompts"
-                className="hero-img"
-                style={{ width: '150px', display: 'inline-block' }}
-              /><p className={styles['ai-response']}><strong>AI Response:</strong> "{clue.aiResponse}"</p>
+          <div className={styles['room-grid']}>            <div className={styles['room-main']}>
+              <span style={{ fontSize: '4rem', lineHeight: 1, display: 'inline-block' }}>🦊</span><p className={styles['ai-response']}><strong>AI Response:</strong> "{clue.aiResponse}"</p>
               {index === 0 && (
                 <div style={{ 
                   background: 'rgba(255, 255, 255, 0.1)', 
@@ -436,9 +430,7 @@ export default function ClarityEscapeRoom() {
         </div>
         </div>
       </ModernGameLayout>
-      {showSummary && (
-        <CompletionModal
-          imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
+      {showSummary && (        <CompletionModal
           buttonHref="/games/recipe"
           buttonLabel="Play Prompt Builder"
         >

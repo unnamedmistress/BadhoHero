@@ -13,8 +13,8 @@ import { Analytics } from '@vercel/analytics/next'
 import ScrollToTop from '../components/ScrollToTop'
 import '../styles/index.css'
 import '../styles/App.css'
-import '../styles/globals.css'
 import '../styles/GlobalResponsive.css'
+import '../styles/globals.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {  const description =
     'Transform laziness into action with BadhoHero\'s momentum-building games and Lead India program support.'

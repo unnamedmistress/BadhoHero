@@ -456,13 +456,8 @@ export default function WillpowerWarrior() {
   if (showInstructions) {
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.instructionsModal}>
-          <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt="Willpower Warrior Fox Mentor"
-              className={styles.foxImage}
-            />
+        <div className={styles.instructionsModal}>          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.instructionsTitle}>Willpower Warrior: The Real Morning Dilemma</h2>
           <p className={styles.instructionsText}>
@@ -577,13 +572,8 @@ export default function WillpowerWarrior() {
     
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.summaryModal}>
-          <div className={`${styles.foxAvatar} ${styles[outcome.foxMood]}`}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt={`Fox showing ${outcome.foxMood} expression`}
-              className={styles.foxImage}
-            />
+        <div className={styles.summaryModal}>          <div className={`${styles.foxAvatar} ${styles[outcome.foxMood]}`}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.summaryTitle}>Here's how your morning went!</h2>
           <p className={`${styles.outcomeMessage} ${styles[outcome.type]}`}>
@@ -671,9 +661,7 @@ export default function WillpowerWarrior() {
 
   // Game Complete
   if (gameComplete) {
-    return (
-      <CompletionModal
-        imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
+    return (      <CompletionModal
         buttonHref="/games/goals"
         buttonLabel="Continue to Goal-Orb Discovery →"
       >
@@ -723,14 +711,8 @@ export default function WillpowerWarrior() {
           <span className={styles.scoreLabel}>Score:</span>
           <span className={styles.scoreValue}>{gameState.score}</span>
         </div>
-      </div>
-
-      <div className={styles.foxGuide}>
-        <img 
-          src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-          alt="Willpower Warrior Fox Mentor"
-          className={`${styles.foxMentor} ${gameState.energy <= 3 ? styles.foxTired : gameState.energy >= 8 ? styles.foxEnergetic : ''}`}
-        />
+      </div>      <div className={styles.foxGuide}>
+        <span style={{ fontSize: '3rem', lineHeight: 1 }}>🦊</span>
         <div className={styles.foxSpeech}>
           {gameState.timeLeft > 30 && "Good morning, warrior! Choose your actions wisely."}
           {gameState.timeLeft <= 30 && gameState.timeLeft > 15 && "Time is ticking! Focus on what matters most."}

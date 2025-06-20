@@ -2,14 +2,12 @@ import Link from 'next/link'
 import styles from './CompletionModal.module.css'
 
 export interface CompletionModalProps {
-  imageSrc: string
   buttonHref: string
   buttonLabel: string
   children?: React.ReactNode
 }
 
 export default function CompletionModal({
-  imageSrc,
   buttonHref,
   buttonLabel,
   children,
@@ -17,7 +15,7 @@ export default function CompletionModal({
   return (
     <div className={styles['completion-overlay']}>
       <div className={styles['completion-modal']} role="dialog" aria-modal="true">
-        <img src={imageSrc} alt="Completion image" className={styles['completion-img']} />
+        <div className={styles['completion-emoji']}>🦊</div>
         {children}
         <Link href={buttonHref} className="btn-primary" style={{ display: 'block', marginTop: '0.5rem' }}>
           {buttonLabel}

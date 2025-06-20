@@ -291,14 +291,8 @@ export default function PromptGuessEscape() {
         }
       >
       <div className="guess-page">
-      <div className={styles['guess-wrapper']}>
-        <div className={styles['guess-game']}>
-          <img
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-            alt="Detective strawberry examining clues"
-            className="hero-img"
-            style={{ width: '150px', display: 'inline-block' }}
-          />
+      <div className={styles['guess-wrapper']}>        <div className={styles['guess-game']}>
+          <span style={{ fontSize: '4rem', lineHeight: 1, display: 'inline-block' }}>🦊</span>
           <p className={styles['ai-response']}><strong>AI Response:</strong> "{clue.aiResponse}"</p>
           <p className={styles.timer}>Time left: {timeLeft}s</p>
           <form onSubmit={handleSubmit} className={styles['prompt-form']}>

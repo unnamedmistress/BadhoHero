@@ -261,18 +261,15 @@ export default function ConfidenceCavern() {
   if (showComplete) {
     return (
       <div className={styles.completePage}>
-        <div className={styles.congratsOverlay}>
-          <div className={styles.congratsModal} role="dialog" aria-modal="true">
-            <img
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2004_20_17%20PM.png"
-              alt="BadhoHero fox radiating confidence with lit torches"
-              style={{ 
-                width: '200px', 
-                display: 'block', 
-                margin: '0 auto',
-                filter: `brightness(${100 + foxBrightness}%)`
-              }}
-            />
+        <div className={styles.congratsOverlay}>          <div className={styles.congratsModal} role="dialog" aria-modal="true">
+            <span style={{ 
+              fontSize: '4rem', 
+              lineHeight: 1, 
+              display: 'block', 
+              textAlign: 'center',
+              margin: '0 auto',
+              filter: `brightness(${100 + foxBrightness}%)`
+            }}>🦊</span>
             <h2>� All Torches Lit! Confidence Unleashed!</h2>
             <p>You've mastered the art of empowering affirmations and built unshakeable confidence!</p>
             <p><strong>Final Score: {score} points</strong></p>
@@ -340,16 +337,12 @@ export default function ConfidenceCavern() {
           ) : null
         }
       >
-        <div className={styles.gameContainer}>
-          <div className={styles.header}>
-            <img
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2004_20_17%20PM.png"
-              alt="BadhoHero fox with increasing brightness as torches are lit"
-              className={styles.heroImg}
-              style={{ 
-                filter: `brightness(${100 + foxBrightness}%) contrast(${100 + foxBrightness/2}%)`
-              }}
-            />
+        <div className={styles.gameContainer}>          <div className={styles.header}>
+            <span style={{ 
+              fontSize: '4rem', 
+              lineHeight: 1, 
+              filter: `brightness(${100 + foxBrightness}%) contrast(${100 + foxBrightness/2}%)`
+            }}>🦊</span>
             <h2>Confidence Cavern - Torch Challenge</h2>
             <p>Light torches by choosing the most empowering affirmations!</p>
             <div className={styles.scoreBoard}>

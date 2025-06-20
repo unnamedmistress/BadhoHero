@@ -350,16 +350,12 @@ export default function TreeOfTriumph() {
           ) : null
         }
       >
-        <div className={styles.gameContainer}>
-          <div className={styles.header}>
-            <img
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2004_20_17%20PM.png"
-              alt="BadhoHero fox celebrating by a growing Tree of Triumph"
-              className={styles.heroImg}
-              style={{
-                filter: `brightness(${100 + (wateredBadges.length * 20)}%) saturate(${100 + (wateredBadges.length * 10)}%)`
-              }}
-            />
+        <div className={styles.gameContainer}>          <div className={styles.header}>
+            <span style={{
+              fontSize: '4rem', 
+              lineHeight: 1,
+              filter: `brightness(${100 + (wateredBadges.length * 20)}%) saturate(${100 + (wateredBadges.length * 10)}%)`
+            }}>🦊</span>
             <h2>Tree of Triumph</h2>
             <p>Plant your badges and watch your Tree of Triumph grow!</p>
             <div className={styles.scoreBoard}>

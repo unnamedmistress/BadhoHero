@@ -178,6 +178,7 @@ const SCENARIOS: Scenario[] = [
 export default function TimeTunnelGame() {
   const [gameStarted, setGameStarted] = useState(false)
   const [showInstructions, setShowInstructions] = useState(false)
+  
   const [currentScenario, setCurrentScenario] = useState<number | null>(null)
   const [timeRemaining, setTimeRemaining] = useState(240) // 4 hours in minutes
   const [energyLevel, setEnergyLevel] = useState(100)
@@ -188,14 +189,11 @@ export default function TimeTunnelGame() {
   const [gameComplete, setGameComplete] = useState(false)
   const [totalEfficiencyScore, setTotalEfficiencyScore] = useState(0)
   const [activeId, setActiveId] = useState<string | null>(null)
-
-  const sensors = useSensors(
-    useSensor(PointerSensor),
-    useSensor(KeyboardSensor, {
+    const sensors = useSensors(
+    useSensor(PointerSensor),    useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   )
-
   const startGame = () => {
     setShowInstructions(true)
   }
@@ -318,20 +316,47 @@ export default function TimeTunnelGame() {
       confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } })
     }
   }
-
   const getFoxMood = () => {
     if (energyLevel > 70) return { mood: 'energetic', message: 'Great energy management! Keep it up!' }
     if (energyLevel > 40) return { mood: 'normal', message: 'Good pace, watch your energy levels.' }
     return { mood: 'tired', message: 'You\'re burning out! Choose wisely.' }
   }
+    const foxState = getFoxMood()
 
-  const foxState = getFoxMood()
+  if (showInstructions) {
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.instructionsModal}>
+          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
+          </div>
+          <h2 className={styles.instructionsTitle}>Welcome to Time Tunnel Trials!</h2>
+          <div className={styles.instructionsList}>
+            <p><strong>🎯 Your Mission:</strong> Plan an efficient 4-hour morning schedule</p>
+            <p><strong>⚡ Energy System:</strong> Tasks consume or restore energy (0-100)</p>
+            <p><strong>⏰ Time Management:</strong> You have 240 minutes to allocate</p>
+            <p><strong>🎮 Drag & Drop:</strong> Move tasks from the pool to your timeline</p>
+            <p><strong>📚 Categories:</strong></p>
+            <p>• <span style={{color: '#10b981'}}>Essential</span> - Must-do tasks (high points)</p>
+            <p>• <span style={{color: '#3b82f6'}}>Healthy</span> - Energy-boosting activities</p>
+            <p>• <span style={{color: '#ef4444'}}>Distraction</span> - Energy drains (point penalty)</p>
+          </div>
+          <div className={styles.bookQuote}>
+            "The secret to defeating laziness is not willpower - it's intelligent planning." - Lead India 2020
+          </div>
+          <button className={styles.continueButton} onClick={beginPlaying}>
+            Start Your Journey
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   if (!gameStarted) {
     return (
       <ModernGameLayout
         gameTitle="Time Tunnel Trials"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/fox-avatar.png"
+        gameIcon="🦊"
         whyCard={
           <WhyCard
             title="Why Time & Energy Management?"
@@ -343,8 +368,11 @@ export default function TimeTunnelGame() {
           <div className={styles.tunnelEffect}></div>
           <div className={styles.header}>
             <h1 className={styles.title}>⏰ Time Tunnel Trials</h1>
-            <p className={styles.subtitle}>Master the art of efficient scheduling and energy management</p>
-            <button className={styles.startButton} onClick={startGame}>
+            <p className={styles.subtitle}>Master the art of efficient scheduling and energy management</p>            <button 
+              className={styles.startButton} 
+              onClick={startGame}
+              type="button"
+            >
               Enter the Time Tunnel
             </button>
           </div>
@@ -355,14 +383,9 @@ export default function TimeTunnelGame() {
 
   if (showInstructions) {
     return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.instructionsModal}>
+      <div className={styles.modalOverlay}>        <div className={styles.instructionsModal}>
           <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/fox-avatar.png" 
-              alt="Mentor Fox" 
-              className={styles.foxImage}
-            />
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.instructionsTitle}>Welcome to Time Tunnel Trials!</h2>
           <div className={styles.instructionsList}>
@@ -389,14 +412,9 @@ export default function TimeTunnelGame() {
   if (currentScenario !== null) {
     const scenario = SCENARIOS[currentScenario]
     return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.scenarioModal}>
+      <div className={styles.modalOverlay}>        <div className={styles.scenarioModal}>
           <div className={styles.foxAvatar}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/fox-avatar.png" 
-              alt="Mentor Fox" 
-              className={styles.foxImage}
-            />
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           <h2 className={styles.scenarioTitle}>Morning Dilemma</h2>
           <div className={styles.bookQuote}>{scenario.quote}</div>
@@ -424,12 +442,11 @@ export default function TimeTunnelGame() {
       </div>
     )
   }
-
   if (gameComplete) {
     return (
       <ModernGameLayout
         gameTitle="Time Tunnel Trials"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/fox-avatar.png"
+        gameIcon="🦊"
         whyCard={
           <WhyCard
             title="Efficiency Mastery"
@@ -480,11 +497,10 @@ export default function TimeTunnelGame() {
       </ModernGameLayout>
     )
   }
-
   return (
     <ModernGameLayout
       gameTitle="Time Tunnel Trials"
-      gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/fox-avatar.png"
+      gameIcon="🦊"
       whyCard={
         <WhyCard
           title="Energy vs Time"
@@ -507,14 +523,8 @@ export default function TimeTunnelGame() {
               <div className={styles.statLabel}>Score</div>
               <div className={styles.statValue}>{score}</div>
             </div>
-          </div>
-
-          <div className={styles.foxMood}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/fox-avatar.png" 
-              alt="Mentor Fox" 
-              className={`${styles.foxAvatar} ${styles['fox' + foxState.mood.charAt(0).toUpperCase() + foxState.mood.slice(1)]}`}
-            />
+          </div>          <div className={styles.foxMood}>
+            <span style={{ fontSize: '3rem', lineHeight: 1 }}>🦊</span>
             <div className={styles.foxSpeech}>{foxState.message}</div>
           </div>
 

@@ -4,13 +4,8 @@ export default function Footer() {
   const year = new Date().getFullYear()
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <div className="brand">
-          <img
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-            alt="BadhoHero fox mascot - your companion for defeating laziness"
-            className="brand-logo"
-          />
+      <div className="footer-content">        <div className="brand">
+          <span style={{ fontSize: '2rem', lineHeight: 1, marginRight: '0.5rem' }}>🦊</span>
           <span>&copy; {year} BadhoHero</span>
         </div>
         <nav className="footer-links">

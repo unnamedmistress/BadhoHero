@@ -312,9 +312,7 @@ export default function GoalsGame() {
   const allOrbsPlaced = orbs.every(orb => orb.assignedPortal !== null)
 
   if (gameComplete) {
-    return (
-      <CompletionModal
-        imageSrc="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
+    return (      <CompletionModal
         buttonHref="/games/time"
         buttonLabel="Continue to Time Tunnel →"
       >
@@ -365,14 +363,8 @@ export default function GoalsGame() {
           <title>Goal-Orb Discovery | BadhoHero</title>
           <meta name="description" content="Sort goals into the right time portals using the SMARTY principle. Learn effective goal planning with wisdom from Lead India." />
           <link rel="canonical" href="https://badhohero.vercel.app/games/goals" />
-        </HeadTag>
-
-        <div className={styles.startScreen}>
-          <img 
-            src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-            alt="Fox ready to sort goals"
-            className={styles.heroImg}
-          />
+        </HeadTag>        <div className={styles.startScreen}>
+          <span style={{ fontSize: '4rem', lineHeight: 1, display: 'block', textAlign: 'center', margin: '1rem 0' }}>🦊</span>
           <h1>Goal-Orb Discovery</h1>
           <h2>Lakshya Sort</h2>
           <p>Help the fox reach the festival by sorting goals into the right time portals!</p>
@@ -479,13 +471,7 @@ export default function GoalsGame() {
       <div className={styles.gameContainer}>
         <div className={styles.gameHeader}>
           <h1>Goal-Orb Discovery</h1>
-          <div className={styles.foxPath}>
-            <img 
-              src="https://raw.githubusercontent.com/unnamedmistress/images/main/DALL%C2%B7E%202025-06-18%2011-20-14%20-%20A%20warm%2C%20friendly%20cartoon%20fox%20with%20bright%20orange%20fur%20and%20white%20chest%2C%20wearing%20a%20subtle%20blue%20cape%20or%20small%20medallion.%20The%20fox%20has%20large%2C%20expressive.png"
-              alt="Fox moving along path"
-              className={styles.foxAvatar}
-              style={{ transform: `translateX(${foxPosition * 30}px)` }}
-            />
+          <div className={styles.foxPath}>            <span style={{ fontSize: '3rem', lineHeight: 1, transform: `translateX(${foxPosition * 30}px)` }}>🦊</span>
             <div className={styles.pathLine}></div>
             <div className={styles.festival}>🎪</div>
           </div>
