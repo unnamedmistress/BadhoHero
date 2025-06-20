@@ -310,10 +310,9 @@ export default function TreeOfTriumph() {
   };
 
   return (
-    <>
-      <ModernGameLayout
+    <>      <ModernGameLayout
         gameTitle="Tree of Triumph"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/tree-of-triumph.png"
+        gameIcon="🌳"
         whyCard={
           <WhyCard
             title="Why Your Efforts Add Up to Triumph"

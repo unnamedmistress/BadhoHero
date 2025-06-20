@@ -1182,43 +1182,185 @@
 @media (max-width: 360px) {
   .gameContainer {
     padding: 0.25rem;
-    min-height: calc(100vh - 0.5rem);
+    border-radius: 8px;
+    min-height: 350px;
   }
   
   .header {
+    margin-bottom: 0.75rem;
     padding: 0.5rem;
   }
   
   .heroImg {
-    width: 90px;
+    width: 100px;
+    margin-bottom: 0.5rem;
   }
   
-  .crystalGrid {
+  .header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .header p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .scoreBoard {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
-  }
-  
-  .crystal {
     padding: 0.5rem;
-    min-height: 80px;
+    margin-top: 0.5rem;
   }
   
-  .crystalEmoji {
+  .scoreBoard span {
+    font-size: 0.8rem;
+  }
+  
+  .confidenceMeter {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .gameContainer {
+    padding: 0.125rem;
+    border-radius: 6px;
+    min-height: 300px;
+  }
+  
+  .header {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem;
+  }
+  
+  .heroImg {
+    width: 80px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.125rem;
+    line-height: 1.1;
+  }
+  
+  .header p {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+  }
+  
+  .scoreBoard span {
+    font-size: 0.75rem;
+  }
+  
+  .confidenceMeter {
+    margin: 0.75rem 0;
+    padding: 0.5rem;
+    border-radius: 6px;
+  }
+}
+
+/* Ultra-small screen optimizations for Confidence Cavern */
+@media (max-width: 400px) {
+  .gameContainer {
+    padding: 0.25rem;
+    border-radius: 8px;
+    min-height: 350px;
+  }
+  
+  .header {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+  }
+  
+  .heroImg {
+    width: 100px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header h2 {
     font-size: 1.2rem;
+    margin-bottom: 0.25rem;
   }
   
-  .choiceButton {
+  .header p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
     padding: 0.5rem;
-    min-height: 50px;
+    margin-top: 0.5rem;
+  }
+  
+  .scoreBoard span {
     font-size: 0.8rem;
   }
   
-  .choiceText {
-    font-size: 0.8rem;
+  .confidenceMeter {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .gameContainer {
+    padding: 0.125rem;
+    border-radius: 6px;
+    min-height: 300px;
   }
   
-  .torchPreview {
-    grid-template-columns: 1fr;
+  .header {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem;
+  }
+  
+  .heroImg {
+    width: 80px;
+    margin-bottom: 0.25rem;
+  }
+  
+  .header h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.125rem;
+    line-height: 1.1;
+  }
+  
+  .header p {
+    font-size: 0.8rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    margin-top: 0.25rem;
+  }
+  
+  .scoreBoard span {
+    font-size: 0.75rem;
+  }
+  
+  .confidenceMeter {
+    margin: 0.75rem 0;
+    padding: 0.5rem;
+    border-radius: 6px;
   }
 }
 

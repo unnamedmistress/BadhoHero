@@ -484,7 +484,7 @@ export default function PromptRecipeGame() {
       
       <ModernGameLayout
         gameTitle="Prompt Builder"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
+        gameIcon="👨‍🍳"
         whyCard={
           <WhyCard
             title="Why Structure Matters"

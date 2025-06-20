@@ -24,6 +24,59 @@
   }
 }
 
+/* Ultra-small screen optimizations for ModernGameLayout */
+@media (max-width: 400px) {
+  .modernGameLayout {
+    padding: 0.5rem;
+    gap: 0.75rem;
+    margin-top: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .gameHeader {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-top-width: 3px;
+  }
+  
+  .gameTitleSection {
+    gap: 0.75rem;
+  }
+  
+  .gameHeaderIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .modernGameLayout {
+    padding: 0.25rem;
+    gap: 0.5rem;
+    margin-top: 55px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .gameHeader {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border-top-width: 2px;
+  }
+  
+  .gameTitleSection {
+    gap: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .gameHeaderIcon {
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+  }
+}
+
 /* Game Header */
 .gameHeader {
   background: white;
@@ -403,4 +456,105 @@
 
 .gameContent:hover {
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Ultra-small screen title and content optimizations */
+@media (max-width: 400px) {
+  .gameTitle {
+    font-size: 1.4rem;
+    line-height: 1.1;
+    text-align: center;
+  }
+  
+  .gameHeaderEmoji {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+  
+  .gameGrid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      'content'
+      'why'
+      'progress';
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .gameTitle {
+    font-size: 1.2rem;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+  }
+  
+  .gameHeaderEmoji {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 6px;
+  }
+  
+  .gameGrid {
+    gap: 0.5rem;
+  }
+}
+
+/* Global ultra-small screen typography improvements */
+@media (max-width: 400px) {
+  .modernGameLayout :global(h1) {
+    font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  .modernGameLayout :global(h2) {
+    font-size: clamp(1.2rem, 5vw, 1.5rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  .modernGameLayout :global(h3) {
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+    line-height: 1.2 !important;
+  }
+  
+  .modernGameLayout :global(p),
+  .modernGameLayout :global(span),
+  .modernGameLayout :global(div) {
+    font-size: clamp(0.85rem, 3vw, 1rem) !important;
+    line-height: 1.4 !important;
+  }
+  
+  .modernGameLayout :global(button) {
+    min-height: 44px !important;
+    font-size: clamp(0.85rem, 3vw, 1rem) !important;
+    padding: 0.75rem 1rem !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .modernGameLayout :global(h1) {
+    font-size: 1.4rem !important;
+  }
+  
+  .modernGameLayout :global(h2) {
+    font-size: 1.2rem !important;
+  }
+  
+  .modernGameLayout :global(h3) {
+    font-size: 1rem !important;
+  }
+  
+  .modernGameLayout :global(p),
+  .modernGameLayout :global(span),
+  .modernGameLayout :global(div) {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .modernGameLayout :global(button) {
+    min-height: 48px !important;
+    font-size: 0.85rem !important;
+    padding: 0.8rem 0.75rem !important;
+  }
 }

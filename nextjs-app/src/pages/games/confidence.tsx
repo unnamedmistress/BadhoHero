@@ -297,10 +297,9 @@ export default function ConfidenceCavern() {
     );
   }
   return (
-    <>
-      <ModernGameLayout
+    <>      <ModernGameLayout
         gameTitle="Confidence Cavern"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2004_20_17%20PM.png"
+        gameIcon="🔥"
         whyCard={
           <WhyCard
             title="Why Affirmations Light the Fire of Confidence"

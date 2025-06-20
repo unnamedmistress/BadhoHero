@@ -81,7 +81,7 @@ export default function DragDropGame() {
       />      <div className={styles['dragdrop-page']}>
       <ModernGameLayout
         gameTitle="Drag & Drop Tone"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
+        gameIcon="🎯"
         whyCard={
           <WhyCard
             title="Why Tone Matters"

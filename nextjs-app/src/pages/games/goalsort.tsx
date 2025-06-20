@@ -67,7 +67,7 @@ export default function GoalSortGame() {
   return (
     <ModernGameLayout
       gameTitle="Goal-Orb Discovery"
-      gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/goal-orb.png"
+      gameIcon="🎯"
       whyCard={
         <WhyCard
           title="Why Sort Goals?"

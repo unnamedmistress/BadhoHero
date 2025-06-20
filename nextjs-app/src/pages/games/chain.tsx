@@ -278,7 +278,7 @@ export default function PromptChainGame() {
       
       <ModernGameLayout
         gameTitle="Prompt Chain Challenge"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_47_29%20PM.png"
+        gameIcon="⛓️"
         whyCard={
           <WhyCard
             title="Why Chain Prompts?"

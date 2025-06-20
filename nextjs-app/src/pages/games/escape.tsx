@@ -324,7 +324,7 @@ export default function ClarityEscapeRoom() {
       
       <ModernGameLayout
         gameTitle="Clarity Escape Room"
-        gameIcon="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
+        gameIcon="🚪"
         whyCard={
           <WhyCard
             title="Why Clarity Matters"
