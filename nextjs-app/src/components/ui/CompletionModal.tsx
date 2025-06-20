@@ -24,7 +24,7 @@ export default function CompletionModal({
         </Link>
         <a
           className={styles['coffee-link']}
-          href="https://coff.ee/strawberrytech"
+          href="https://coff.ee/badhohero"
           target="_blank"
           rel="noopener noreferrer"
         >

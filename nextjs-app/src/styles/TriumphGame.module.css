@@ -1,0 +1,1003 @@
+/* Tree of Triumph Game Styles */
+/* Import responsive base styles */
+@import './ResponsiveGameBase.module.css';
+
+.gameContainer {
+  padding: clamp(0.5rem, 2vw, 1rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #0d3610 0%, #1b5e20 30%, #2e7d32 60%, #388e3c 100%);
+  border-radius: clamp(10px, 2vw, 15px);
+  min-height: clamp(400px, 60vh, 600px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gameContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(76, 175, 80, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(139, 69, 19, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  position: relative;
+  z-index: 1;
+}
+
+.heroImg {
+  width: clamp(120px, 20vw, 180px);
+  height: auto;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  animation: heroMajestic 5s ease-in-out infinite;
+}
+
+@keyframes heroMajestic {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+  }
+  50% { 
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.header h2 {
+  color: #FFD700;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.header p {
+  color: #e8f5e8;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+}
+
+.scoreBoard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(0.5rem, 2vw, 2rem);
+  margin-top: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem);
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: clamp(8px, 2vw, 12px);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  justify-items: center;
+}
+
+.scoreBoard span {
+  color: #FFD700;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+/* Tree Growth Meter */
+.treeGrowthMeter {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  border: 2px solid rgba(76, 175, 80, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.meterLabel {
+  color: #4CAF50;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.meterBar {
+  height: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.meterFill {
+  height: 100%;
+  background: linear-gradient(90deg, #8BC34A, #4CAF50, #2E7D32, #1B5E20);
+  border-radius: 12px;
+  transition: width 0.8s ease;
+  position: relative;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.meterFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: treeGrowthShimmer 3s infinite;
+}
+
+@keyframes treeGrowthShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Intro Section */
+.introSection {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.introContent {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(139, 69, 19, 0.2));
+  border: 3px solid #4CAF50;
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.introContent h3 {
+  color: #FFD700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.introContent p {
+  color: #e8f5e8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.treeLevels {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.treeLevel {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.treeLevel.unlocked {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+  border-color: #4CAF50;
+}
+
+.treeLevel.locked {
+  background: linear-gradient(135deg, rgba(100, 100, 100, 0.2), rgba(100, 100, 100, 0.1));
+  border-color: #666;
+  opacity: 0.6;
+}
+
+.treeLevel.completed {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 152, 0, 0.2));
+  border-color: #FFD700;
+  animation: levelComplete 1s ease-in-out;
+}
+
+@keyframes levelComplete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.levelEmoji {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.levelInfo {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.levelName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e8f5e8;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.levelDesc {
+  font-size: 0.95rem;
+  color: #c8e6c9;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.levelRequirement {
+  font-size: 0.8rem;
+  color: #a5d6a7;
+  font-style: italic;
+}
+
+.startButton {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  border: none;
+  padding: clamp(1rem, 3vw, 1.25rem) clamp(2rem, 5vw, 2.5rem);
+  border-radius: clamp(10px, 2vw, 15px);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  min-height: 48px;
+  min-width: 120px;
+  line-height: 1.4;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+  background: linear-gradient(135deg, #66BB6A, #4CAF50);
+}
+
+.startButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Climbing Section */
+.climbingSection {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.currentLevel {
+  margin-bottom: 2rem;
+}
+
+.levelHeader {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(76, 175, 80, 0.1));
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.levelHeader .levelEmoji {
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+.levelHeader h3 {
+  color: #FFD700;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.levelHeader p {
+  color: #e8f5e8;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.challenge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.challengeHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.challengeHeader h4 {
+  color: #FFD700;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.challengeHeader p {
+  color: #e8f5e8;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.question {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 152, 0, 0.1));
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.questionText {
+  color: #e8f5e8;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.options {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.optionButton {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(76, 175, 80, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #e8f5e8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.optionButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #4CAF50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.1));
+}
+
+.optionButton:disabled {
+  cursor: not-allowed;
+}
+
+.optionButton.selected {
+  border-color: #FFD700;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1));
+}
+
+.optionButton.correct {
+  border-color: #4CAF50;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.4), rgba(76, 175, 80, 0.2));
+  animation: correctPulse 0.6s ease-in-out;
+}
+
+.optionButton.wrong {
+  border-color: #F44336;
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.4), rgba(244, 67, 54, 0.2));
+  animation: wrongShake 0.6s ease-in-out;
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.optionText {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  flex-grow: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.optionFeedback {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  animation: feedbackSlide 0.4s ease-in-out;
+  color: #c8e6c9;
+}
+
+@keyframes feedbackSlide {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.pointsGained {
+  color: #FFD700;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.explanation {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(255, 215, 0, 0.2));
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #e8f5e8;
+  font-size: 1rem;
+  line-height: 1.6;
+  animation: explanationReveal 0.5s ease-in-out;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes explanationReveal {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Triumph Section */
+.triumphSection {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.triumphSection h3 {
+  color: #FFD700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.triumphSection p {
+  color: #e8f5e8;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.triumphGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.triumph {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.triumph.unlocked {
+  border-color: #FFD700;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 152, 0, 0.2));
+  animation: triumphGlow 3s ease-in-out infinite;
+}
+
+.triumph.locked {
+  opacity: 0.5;
+  border-color: #666;
+}
+
+@keyframes triumphGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
+  50% { box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6); }
+}
+
+.triumphEmoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.triumphCategory {
+  font-size: 0.9rem;
+  color: #a5d6a7;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.triumphName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.triumph.locked .triumphName {
+  color: #666;
+}
+
+.triumphImpact {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #c8e6c9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.triumph.locked .triumphImpact {
+  color: #888;
+}
+
+.completeButton {
+  background: linear-gradient(135deg, #FFD700, #FF8F00);
+  color: #1B5E20;
+  border: none;
+  padding: 1.25rem 2.5rem;
+  border-radius: 15px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.completeButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, #FFF176, #FFD700);
+}
+
+/* Completion Page */
+.completePage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d3610 0%, #1b5e20 30%, #2e7d32 60%, #388e3c 100%);
+}
+
+.congratsOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.congratsModal {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  border: 3px solid #FFD700;
+}
+
+.congratsModal h2 {
+  color: #FFD700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.congratsModal p {
+  color: #e8f5e8;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.finalMessage {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(76, 175, 80, 0.2));
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.finalMessage p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.congratsModal .btn-primary {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.congratsModal .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+}
+
+.congratsModal .coffee-link {
+  color: #FFD700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.congratsModal .coffee-link:hover {
+  color: #FFF176;
+}
+
+/* Enhanced Responsive Design */
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .gameContainer {
+    max-width: 1400px;
+    padding: 2rem;
+  }
+  
+  .treeSection {
+    gap: 2rem;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1399px) and (min-width: 1024px) {
+  .gameContainer {
+    padding: 1.5rem;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Tablet Large */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .gameContainer {
+    padding: 1rem;
+  }
+  
+  .treeContainer {
+    max-height: 400px;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Tablet Portrait & Mobile Large */
+@media (max-width: 768px) and (min-width: 481px) {
+  .gameContainer {
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border-radius: clamp(8px, 2vw, 12px);
+  }
+  
+  .treeSection {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .treeContainer {
+    max-height: 350px;
+    order: 1;
+  }
+  
+  .badgeInventory,
+  .wateringInstructions {
+    order: 2;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .badge {
+    padding: 0.75rem;
+    min-height: 80px;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .plantingSpot {
+    width: clamp(40px, 8vw, 50px);
+    height: clamp(40px, 8vw, 50px);
+  }
+  
+  .waterButton {
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 480px) {
+  .gameContainer {
+    padding: 0.5rem;
+    border-radius: 8px;
+    min-height: calc(100vh - 1rem);
+  }
+  
+  .heroImg {
+    width: clamp(100px, 25vw, 120px);
+  }
+  
+  .treeSection {
+    gap: 1rem;
+  }
+  
+  .treeContainer {
+    max-height: 280px;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .badge {
+    padding: 0.5rem;
+    min-height: 70px;
+  }
+  
+  .badgeIcon {
+    font-size: 1.5rem;
+  }
+  
+  .badgeName {
+    font-size: 0.8rem;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .scoreBoard span {
+    font-size: 0.9rem;
+  }
+  
+  .startButton {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .lessonChoice {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .plantingSpot {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .waterButton {
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 1rem;
+  }
+  
+  .foxMessage {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .foxAvatar {
+    font-size: 1.5rem;
+  }
+  
+  .message {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+  .gameContainer {
+    padding: 0.25rem;
+    min-height: calc(100vh - 0.5rem);
+  }
+  
+  .header {
+    padding: 0.5rem;
+  }
+  
+  .heroImg {
+    width: 90px;
+  }
+  
+  .treeContainer {
+    max-height: 240px;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .badge {
+    padding: 0.5rem;
+    min-height: 60px;
+  }
+  
+  .badgeIcon {
+    font-size: 1.2rem;
+  }
+  
+  .badgeName {
+    font-size: 0.7rem;
+  }
+  
+  .startButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .lessonChoice {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .gameContainer {
+    min-height: auto;
+    padding: 0.5rem;
+  }
+  
+  .header {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .heroImg {
+    width: 80px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .treeContainer {
+    max-height: 200px;
+  }
+  
+  .treeSection {
+    gap: 0.75rem;
+  }
+  
+  .badgeGrid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .badge {
+    padding: 0.5rem;
+    min-height: 50px;
+  }
+  
+  .scoreBoard {
+    padding: 0.5rem;
+  }
+}
+
+/* Touch and hover improvements */
+@media (hover: hover) {
+  .badge:hover,
+  .lessonChoice:hover,
+  .startButton:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (hover: none) {
+  .badge:active,
+  .lessonChoice:active,
+  .startButton:active {
+    transform: scale(0.98);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .heroImg {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .heroImg,
+  .badge,
+  .tree,
+  .branch {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .gameContainer,
+  .gameContainer > *,
+  .gameContainer * {
+    transition-duration: 0.01ms !important;
+  }
+}

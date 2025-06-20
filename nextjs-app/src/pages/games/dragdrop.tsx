@@ -218,7 +218,7 @@ export default function DragDropGame() {
 export function Head() {
   return (
     <>
-      <title>Drag &amp; Drop Tone Game | StrawberryTech</title>
+      <title>Drag &amp; Drop Tone Game | BadhoHero</title>
       <meta
         name="description"
         content="Drag adjectives to explore how tone changes a message."

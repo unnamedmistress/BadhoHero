@@ -1,0 +1,1287 @@
+/* Confidence Cavern Game Styles */
+/* Import responsive base styles */
+@import './ResponsiveGameBase.module.css';
+
+.gameContainer {
+  padding: clamp(0.5rem, 2vw, 1rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #1a0d2e 0%, #2d1b69 50%, #6a1b9a 100%);
+  border-radius: clamp(10px, 2vw, 15px);
+  min-height: clamp(400px, 60vh, 600px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gameContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(156, 39, 176, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(103, 58, 183, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(76, 175, 80, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  position: relative;
+  z-index: 1;
+}
+
+.heroImg {
+  width: clamp(120px, 18vw, 160px);
+  height: auto;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+  animation: heroGlow 4s ease-in-out infinite;
+}
+
+@keyframes heroGlow {
+  0%, 100% { 
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+  }
+  50% { 
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+  }
+}
+
+.header h2 {
+  color: #9C27B0;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.header p {
+  color: #e0e0e0;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  line-height: 1.4;
+}
+
+.scoreBoard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  margin-top: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(0.5rem, 1.5vw, 0.75rem);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: clamp(8px, 2vw, 10px);
+  backdrop-filter: blur(10px);
+  justify-items: center;
+}
+
+.scoreBoard span {
+  color: #9C27B0;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  white-space: nowrap;
+}
+
+/* Confidence Meter */
+.confidenceMeter {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 12px;
+  border: 2px solid rgba(156, 39, 176, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.meterLabel {
+  color: #9C27B0;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.meterBar {
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.meterFill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF5722, #FF9800, #4CAF50, #2196F3, #9C27B0);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.meterFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Intro Section */
+.introSection {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.introContent {
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.2), rgba(103, 58, 183, 0.2));
+  border: 2px solid #9C27B0;
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.introContent h3 {
+  color: #9C27B0;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.introContent p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.crystalPreview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.crystalPreviewItem {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+.crystalIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.crystalName {
+  color: #9C27B0;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.crystalPower {
+  color: #b0b0b0;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.startButton {
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+  margin-top: 1rem;
+}
+
+.startButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
+}
+
+/* Challenge Section */
+.challengeSection {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.challengeHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 87, 34, 0.2));
+  border-radius: 12px;
+  border: 2px solid rgba(255, 152, 0, 0.4);
+}
+
+.challengeHeader h3 {
+  color: #FF9800;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.category {
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.situation {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(76, 175, 80, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.situationTitle {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.situation p {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.fearThought {
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.2), rgba(244, 67, 54, 0.1));
+  border: 2px solid rgba(244, 67, 54, 0.4);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fearTitle {
+  color: #F44336;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.fearThought p {
+  color: #ffb3b3;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.choicesTitle {
+  color: #9C27B0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.choices {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.choiceButton {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(156, 39, 176, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.choiceButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #9C27B0;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+.choiceButton:disabled {
+  cursor: not-allowed;
+}
+
+.choiceButton.selected {
+  border-color: #9C27B0;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(156, 39, 176, 0.1));
+}
+
+/* Choice Type Styling */
+.choiceButton.avoidance {
+  border-color: rgba(244, 67, 54, 0.5);
+}
+
+.choiceButton.avoidance:hover {
+  border-color: #F44336;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.choiceButton.overthinking {
+  border-color: rgba(255, 152, 0, 0.5);
+}
+
+.choiceButton.overthinking:hover {
+  border-color: #FF9800;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.choiceButton.confident {
+  border-color: rgba(76, 175, 80, 0.5);
+}
+
+.choiceButton.confident:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.choiceButton.growth {
+  border-color: rgba(33, 150, 243, 0.5);
+}
+
+.choiceButton.growth:hover {
+  border-color: #2196F3;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
+.choiceText {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  flex-grow: 1;
+}
+
+.choiceType {
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.choiceFeedback {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  animation: feedbackSlide 0.3s ease-in-out;
+}
+
+@keyframes feedbackSlide {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.explanation {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(33, 150, 243, 0.2));
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.5;
+  animation: explanationReveal 0.5s ease-in-out;
+}
+
+@keyframes explanationReveal {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Crystal Section */
+.crystalSection {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  text-align: center;
+}
+
+.crystalSection h3 {
+  color: #9C27B0;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.crystalSection p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.crystalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.crystal {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(156, 39, 176, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.crystal.discovered {
+  border-color: #9C27B0;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(103, 58, 183, 0.2));
+  animation: crystalGlow 2s ease-in-out infinite;
+}
+
+.crystal.locked {
+  opacity: 0.5;
+  border-color: #666;
+}
+
+@keyframes crystalGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3); }
+  50% { box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6); }
+}
+
+.crystalEmoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.crystalName {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #9C27B0;
+}
+
+.crystal.locked .crystalName {
+  color: #666;
+}
+
+.crystalPower {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #b0b0b0;
+}
+
+.crystal.discovered .crystalPower {
+  color: #e0e0e0;
+}
+
+.continueButton {
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+}
+
+.continueButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.5);
+}
+
+/* WHY Section */
+.whySection {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(103, 58, 183, 0.1));
+  border-radius: 15px;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.whySection h3 {
+  color: #9C27B0;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.whySection p {
+  color: #e0e0e0;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.whyCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.whyCard {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(156, 39, 176, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.whyCard:hover:not(.answered) {
+  transform: translateY(-3px);
+  border-color: #9C27B0;
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.3);
+}
+
+.whyCard.answered {
+  background: linear-gradient(135deg, rgba(156, 39, 176, 0.3), rgba(103, 58, 183, 0.2));
+  border-color: #9C27B0;
+  cursor: default;
+  animation: cardAnswer 0.5s ease-in-out;
+}
+
+@keyframes cardAnswer {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.whyQuestion {
+  color: #e0e0e0;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.whyAnswer {
+  color: #d1c4e9;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  animation: answerReveal 0.5s ease-in-out;
+}
+
+@keyframes answerReveal {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.whyPoints {
+  color: #FFD700;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Completion Page */
+.completePage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a0d2e 0%, #2d1b69 50%, #6a1b9a 100%);
+}
+
+.congratsOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.congratsModal {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid #9C27B0;
+}
+
+.congratsModal h2 {
+  color: #9C27B0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.congratsModal p {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.congratsModal .btn-primary {
+  background: linear-gradient(135deg, #9C27B0, #673AB7);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.congratsModal .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+}
+
+.congratsModal .coffee-link {
+  color: #FFD700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.congratsModal .coffee-link:hover {
+  color: #FFF;
+}
+
+/* Torch Challenge Specific Styles */
+
+/* Progress Bar for Torch Lighting */
+.progressBar {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 12px;
+  border: 2px solid rgba(255, 152, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.progressLabel {
+  color: #FF9800;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.progressTrack {
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF5722, #FF9800, #FFC107);
+  border-radius: 10px;
+  transition: width 0.8s ease;
+  position: relative;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: torchShimmer 2s infinite;
+}
+
+@keyframes torchShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progressText {
+  color: #FF9800;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Torch Preview in Intro */
+.torchPreview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.torchPreviewItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 152, 0, 0.1);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.torchPreviewItem:hover {
+  background: rgba(255, 152, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.torchIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 2px 4px rgba(255, 152, 0, 0.5));
+}
+
+.torchLabel {
+  color: #FF9800;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Challenge Section Updates */
+.challengeHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 87, 34, 0.2));
+  border-radius: 12px;
+  border: 2px solid rgba(255, 152, 0, 0.4);
+}
+
+.challengeHeader h3 {
+  color: #FF9800;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.torchStatus {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 152, 0, 0.2);
+  border: 1px solid #FF9800;
+  border-radius: 20px;
+  color: #FF9800;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Scenario Display */
+.scenario {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(63, 81, 181, 0.15), rgba(156, 39, 176, 0.15));
+  border-radius: 12px;
+  border: 2px solid rgba(156, 39, 176, 0.3);
+}
+
+.scenarioTitle {
+  color: #9C27B0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.scenario h4 {
+  color: #e0e0e0;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+.scenario p {
+  color: #b0b0b0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Affirmation Prompt */
+.affirmationPrompt {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.promptTitle {
+  color: #FF9800;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Affirmation Buttons */
+.affirmations {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.affirmationButton {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(156, 39, 176, 0.3);
+  border-radius: 12px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.affirmationButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);
+  border-color: rgba(156, 39, 176, 0.6);
+}
+
+.affirmationButton.best {
+  border-color: rgba(76, 175, 80, 0.6);
+}
+
+.affirmationButton.best:hover {
+  border-color: rgba(76, 175, 80, 0.8);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.affirmationButton.mediocre {
+  border-color: rgba(255, 152, 0, 0.6);
+}
+
+.affirmationButton.mediocre:hover {
+  border-color: rgba(255, 152, 0, 0.8);
+  box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+}
+
+.affirmationButton.weak {
+  border-color: rgba(244, 67, 54, 0.6);
+}
+
+.affirmationButton.weak:hover {
+  border-color: rgba(244, 67, 54, 0.8);
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+}
+
+.affirmationButton.selected {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(156, 39, 176, 0.6);
+  border-width: 3px;
+}
+
+.affirmationText {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+/* Feedback Display */
+.affirmationFeedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  border-radius: 8px;
+  border-top: 3px solid #9C27B0;
+  animation: feedbackSlideIn 0.5s ease-out;
+}
+
+@keyframes feedbackSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedbackText {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.torchLit {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 4px rgba(76, 175, 80, 0.5);
+  animation: torchFlame 1s ease-in-out;
+}
+
+@keyframes torchFlame {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 2px 4px rgba(76, 175, 80, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 4px 8px rgba(76, 175, 80, 0.8);
+  }
+}
+
+.torchNotLit {
+  color: #FF5722;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Wisdom Quote */
+.wisdomQuote {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(255, 152, 0, 0.15));
+  border-left: 4px solid #FFC107;
+  border-radius: 8px;
+  color: #e0e0e0;
+  font-style: italic;
+}
+
+.wisdomQuote strong {
+  color: #FFC107;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.wisdomQuote p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Completion Message */
+.completionMessage {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(67, 160, 71, 0.2));
+  border-radius: 10px;
+  border: 2px solid rgba(76, 175, 80, 0.4);
+}
+
+.completionMessage p {
+  color: #4CAF50;
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Enhanced Responsive Design */
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .gameContainer {
+    max-width: 1400px;
+    padding: 2rem;
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1399px) and (min-width: 1024px) {
+  .gameContainer {
+    padding: 1.5rem;
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Tablet Large */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .gameContainer {
+    padding: 1rem;
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Tablet Portrait & Mobile Large */
+@media (max-width: 768px) and (min-width: 481px) {
+  .gameContainer {
+    padding: clamp(0.75rem, 2vw, 1rem);
+    border-radius: clamp(8px, 2vw, 12px);
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .crystal {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    min-height: clamp(120px, 20vh, 150px);
+  }
+  
+  .crystalEmoji {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+  }
+  
+  .choices {
+    gap: 0.75rem;
+  }
+  
+  .choiceButton {
+    padding: clamp(0.75rem, 2vw, 1rem);
+    min-height: clamp(60px, 12vh, 80px);
+  }
+  
+  .scoreBoard {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 480px) {
+  .gameContainer {
+    padding: 0.5rem;
+    border-radius: 8px;
+    min-height: calc(100vh - 1rem);
+  }
+  
+  .heroImg {
+    width: clamp(100px, 25vw, 120px);
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .crystal {
+    padding: 0.75rem;
+    min-height: 100px;
+  }
+  
+  .crystalEmoji {
+    font-size: 1.5rem;
+  }
+  
+  .choiceButton {
+    padding: 0.75rem;
+    min-height: 60px;
+    font-size: 0.9rem;
+  }
+  
+  .choiceText {
+    font-size: 0.9rem;
+  }
+  
+  .scoreBoard {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .scoreBoard span {
+    font-size: 0.9rem;
+  }
+  
+  .whyCards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .whyCard {
+    padding: 1rem;
+    min-height: 100px;
+  }
+  
+  .torchPreview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .torchPreviewItem {
+    padding: 0.75rem;
+  }
+  
+  .affirmationButton {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .affirmationText {
+    font-size: 0.9rem;
+  }
+  
+  .scenario {
+    padding: 1rem;
+  }
+  
+  .scenario h4 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 360px) {
+  .gameContainer {
+    padding: 0.25rem;
+    min-height: calc(100vh - 0.5rem);
+  }
+  
+  .header {
+    padding: 0.5rem;
+  }
+  
+  .heroImg {
+    width: 90px;
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .crystal {
+    padding: 0.5rem;
+    min-height: 80px;
+  }
+  
+  .crystalEmoji {
+    font-size: 1.2rem;
+  }
+  
+  .choiceButton {
+    padding: 0.5rem;
+    min-height: 50px;
+    font-size: 0.8rem;
+  }
+  
+  .choiceText {
+    font-size: 0.8rem;
+  }
+  
+  .torchPreview {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .gameContainer {
+    min-height: auto;
+    padding: 0.5rem;
+  }
+  
+  .header {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .heroImg {
+    width: 80px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .crystalGrid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .crystal {
+    padding: 0.5rem;
+    min-height: 60px;
+  }
+  
+  .scoreBoard {
+    padding: 0.5rem;
+  }
+}
+
+/* Touch and hover improvements */
+@media (hover: hover) {
+  .crystal:hover,
+  .choiceButton:hover,
+  .affirmationButton:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (hover: none) {
+  .crystal:active,
+  .choiceButton:active,
+  .affirmationButton:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .heroImg,
+  .crystal {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .gameContainer,
+  .gameContainer > *,
+  .gameContainer * {
+    transition-duration: 0.01ms !important;
+  }
+}

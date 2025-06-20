@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="brand">
           <img
             src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-            alt="Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones."
+            alt="BadhoHero fox mascot - your companion for defeating laziness"
             className="brand-logo"
           />
-          <span>&copy; {year} StrawberryTech</span>
+          <span>&copy; {year} BadhoHero</span>
         </div>
         <nav className="footer-links">
           <Link href="/privacy">Privacy Policy</Link>
@@ -20,7 +20,7 @@ export default function Footer() {
         </nav>
         <a
           className="coffee-link"
-          href="https://coff.ee/strawberrytech"
+          href="https://coff.ee/badhohero"
           target="_blank"
           rel="noopener noreferrer"
         >

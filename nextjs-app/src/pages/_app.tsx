@@ -14,14 +14,14 @@ import ScrollToTop from '../components/ScrollToTop'
 import '../styles/index.css'
 import '../styles/App.css'
 import '../styles/globals.css'
+import '../styles/GlobalResponsive.css'
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  const description =
-    'Play StrawberryTech mini games to practice AI communication skills.'
+export default function MyApp({ Component, pageProps }: AppProps) {  const description =
+    'Transform laziness into action with BadhoHero\'s momentum-building games and Lead India program support.'
   return (
     <>
       <Head>
-        <title>StrawberryTech - Master AI Prompting Through Games</title>
+        <title>BadhoHero - Overcome Laziness Through Action</title>
         <meta name="description" content={description} />        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#ee3a57" />
         
@@ -48,28 +48,24 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         
         {/* Safari pinned tab */}
         <link rel="mask-icon" href="/favicon.svg" color="#ee3a57" />        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="StrawberryTech - Master AI Prompting Through Games" />
+        <meta property="og:type" content="website" />        <meta property="og:title" content="BadhoHero - Overcome Laziness Through Action" />
         <meta property="og:description" content={description} />
-        <meta property="og:site_name" content="StrawberryTech" />        <meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
+        <meta property="og:site_name" content="BadhoHero" /><meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
         <meta property="og:image:width" content="1024" />
-        <meta property="og:image:height" content="1024" />
-        <meta property="og:image:alt" content="StrawberryTech - Learn AI Prompting Skills" />
-        <meta property="og:url" content="https://strawberry-tech.vercel.app/" />
+        <meta property="og:image:height" content="1024" />        <meta property="og:image:alt" content="BadhoHero - Transform Laziness Into Action" />
+        <meta property="og:url" content="https://badhohero.vercel.app/" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@strawberrytech" />
-        <meta name="twitter:creator" content="@strawberrytech" />
-        <meta name="twitter:title" content="StrawberryTech - Master AI Prompting Through Games" />
-        <meta name="twitter:description" content={description} />        <meta name="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
-        <meta name="twitter:image:alt" content="StrawberryTech - Learn AI Prompting Skills" />
+        <meta name="twitter:card" content="summary_large_image" />        <meta name="twitter:site" content="@badhohero" />
+        <meta name="twitter:creator" content="@badhohero" />
+        <meta name="twitter:title" content="BadhoHero - Overcome Laziness Through Action" />
+        <meta name="twitter:description" content={description} />        <meta name="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />        <meta name="twitter:image:alt" content="BadhoHero - Transform Laziness Into Action" />
         
         {/* Additional meta tags for better social sharing */}
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="StrawberryTech" />
-        <meta name="keywords" content="AI prompting, artificial intelligence, learning games, prompt engineering, AI skills, interactive learning" /></Head>
+        <meta name="author" content="BadhoHero" />
+        <meta name="keywords" content="overcome laziness, motivation, personal development, habit building, procrastination help, Lead India, action games, momentum building" /></Head>
       <ThemeProvider theme={badhoTheme}>
         <NotificationProvider>
           <UserProvider>

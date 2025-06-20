@@ -176,9 +176,8 @@ export default function QuizGame() {
             'https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_51_28%20PM.png',
         }}
       />
-        <HeadTag>
-        <title>Hallucinations Quiz - StrawberryTech</title>
-        <meta property="og:title" content="Hallucinations Quiz - StrawberryTech" />
+        <HeadTag>        <title>Hallucinations Quiz - BadhoHero</title>
+        <meta property="og:title" content="Hallucinations Quiz - BadhoHero" />
         <meta
           property="og:description"
           content="Spot the single AI hallucination hidden among truthful statements."
@@ -192,7 +191,7 @@ export default function QuizGame() {
           content="https://strawberry-tech.vercel.app/games/quiz"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Hallucinations Quiz - StrawberryTech" />
+        <meta name="twitter:title" content="Hallucinations Quiz - BadhoHero" />
         <meta
           name="twitter:description"
           content="Spot the single AI hallucination hidden among truthful statements."
@@ -313,7 +312,7 @@ export default function QuizGame() {
 export function Head() {
   return (
     <>
-      <title>Hallucination Quiz | StrawberryTech</title>
+      <title>Hallucination Quiz | BadhoHero</title>
       <meta
         name="description"
         content="Spot the AI's false statement among the truths."

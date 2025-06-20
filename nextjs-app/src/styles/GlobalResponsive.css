@@ -1,0 +1,382 @@
+/* 
+ * GlobalResponsive.css
+ * Global responsive utilities and CSS custom properties for BadhoHero
+ * Include this in _app.tsx for app-wide responsive behavior
+ */
+
+/* CSS Custom Properties for responsive design */
+:root {
+  /* Responsive spacing scale */
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 3vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 4vw, 2rem);
+  --space-xl: clamp(2rem, 5vw, 3rem);
+  
+  /* Responsive font sizes */
+  --font-xs: clamp(0.75rem, 2vw, 0.875rem);
+  --font-sm: clamp(0.875rem, 2.5vw, 1rem);
+  --font-md: clamp(1rem, 2.5vw, 1.125rem);
+  --font-lg: clamp(1.125rem, 3vw, 1.25rem);
+  --font-xl: clamp(1.25rem, 4vw, 1.5rem);
+  --font-2xl: clamp(1.5rem, 5vw, 2rem);
+  --font-3xl: clamp(2rem, 6vw, 2.5rem);
+  
+  /* Responsive border radius */
+  --radius-sm: clamp(4px, 1vw, 6px);
+  --radius-md: clamp(6px, 2vw, 12px);
+  --radius-lg: clamp(12px, 3vw, 20px);
+  
+  /* Responsive shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
+  
+  /* Responsive breakpoints as custom properties */
+  --bp-mobile: 480px;
+  --bp-tablet: 768px;
+  --bp-laptop: 1024px;
+  --bp-desktop: 1200px;
+  --bp-wide: 1400px;
+  
+  /* Game-specific color variables */
+  --color-brand: #ee3a57;
+  --color-accent: #6dbf4d;
+  --color-orange: #ff6b35;
+  --color-success: #4caf50;
+  --color-warning: #ff9800;
+  --color-error: #f44336;
+  --color-info: #2196f3;
+  
+  /* Background gradients */
+  --bg-gradient-primary: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --bg-gradient-success: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  --bg-gradient-brand: linear-gradient(135deg, #ee3a57 0%, #c62d42 100%);
+}
+
+/* Global responsive typography */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Global responsive body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global responsive container */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
+}
+
+/* Global responsive utility classes */
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+.responsive-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+/* Responsive flexbox utilities */
+.flex-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.flex-responsive > * {
+  flex: 1 1 auto;
+  min-width: min(250px, 100%);
+}
+
+/* Global responsive button styles */
+.btn-responsive {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: var(--font-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 1.4;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.btn-responsive:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-responsive:active {
+  transform: translateY(0);
+}
+
+/* Global responsive card styles */
+.card-responsive {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-responsive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Global responsive modal styles */
+.modal-responsive {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+}
+
+.modal-content-responsive {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  max-width: min(90vw, 600px);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Global responsive typography utilities */
+.text-responsive-xs { font-size: var(--font-xs); }
+.text-responsive-sm { font-size: var(--font-sm); }
+.text-responsive-md { font-size: var(--font-md); }
+.text-responsive-lg { font-size: var(--font-lg); }
+.text-responsive-xl { font-size: var(--font-xl); }
+.text-responsive-2xl { font-size: var(--font-2xl); }
+.text-responsive-3xl { font-size: var(--font-3xl); }
+
+/* Global responsive spacing utilities */
+.space-xs { margin: var(--space-xs); }
+.space-sm { margin: var(--space-sm); }
+.space-md { margin: var(--space-md); }
+.space-lg { margin: var(--space-lg); }
+.space-xl { margin: var(--space-xl); }
+
+.space-t-xs { margin-top: var(--space-xs); }
+.space-t-sm { margin-top: var(--space-sm); }
+.space-t-md { margin-top: var(--space-md); }
+.space-t-lg { margin-top: var(--space-lg); }
+.space-t-xl { margin-top: var(--space-xl); }
+
+.space-b-xs { margin-bottom: var(--space-xs); }
+.space-b-sm { margin-bottom: var(--space-sm); }
+.space-b-md { margin-bottom: var(--space-md); }
+.space-b-lg { margin-bottom: var(--space-lg); }
+.space-b-xl { margin-bottom: var(--space-xl); }
+
+.padding-xs { padding: var(--space-xs); }
+.padding-sm { padding: var(--space-sm); }
+.padding-md { padding: var(--space-md); }
+.padding-lg { padding: var(--space-lg); }
+.padding-xl { padding: var(--space-xl); }
+
+/* Global responsive visibility utilities */
+@media (max-width: 480px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+}
+
+@media (min-width: 481px) {
+  .show-mobile { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .hide-tablet { display: none !important; }
+  .show-tablet { display: block !important; }
+}
+
+@media (min-width: 769px) {
+  .show-tablet { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  .hide-desktop { display: none !important; }
+}
+
+@media (min-width: 1025px) {
+  .show-desktop { display: block !important; }
+}
+
+@media (max-width: 1024px) {
+  .show-desktop { display: none !important; }
+}
+
+/* Global accessibility improvements */
+*:focus {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Global responsive scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Global touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .btn-responsive,
+  .card-responsive,
+  button,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Global high contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-responsive,
+  .card-responsive {
+    border: 2px solid;
+  }
+}
+
+/* Global dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-gradient-primary: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  }
+  
+  .card-responsive {
+    background: #2d2d2d;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .modal-content-responsive {
+    background: #2d2d2d;
+    color: white;
+  }
+}
+
+/* Global print styles */
+@media print {
+  .btn-responsive,
+  .card-responsive {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .hide-print {
+    display: none !important;
+  }
+}
+
+/* Global performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce layout shift for images */
+img[width][height] {
+  height: auto;
+}
+
+/* Global safe area support for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset {
+    padding-left: max(var(--space-sm), env(safe-area-inset-left));
+    padding-right: max(var(--space-sm), env(safe-area-inset-right));
+    padding-top: max(var(--space-sm), env(safe-area-inset-top));
+    padding-bottom: max(var(--space-sm), env(safe-area-inset-bottom));
+  }
+}

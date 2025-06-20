@@ -6,7 +6,7 @@ export default function TermsPage() {
       <h2>Terms of Service</h2>
       <img
         src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-        alt="Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones."
+        alt="Home page fox mascot welcomes players at entrance of learning arcade with pastel tones."
         className="brand-logo"
         style={{ width: '48px' }}
       />
@@ -20,10 +20,9 @@ export default function TermsPage() {
 
 export function Head() {
   return (
-    <>
-      <title>Terms of Service | StrawberryTech</title>
+    <>      <title>Terms of Service | BadhoHero</title>
       <meta name="description" content="Review the rules for using the site." />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/terms" />
+      <link rel="canonical" href="https://badhohero.vercel.app/terms" />
     </>
   )
 }

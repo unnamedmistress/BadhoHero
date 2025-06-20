@@ -85,12 +85,12 @@ export default function AgeInputForm({
 export function Head() {
   return (
     <>
-      <title>Enter Your Age | StrawberryTech</title>
+      <title>Enter Your Age | BadhoHero</title>
       <meta
         name="description"
         content="Provide your age and name to personalize the games."
       />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/age" />
+      <link rel="canonical" href="https://badhohero.vercel.app/age" />
     </>
   )
 }

@@ -293,9 +293,8 @@ export default function ClarityEscapeRoom() {
             'https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png',
         }}
       />
-        <HeadTag>
-        <title>Clarity Escape Room - StrawberryTech</title>
-        <meta property="og:title" content="Clarity Escape Room - StrawberryTech" />
+        <HeadTag>        <title>Clarity Escape Room - BadhoHero</title>
+        <meta property="og:title" content="Clarity Escape Room - BadhoHero" />
         <meta
           property="og:description"
           content="Solve prompt puzzles to break out of the clarity escape room."
@@ -309,7 +308,7 @@ export default function ClarityEscapeRoom() {
           content="https://strawberry-tech.vercel.app/games/escape"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Clarity Escape Room - StrawberryTech" />
+        <meta name="twitter:title" content="Clarity Escape Room - BadhoHero" />
         <meta
           name="twitter:description"
           content="Solve prompt puzzles to break out of the clarity escape room."
@@ -454,7 +453,7 @@ export default function ClarityEscapeRoom() {
 export function Head() {
   return (
     <>
-      <title>Clarity Escape Room | StrawberryTech</title>
+      <title>Clarity Escape Room | BadhoHero</title>
       <meta
         name="description"
         content="Enter the right prompt to unlock the door."

@@ -1,16 +1,35 @@
 import type { NextApiRequest } from 'next'
 import path from 'path'
 import fs from 'fs'
-import firestore from '../../utils/firebase'
+import { mockDb, isFirebaseAvailable } from '../../utils/mockDatabase'
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY || ''
 
-export const posts = firestore.collection('posts')
-export const prompts = firestore.collection('prompts')
-export const pairs = firestore.collection('pairs')
-export const views = firestore.collection('views')
-export const scores = firestore.collection('scores')
-export const userDoc = firestore.collection('config').doc('user')
+// Conditional Firebase imports
+let firestore: any = null
+let posts: any = null
+let prompts: any = null
+let pairs: any = null
+let views: any = null
+let scores: any = null
+let userDoc: any = null
+
+if (isFirebaseAvailable()) {
+  try {
+    firestore = require('../../utils/firebase').default
+    posts = firestore.collection('posts')
+    prompts = firestore.collection('prompts')
+    pairs = firestore.collection('pairs')
+    views = firestore.collection('views')
+    scores = firestore.collection('scores')
+    userDoc = firestore.collection('config').doc('user')
+  } catch (error) {
+    console.log('Firebase not available, using mock database')
+  }
+}
+
+// Export with fallbacks
+export { posts, prompts, pairs, views, scores, userDoc }
 
 export const DARTS_FILE = path.join(process.cwd(), 'server', 'darts.json')
 

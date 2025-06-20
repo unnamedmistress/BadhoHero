@@ -31,10 +31,10 @@ export default function SplashPage() {
   return (
     <div className={styles['splash-container']}>
       <div className={styles.overlay}>
-        <h1>Welcome to StrawberryTech! 🍓</h1>
+        <h1>Welcome to BadhoHero! 🦊</h1>
         <img
           src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-          alt="Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones."
+          alt="BadhoHero fox mascot welcomes you to start your journey of defeating laziness."
           className="hero-img"
         />
         <p>Play while you learn.</p>
@@ -64,9 +64,9 @@ export default function SplashPage() {
 export function Head() {
   return (
     <>
-      <title>Welcome | StrawberryTech</title>
+      <title>Welcome | BadhoHero</title>
       <meta name="description" content="Introduce yourself and start playing." />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/welcome" />
+      <link rel="canonical" href="https://badhohero.vercel.app/welcome" />
     </>
   )
 }

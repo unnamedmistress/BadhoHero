@@ -10,6 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const snap = await scores.get()
   const data: Record<string, any[]> = {}
-  snap.forEach(doc => (data[doc.id] = doc.data().entries || []))
+  snap.forEach((doc: { id: string; data(): { entries?: any[] } }) => (data[doc.id] = doc.data().entries || []))
   res.status(200).json(data)
 }

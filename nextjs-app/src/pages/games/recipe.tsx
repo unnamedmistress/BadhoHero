@@ -457,9 +457,8 @@ export default function PromptRecipeGame() {
             'https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png',
         }}
       />
-      <HeadTag>
-        <title>Prompt Recipe Builder - StrawberryTech</title>
-        <meta property="og:title" content="Prompt Recipe Builder - StrawberryTech" />
+      <HeadTag>        <title>Prompt Recipe Builder - BadhoHero</title>
+        <meta property="og:title" content="Prompt Recipe Builder - BadhoHero" />
         <meta
           property="og:description"
           content="Drag cards to craft clear prompts and see the AI's response."
@@ -467,13 +466,12 @@ export default function PromptRecipeGame() {
         <meta
           property="og:image"
           content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
-        />
-        <meta
+        />        <meta
           property="og:url"
-          content="https://strawberry-tech.vercel.app/games/recipe"
+          content="https://badhohero.vercel.app/games/recipe"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Prompt Recipe Builder - StrawberryTech" />
+        <meta property="twitter:title" content="Prompt Recipe Builder - BadhoHero" />
         <meta
           name="twitter:description"
           content="Drag cards to craft clear prompts and see the AI's response."
@@ -483,9 +481,8 @@ export default function PromptRecipeGame() {
           content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
         />
           <meta
-            name="twitter:url"
-            content="https://strawberry-tech.vercel.app/games/recipe"
-          />        </HeadTag>
+            name="twitter:url"            content="https://badhohero.vercel.app/games/recipe"
+          /></HeadTag>
       
       <ModernGameLayout
         gameTitle="Prompt Builder"
@@ -521,10 +518,9 @@ export default function PromptRecipeGame() {
         }
       >
       <div className={styles['recipe-wrapper']}>
-        <div className={styles['recipe-game']}>
-          <img
+        <div className={styles['recipe-game']}>          <img
             src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
-            alt="Prompt recipe builder strawberry chef tossing cards labeled Action, Context, Format, Constraints."
+            alt="Prompt recipe builder fox chef tossing cards labeled Action, Context, Format, Constraints."
             className="hero-img"
             style={{ width: '150px', display: 'inline-block' }}
           />
@@ -590,11 +586,10 @@ export default function PromptRecipeGame() {
             <div className={styles.plate}>
               <h3>Your Prompt</h3>
               <p>{promptText}</p>
-              {example && <p className={styles['sample-output']}>{example}</p>}
-              <img
+              {example && <p className={styles['sample-output']}>{example}</p>}              <img
                 className={styles['prompt-image']}
                 src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_19_23%20PM.png"
-                alt="Prompt recipe builder strawberry chef tossing cards labeled Action, Context, Format, Constraints."
+                alt="Prompt recipe builder fox chef tossing cards labeled Action, Context, Format, Constraints."
               />
               <button className={`btn-primary ${styles['copy-btn']}`} onClick={copyPrompt}>
                 Copy Prompt
@@ -615,12 +610,12 @@ export default function PromptRecipeGame() {
 export function Head() {
   return (
     <>
-      <title>Prompt Builder Game | StrawberryTech</title>
+      <title>Prompt Builder Game | BadhoHero</title>
       <meta
         name="description"
         content="Drag cards to craft the perfect AI prompt."
       />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/games/recipe" />
+      <link rel="canonical" href="https://badhohero.vercel.app/games/recipe" />
     </>
   )
 }

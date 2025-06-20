@@ -434,9 +434,8 @@ export default function PromptDartsGame() {
             'https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png',
         }}
       />
-      <HeadTag>
-        <title>Prompt Darts - StrawberryTech</title>
-        <meta property="og:title" content="Prompt Darts - StrawberryTech" />
+      <HeadTag>        <title>Focus Darts - BadhoHero</title>
+        <meta property="og:title" content="Focus Darts - BadhoHero" />
         <meta
           property="og:description"
           content="Choose the clearer prompt to hit the bullseye and earn points."
@@ -444,13 +443,12 @@ export default function PromptDartsGame() {
         <meta
           property="og:image"
           content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png"
-        />
-        <meta
+        />        <meta
           property="og:url"
-          content="https://strawberry-tech.vercel.app/games/darts"
+          content="https://badhohero.vercel.app/games/darts"
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Prompt Darts - StrawberryTech" />
+        <meta name="twitter:title" content="Focus Darts - BadhoHero" />
         <meta
           name="twitter:description"
           content="Choose the clearer prompt to hit the bullseye and earn points."
@@ -458,10 +456,9 @@ export default function PromptDartsGame() {
         <meta
           name="twitter:image"
           content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_24_00%20PM.png"
-        />
-        <meta
+        />        <meta
           name="twitter:url"
-          content="https://strawberry-tech.vercel.app/games/darts"
+          content="https://badhohero.vercel.app/games/darts"
         />
       </HeadTag>
       <ModernGameLayout
@@ -546,12 +543,12 @@ export default function PromptDartsGame() {
 export function Head() {
   return (
     <>
-      <title>Prompt Darts | StrawberryTech</title>
+      <title>Focus Darts | BadhoHero</title>
       <meta
         name="description"
         content="Choose the clearest prompt to hit the bullseye."
       />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/games/darts" />
+      <link rel="canonical" href="https://badhohero.vercel.app/games/darts" />
     </>
   )
 }

@@ -1,7 +1,6 @@
-{
-  "name": "StrawberryTech - Master AI Prompting Through Games",
-  "short_name": "StrawberryTech",
-  "description": "Play StrawberryTech mini games to practice AI communication skills.",
+{  "name": "BadhoHero - Defeat Laziness Through Action Games",
+  "short_name": "BadhoHero",
+  "description": "Play BadhoHero mini games to build momentum and overcome laziness with Lead India's principles.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

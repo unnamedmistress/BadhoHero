@@ -337,27 +337,24 @@ export default function PromptLibraryPage({ initialPrompts = [] }: { initialProm
 
 export function Head() {
   return (
-    <>
-      <title>Prompt Library | StrawberryTech</title>
-      <meta name="description" content="Discover and share powerful AI prompts for education, creativity, business, and more. Browse our curated collection of prompts to enhance your AI interactions." />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/prompt-library" />
+    <>      <title>Resource Library | BadhoHero</title>
+      <meta name="description" content="Discover and share powerful motivation resources for personal development, habit building, and overcoming laziness. Browse our curated collection supporting Lead India's program." />
+      <link rel="canonical" href="https://badhohero.vercel.app/prompt-library" />
       
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://strawberry-tech.vercel.app/prompt-library" />
-      <meta property="og:title" content="AI Prompt Library | StrawberryTech" />
-      <meta property="og:description" content="Discover and share powerful AI prompts for education, creativity, business, and more. Browse our curated collection of prompts to enhance your AI interactions." />
+      <meta property="og:type" content="website" />      <meta property="og:url" content="https://badhohero.vercel.app/prompt-library" />
+      <meta property="og:title" content="Motivation Resource Library | BadhoHero" />
+      <meta property="og:description" content="Discover and share powerful motivation resources for personal development, habit building, and overcoming laziness. Browse our curated collection supporting Lead India's program." />
       <meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
       <meta property="og:image:width" content="1024" />
-      <meta property="og:image:height" content="1024" />
-      <meta property="og:image:alt" content="StrawberryTech Prompt Library - AI Prompts Collection" />
-      <meta property="og:site_name" content="StrawberryTech" />
+      <meta property="og:image:height" content="1024" />      <meta property="og:image:alt" content="BadhoHero Prompt Library - AI Prompts Collection" />
+      <meta property="og:site_name" content="BadhoHero" />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:site" content="@strawberrytech" />
-      <meta property="twitter:url" content="https://strawberry-tech.vercel.app/prompt-library" />
-      <meta property="twitter:title" content="AI Prompt Library | StrawberryTech" />
+      <meta property="twitter:site" content="@badhohero" />
+      <meta property="twitter:url" content="https://badhohero.vercel.app/prompt-library" />
+      <meta property="twitter:title" content="AI Prompt Library | BadhoHero" />
       <meta property="twitter:description" content="Discover and share powerful AI prompts for education, creativity, business, and more." />
       <meta property="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
       

@@ -6,7 +6,7 @@ export default function NotFoundPage() {
       <h2>Page Not Found</h2>
       <img
         src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-        alt="Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones."
+        alt="Home page fox mascot welcomes players at entrance of learning arcade with pastel tones."
         className="brand-logo"
         style={{ width: '48px' }}
       />
@@ -21,7 +21,7 @@ export default function NotFoundPage() {
 export function Head() {
   return (
     <>
-      <title>Page Not Found | StrawberryTech</title>
+      <title>Page Not Found | BadhoHero</title>
       <meta name="description" content="The page you requested could not be found." />
     </>
   )

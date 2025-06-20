@@ -5,7 +5,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'GET') {
     const snap = await posts.where('status', '==', 'approved').get()
     const list: any[] = []
-    snap.forEach(doc => list.push({ id: doc.id, ...doc.data() }))
+    snap.forEach((doc: any) => list.push({ id: doc.id, ...doc.data() }))
     res.status(200).json(list)
     return
   }

@@ -116,7 +116,7 @@ export default function GoalSortGame() {
 export function Head() {
   return (
     <>
-      <title>Goal-Orb Discovery | StrawberryTech</title>
+      <title>Goal-Orb Discovery | BadhoHero</title>
       <meta name="description" content="Sort your goals to advance" />
     </>
   )

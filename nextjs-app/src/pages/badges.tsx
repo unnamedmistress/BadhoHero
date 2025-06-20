@@ -58,9 +58,8 @@ export default function BadgesPage() {
                 return badge ? `${badge.emoji} ${badge.name}` : id
               })
               .join(', ')
-            const text = earnedList
-              ? `Check out my StrawberryTech badges: ${earnedList}! Try the games at https://strawberry-tech.vercel.app/`
-              : `I'm playing StrawberryTech! Earn badges at https://strawberry-tech.vercel.app/`
+            const text = earnedList              ? `Check out my BadhoHero badges: ${earnedList}! Try the games at https://badhohero.vercel.app/`
+              : `I'm playing BadhoHero! Earn badges at https://badhohero.vercel.app/`
             if (navigator.share) {
               navigator.share({ text }).catch(() => {})
             } else {
@@ -79,10 +78,9 @@ export default function BadgesPage() {
 
 export function Head() {
   return (
-    <>
-      <title>Badges | StrawberryTech</title>
+    <>      <title>Badges | BadhoHero</title>
       <meta name="description" content="View the badges you've earned from playing." />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/badges" />
+      <link rel="canonical" href="https://badhohero.vercel.app/badges" />
     </>
   )
 }

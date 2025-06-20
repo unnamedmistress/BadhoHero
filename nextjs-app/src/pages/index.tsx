@@ -14,102 +14,104 @@ import styles from '../styles/Home.module.css'
 export default function Home() {
   const { user } = useContext(UserContext) as UserContextType
   const router = useRouter()
-  const totalPoints = getTotalPoints(user.points)
-
-  // Core games that teach AI prompting skills through interactive challenges
+  const totalPoints = getTotalPoints(user.points)  // Core games that build momentum and defeat laziness through engaging challenges
   const games = [
     {
-      id: 'intro',
-      title: 'AI Basics',
-      description: 'Discover how AI predicts the next word',
-      icon: '🤖',
-      path: '/games/intro'
+      id: 'fogland',
+      title: 'Fogland Awakening',
+      description: 'Meet your fox avatar and begin your journey by clearing the fog of laziness',
+      icon: '🌫️',
+      path: '/games/fogland'
     },
     {
-      id: 'tone',
-      title: 'Tone',
-      description: 'Master prompt tone and style through audio recognition',
-      icon: '🎵',
-      path: '/games/tone'
+      id: 'willpower',
+      title: 'Willpower Warrior',
+      description: 'Master morning routines and avoid sneaky lazy traps to build hero strength',
+      icon: '🏆',
+      path: '/games/willpower'
     },
     {
-      id: 'guess',
-      title: 'Hallucination',
-      description: 'Learn to identify AI hallucinations and fact-check responses',
-      icon: '🔍',
-      path: '/games/guess'
+      id: 'goals',
+      title: 'Goal-Orb Discovery',
+      description: 'Sort goals by priority and timeline to help your fox reach new lands',
+      icon: '🎯',
+      path: '/games/goals'
     },
     {
-      id: 'escape',
-      title: 'Escape Game Puzzle',
-      description: 'Solve complex prompting challenges to escape each room',
-      icon: '🚪',
-      path: '/games/escape'
+      id: 'time',
+      title: 'Time Tunnel Trials',
+      description: 'Pack efficiently and manage tasks in the right order to beat the fog',
+      icon: '⏰',
+      path: '/games/time'
+    },
+    {
+      id: 'confidence',
+      title: 'Confidence Cavern',
+      description: 'Light torches with your own positive affirmations and build inner strength',
+      icon: '💡',
+      path: '/games/confidence'
+    },
+    {
+      id: 'triumph',
+      title: 'Tree of Triumph',
+      description: 'Plant your earned badges and watch your efforts grow into a victory tree',
+      icon: '🌳',
+      path: '/games/triumph'
     }
   ]
   return (
     <>
-      <HeadTag>
-        <title>StrawberryTech Learning Games</title>
-        <meta property="og:title" content="StrawberryTech Learning Games" />
+      <HeadTag>        <title>BadhoHero - Overcome Laziness Through Action</title>
+        <meta property="og:title" content="BadhoHero - Overcome Laziness Through Action" />
         <meta
           property="og:description"
-          content="Play engaging games and sharpen your skills in our fruity learning arcade."
-        />
-        <meta
+          content="Transform your life with BadhoHero's engaging games designed to defeat laziness and build unstoppable momentum."
+        />        <meta
           property="og:image"
-          content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-        />
-        <meta
+          content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2002_49_45%20PM.png"
+        /><meta
           property="og:url"
-          content="https://strawberry-tech.vercel.app/"
+          content="https://badhohero.vercel.app/"
         />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="StrawberryTech Learning Games" />
+        <meta name="twitter:card" content="summary_large_image" />        <meta name="twitter:title" content="BadhoHero - Overcome Laziness Through Action" />
         <meta
           name="twitter:description"
-          content="Play engaging games and sharpen your skills in our fruity learning arcade."
-        />
-        <meta
+          content="Transform your life with BadhoHero's engaging games designed to defeat laziness and build unstoppable momentum."
+        />        <meta
           name="twitter:image"
-          content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-        />
-        <meta
+          content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2002_49_45%20PM.png"
+        /><meta
           name="twitter:url"
-          content="https://strawberry-tech.vercel.app/"
+          content="https://badhohero.vercel.app/"
         />
       </HeadTag>
       
       <div id="main-content" className={styles.home}>        {/* Modern Hero Section */}
         <header className={styles.hero}>
           <div className={styles.heroContent}>
-            <div className={styles.heroText}>
-              <h1 className={styles.title}>StrawberryTech</h1>
+            <div className={styles.heroText}>              <h1 className={styles.title}>BadhoHero</h1>
               <p className={styles.subtitle}>
-                Master AI prompting through engaging, interactive games
+                Defeat laziness and unlock your potential through action-driven challenges
               </p>
               <p className={styles.description}>
-                Learn the art and science of AI prompting with our carefully designed mini-games. 
-                Each challenge teaches you essential skills for crafting effective prompts, 
-                identifying AI limitations, and maximizing AI collaboration.
+                Break free from procrastination with our scientifically-designed mini-games. 
+                Each challenge builds momentum, creates positive habits, 
+                and transforms lazy habits into unstoppable action.
               </p>
               
               {/* Call to Action */}
-              <div className={styles.ctaContainer}>
-                <button
-                  className={styles.ctaButton}
-                  onClick={() => router.push('/games/intro')}
+              <div className={styles.ctaContainer}>                <button
+                  className={styles.ctaButton}                  onClick={() => router.push('/games/fogland')}
                 >
-                  Start Learning Prompting
+                  Start Your Transformation
                 </button>
-                <p className={styles.ctaHint}>Begin with an AI intro</p>
+                <p className={styles.ctaHint}>Begin with Fogland Awakening</p>
               </div>
             </div>
             
-            <div className={styles.heroVisual}>
-              <img
-                src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-                alt="StrawberryTech mascot"
+            <div className={styles.heroVisual}>              <img
+                src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%2018%2C%202025%2C%2002_49_45%20PM.png"
+                alt="BadhoHero fox avatar in festive orange attire, ready to begin the journey"
                 className={styles.logo}
                 width="140"
                 height="140"
@@ -118,10 +120,9 @@ export default function Home() {
           </div>
         </header>        {/* Games Section */}
         <section className={styles.gamesSection}>
-          <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Prompting Skills Training</h2>
+          <div className={styles.sectionHeader}>            <h2 className={styles.sectionTitle}>BadhoHero Journey</h2>
             <p className={styles.sectionSubtitle}>
-              Three core games designed to teach you the fundamentals of effective AI prompting
+              Six engaging games that teach you to defeat laziness and build unstoppable momentum through your fox avatar's adventure
             </p>
           </div>
           
@@ -185,12 +186,11 @@ export default function Home() {
 export function Head() {
   return (
     <>
-      <title>StrawberryTech Games</title>
-      <meta
+      <title>BadhoHero Games</title>      <meta
         name="description"
-        content="Explore mini games that teach AI prompting techniques."
+        content="Transform laziness into action with BadhoHero's engaging momentum-building games."
       />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/" />
+      <link rel="canonical" href="https://badhohero.vercel.app/" />
     </>
   )
 }

@@ -1,0 +1,385 @@
+/* 
+ * ResponsiveGameBase.module.css
+ * Comprehensive responsive utilities for all BadhoHero games
+ * Import this in your game CSS files for consistent responsive behavior
+ */
+
+/* Core responsive container that all games should use */
+.gameContainer {
+  padding: clamp(0.5rem, 2vw, 1rem);
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: clamp(10px, 2vw, 15px);
+  min-height: clamp(400px, 50vh, 600px);
+  position: relative;
+  overflow: hidden;
+  background: var(--game-bg, linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive header styling */
+.header {
+  text-align: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  position: relative;
+  z-index: 1;
+}
+
+.heroImg {
+  width: clamp(100px, 15vw, 160px);
+  height: auto;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: heroFloat 4s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { 
+    transform: translateY(0);
+  }
+  50% { 
+    transform: translateY(-8px);
+  }
+}
+
+.header h2 {
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.5rem);
+  line-height: 1.2;
+}
+
+.header p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  line-height: 1.4;
+}
+
+/* Responsive score board */
+.scoreBoard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  margin-top: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: clamp(6px, 1.5vw, 10px);
+  backdrop-filter: blur(10px);
+  justify-items: center;
+}
+
+.scoreBoard span {
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  white-space: nowrap;
+}
+
+/* Responsive grid layouts */
+.gameGrid {
+  display: grid;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* 2-column responsive grid */
+.gameGrid.cols2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+}
+
+/* 3-column responsive grid */
+.gameGrid.cols3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+
+/* 4-column responsive grid */
+.gameGrid.cols4 {
+  grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+}
+
+/* Responsive card components */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: clamp(8px, 2vw, 12px);
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive buttons */
+.button {
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  border-radius: clamp(6px, 1.5vw, 8px);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  min-height: 44px; /* Minimum touch target */
+  min-width: 44px;
+  line-height: 1.4;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.buttonLarge {
+  padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  min-height: 48px;
+}
+
+/* Responsive form elements */
+.input {
+  padding: clamp(0.5rem, 2vw, 0.75rem);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  border-radius: clamp(6px, 1.5vw, 8px);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-height: 44px;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-brand, #007bff);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Responsive modal/popup */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: clamp(1rem, 5vw, 2rem);
+}
+
+.modalContent {
+  background: white;
+  border-radius: clamp(12px, 3vw, 20px);
+  padding: clamp(1rem, 4vw, 2rem);
+  max-width: min(90vw, 600px);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive spacing utilities */
+.spacing {
+  margin: clamp(0.5rem, 2vw, 1rem);
+}
+
+.spacingLarge {
+  margin: clamp(1rem, 4vw, 2rem);
+}
+
+.spacingSmall {
+  margin: clamp(0.25rem, 1vw, 0.5rem);
+}
+
+/* Progress indicators */
+.progressContainer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: clamp(10px, 2vw, 20px);
+  padding: clamp(2px, 0.5vw, 4px);
+  margin: clamp(0.5rem, 2vw, 1rem) 0;
+}
+
+.progressBar {
+  height: clamp(6px, 1.5vw, 12px);
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  border-radius: clamp(8px, 2vw, 16px);
+  transition: width 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive typography */
+.textLarge {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  line-height: 1.4;
+}
+
+.textMedium {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.5;
+}
+
+.textSmall {
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  line-height: 1.4;
+}
+
+/* Animation utilities */
+.fadeIn {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slideInUp {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.bounceIn {
+  animation: bounceIn 0.8s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Focus and accessibility improvements */
+.focusRing:focus {
+  outline: 2px solid var(--color-brand, #007bff);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid;
+  }
+  
+  .button {
+    border: 2px solid;
+  }
+}
+
+/* Reduced motion support */
+/* Note: Reduced motion preferences should be handled globally via GlobalResponsive.css */
+@media (prefers-reduced-motion: reduce) {
+  .gameContainer,
+  .gameContainer *:where(.animated, .transition, .hover-effect) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .gameContainer {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .button {
+    border: 1px solid #000;
+  }
+}
+
+/* Specific breakpoint utilities */
+@media (max-width: 480px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+  
+  .mobileOnly {
+    display: block !important;
+  }
+  
+  .gameContainer {
+    border-radius: 0;
+    min-height: calc(100vh - 1rem);
+  }
+}
+
+@media (min-width: 481px) {
+  .mobileOnly {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hideOnTablet {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktopOnly {
+    display: block !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .desktopOnly {
+    display: none !important;
+  }
+}

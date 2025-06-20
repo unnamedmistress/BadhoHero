@@ -28,9 +28,9 @@ export default function LeaderboardPage() {
 export function Head() {
   return (
     <>
-      <title>Leaderboard | StrawberryTech</title>
+      <title>Leaderboard | BadhoHero</title>
       <meta name="description" content="See top points across all games." />
-      <link rel="canonical" href="https://strawberrytech.vercel.com/community" />
+      <link rel="canonical" href="https://badhohero.vercel.com/community" />
     </>
   )
 }

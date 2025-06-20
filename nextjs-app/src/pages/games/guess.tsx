@@ -374,7 +374,7 @@ export default function PromptGuessEscape() {
 export function Head() {
   return (
     <>
-      <title>Guess the Prompt Game | StrawberryTech</title>
+      <title>Guess the Prompt Game | BadhoHero</title>
       <meta
         name="description"
         content="Deduce the prompt from the AI's reply before time runs out."

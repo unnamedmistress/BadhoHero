@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const STORAGE_KEY = 'strawberrytech_contrast'
+const STORAGE_KEY = 'badhohero_contrast'
 
 export default function ThemeToggle() {
   const [enabled, setEnabled] = useState(() => {

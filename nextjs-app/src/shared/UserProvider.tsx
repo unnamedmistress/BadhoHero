@@ -6,7 +6,7 @@ import { UserContext, defaultUser } from './UserContext'
 import { getApiBase } from './getApiBase'
 import { getAgeGroup } from './getAgeGroup'
 
-const STORAGE_KEY = 'strawberrytech_user'
+const STORAGE_KEY = 'badhohero_user'
 
 export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserData>(() => {

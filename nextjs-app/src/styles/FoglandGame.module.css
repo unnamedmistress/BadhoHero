@@ -1,0 +1,566 @@
+/* Enhanced Fogland Awakening Game Styles - Lead India 2020 Edition */
+.gameContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #e0f2fe 100%);
+  padding: 1rem;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+.gameHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gameTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gameSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.progressSection {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 400px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.score {
+  color: #fbbf24;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.cleared {
+  color: #10b981;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Fox Guide */
+.foxGuide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.foxMentor {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: transform 0.3s ease;
+}
+
+.foxConfident {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.foxSpeech {
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 250px;
+  font-weight: 500;
+  color: #1e293b;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.foxSpeech::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid white;
+}
+
+/* Fog Grid */
+.fogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.fogTile {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #1e293b;
+}
+
+.fogTile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: #ee3a57;
+}
+
+.foggyTile {
+  opacity: 0.8;
+  filter: blur(0.5px);
+  color: #64748b;
+}
+
+.tapHint {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.fogIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #64748b;
+}
+
+.clearedTile {
+  color: #059669;
+}
+
+.wisdom {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.tileTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.introModal,
+.instructionsModal,
+.encouragementModal,
+.reflectionModal,
+.challengeModal,
+.feedbackModal,
+.whyCardModal {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.foxAvatar {
+  margin-bottom: 1rem;
+}
+
+.foxImage,
+.foxImageCheer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #ee3a57;
+}
+
+.foxImageCheer {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.introTitle,
+.instructionsTitle,
+.encouragementTitle,
+.reflectionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.introText,
+.encouragementText {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.instructionsList {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.instructionsList p {
+  margin: 0.75rem 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.mentorQuote {
+  font-style: italic;
+  color: #059669;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f0fdf4;
+  border-left: 4px solid #059669;
+  border-radius: 8px;
+}
+
+.continueButton {
+  background: linear-gradient(90deg, #ee3a57, #dc2626);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(238, 58, 87, 0.3);
+}
+
+.continueButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(238, 58, 87, 0.4);
+}
+
+/* Challenge Modal */
+.challengeTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.questionText {
+  font-size: 1.1rem;
+  color: #374151;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.hintText {
+  font-size: 0.9rem;
+  color: #059669;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background: #f0fdf4;
+  border-radius: 8px;
+}
+
+.answersGrid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.answerButton {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.answerButton:hover {
+  border-color: #ee3a57;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.answerButton.selected {
+  border-color: #ee3a57;
+  background: #fee2e2;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.cancelButton {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Feedback Modal */
+.feedbackTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.feedbackText {
+  color: #374151;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Why Card Modal */
+.whyCardModal {
+  max-width: 600px;
+}
+
+.whyCardContent {
+  margin-bottom: 1.5rem;
+}
+
+.whyCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 1rem;
+}
+
+.whyCardExplanation {
+  font-size: 1rem;
+  color: #374151;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.bookQuote {
+  background: #f0fdf4;
+  border-left: 4px solid #059669;
+  padding: 1rem;
+  border-radius: 8px;
+  font-style: italic;
+  color: #065f46;
+  margin: 1rem 0;
+}
+
+.bookQuote footer {
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Reflection Modal */
+.collectedCardsSection {
+  margin: 1.5rem 0;
+}
+
+.collectedCardsSection h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.cardsGrid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.miniCard {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.miniCard strong {
+  color: #059669;
+  font-size: 0.9rem;
+}
+
+.miniCard p {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0.25rem 0 0 0;
+  font-style: italic;
+}
+
+.reflectionInput {
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.reflectionInput label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.reflectionTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.reflectionTextarea:focus {
+  outline: none;
+  border-color: #ee3a57;
+}
+
+.bookCredit {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.gameFooter {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.gameFooter .bookCredit {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gameTitle {
+    font-size: 2rem;
+  }
+  
+  .fogGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .fogTile {
+    padding: 1rem;
+    min-height: 120px;
+  }
+  
+  .foxGuide {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .foxSpeech::before {
+    display: none;
+  }
+  
+  .foxMentor {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .introModal,
+  .instructionsModal,
+  .encouragementModal,
+  .reflectionModal,
+  .challengeModal,
+  .feedbackModal,
+  .whyCardModal {
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameContainer {
+    padding: 0.5rem;
+  }
+  
+  .gameTitle {
+    font-size: 1.5rem;
+  }
+  
+  .fogGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  
+  .fogTile {
+    padding: 0.75rem;
+    min-height: 100px;
+  }
+}

@@ -17,13 +17,12 @@ const navItems: NavItem[] = [
     label: 'Games',
     icon: '🎮',
     children: [
-      { label: 'AI Basics', href: '/games/intro', icon: '🤖' },
-      { label: 'Tone Game', href: '/games/tone', icon: '🎭' },
-      { label: 'Hallucination Quiz', href: '/games/quiz', icon: '🧠' },
-      { label: 'Escape Room', href: '/games/escape', icon: '🚪' },
-      { label: 'Prompt Builder', href: '/games/recipe', icon: '📝' },
-      { label: 'Prompt Darts', href: '/games/darts', icon: '🎯' },
-      { label: 'Prompt Chain', href: '/games/chain', icon: '🔗' },
+      { label: 'Fogland Awakening', href: '/games/fogland', icon: '🌫️' },
+      { label: 'Willpower Warrior', href: '/games/willpower', icon: '🏆' },
+      { label: 'Goal-Orb Discovery', href: '/games/goals', icon: '🎯' },
+      { label: 'Time Tunnel Trials', href: '/games/time', icon: '⏰' },
+      { label: 'Confidence Cavern', href: '/games/confidence', icon: '�' },
+      { label: 'Tree of Triumph', href: '/games/triumph', icon: '🌳' },
     ],
   },
   {
@@ -31,7 +30,7 @@ const navItems: NavItem[] = [
     icon: '📊',
     children: [
       { label: 'Community & Progress', href: '/community', icon: '👥' },
-      { label: 'Badges', href: '/badges', icon: '🏆' },
+      { label: 'Achievements', href: '/badges', icon: '🏆' },
     ],
   },
   {
@@ -43,11 +42,11 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: 'Community',
-    icon: '🌟',
+    label: 'Lead India',
+    icon: '🇮�',
     children: [
-      { label: 'Community Home', href: '/community', icon: '🏘️' },
-      { label: 'Prompt Library', href: '/prompt-library', icon: '📚' },
+      { label: 'Program Overview', href: '/community', icon: '🏘️' },
+      { label: 'Resource Library', href: '/prompt-library', icon: '📚' },
     ],
   },
 ]
@@ -139,15 +138,14 @@ export default function ModernNavBar() {
       <div className={styles.navContainer}>        {/* Brand */}
         <Link href="/" className={styles.brand} onClick={handleLinkClick}>
           <Image
-            src="/favicon-32x32.png"
-            alt="StrawberryTech Logo"
+            src="/favicon-32x32.png"            alt="BadhoHero Logo"
             width={40}
             height={40}
             className={styles.brandLogo}
             priority
             unoptimized
           />
-          <span className={styles.brandText}>StrawberryTech</span>
+          <span className={styles.brandText}>BadhoHero</span>
         </Link>
 
         {/* Desktop Navigation */}

@@ -35,10 +35,10 @@ export default function NavBar() {
       <div className="brand">
         <img
           src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-          alt="Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones."
+          alt="BadhoHero fox mascot - your companion for defeating laziness"
           className="brand-logo"
         />
-        StrawberryTech
+        BadhoHero
       </div>
       <button
         className="menu-toggle"
@@ -66,53 +66,45 @@ export default function NavBar() {
             }}
           >
             Games
-          </button>
-          <ul id="games-submenu" className={gamesOpen ? 'open' : undefined}>
+          </button>          <ul id="games-submenu" className={gamesOpen ? 'open' : undefined}>
             <li>
-              <Tooltip message="Hover here for a surprise!">
-                <Link href="/games/intro" onClick={() => setOpen(false)}>
-                  AI Basics
+              <Tooltip message="Clear the fog of laziness!">
+                <Link href="/games/fogland" onClick={() => setOpen(false)}>
+                  Fogland Awakening
                 </Link>
               </Tooltip>
             </li>
             <li>
-              <Tooltip message="Hover here for a surprise!">
-                <Link href="/games/tone" onClick={() => setOpen(false)}>
-                  Tone
+              <Tooltip message="Master your morning routine!">
+                <Link href="/games/willpower" onClick={() => setOpen(false)}>
+                  Willpower Warrior
                 </Link>
               </Tooltip>
             </li>
             <li>
-              <Tooltip message="Hover here for a surprise!">
-                <Link href="/games/quiz" onClick={() => setOpen(false)}>
-                  Hallucinations
+              <Tooltip message="Discover your true goals!">
+                <Link href="/games/goals" onClick={() => setOpen(false)}>
+                  Goal-Orb Discovery
+                </Link>
+              </Tooltip>            </li>
+            <li>
+              <Tooltip message="Master time management!">
+                <Link href="/games/time" onClick={() => setOpen(false)}>
+                  Time Tunnel Trials
                 </Link>
               </Tooltip>
             </li>
             <li>
-              <Tooltip message="Hover here for a surprise!">
-                <Link href="/games/escape" onClick={() => setOpen(false)}>
-                  Escape Room
+              <Tooltip message="Build unshakeable confidence!">
+                <Link href="/games/confidence" onClick={() => setOpen(false)}>
+                  Confidence Cavern
                 </Link>
               </Tooltip>
             </li>
             <li>
-              <Tooltip message="Hover here for a surprise!">
-                <Link href="/games/recipe" onClick={() => setOpen(false)}>
-                  Prompt Builder
-                </Link>
-              </Tooltip>
-            </li>
-            <li>
-              <Tooltip message="Hover here for a surprise!">
-                <Link href="/games/darts" onClick={() => setOpen(false)}>
-                  Prompt Darts
-                </Link>
-              </Tooltip>
-            </li>
-            <li>
-              <Tooltip message="Hover here for a surprise!">                <Link href="/games/chain" onClick={() => setOpen(false)}>
-                  Prompt Chain
+              <Tooltip message="Celebrate your heroic journey!">
+                <Link href="/games/triumph" onClick={() => setOpen(false)}>
+                  Tree of Triumph
                 </Link>
               </Tooltip>
             </li>

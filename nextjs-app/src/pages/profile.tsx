@@ -129,7 +129,7 @@ export default function ProfilePage() {
 export function Head() {
   return (
     <>
-      <title>Your Profile | StrawberryTech</title>
+      <title>Your Profile | BadhoHero</title>
       <meta name="description" content="Edit your name, age and difficulty level." />
       <link rel="canonical" href="https://strawberry-tech.vercel.app/profile" />
     </>

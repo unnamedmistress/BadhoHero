@@ -36,7 +36,7 @@ export default function ComposeTweetGame() {
 export function Head() {
   return (
     <>
-      <title>Compose Tweet Game | StrawberryTech</title>
+      <title>Compose Tweet Game | BadhoHero</title>
       <meta
         name="description"
         content="Compose Tweet Game - Coming Soon"

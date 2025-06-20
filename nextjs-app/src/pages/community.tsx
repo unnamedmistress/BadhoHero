@@ -10,6 +10,15 @@ import styles from '../styles/CommunityPage.module.css'
 import { getApiBase } from '../utils/api'
 
 const STORAGE_KEY = 'community_posts'
+const LEADERBOARD_STORAGE_KEY = 'badhohero_leaderboard'
+
+interface LeaderboardEntry {
+  id: string
+  name: string
+  points: Record<string, number>
+  badges: string[]
+  totalPoints?: number
+}
 
 const initialPosts: PostData[] = [
   {
@@ -22,6 +31,8 @@ const initialPosts: PostData[] = [
   },
 ]
 
+const gameNames = ['fogland', 'willpower', 'goals', 'time', 'confidence', 'triumph']
+
 export default function CommunityPage() {
   const { user } = useContext(UserContext) as UserContextType
   
@@ -31,8 +42,12 @@ export default function CommunityPage() {
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
   
+  // Leaderboard state
+  const [players, setPlayers] = useState<LeaderboardEntry[]>([])
+  const [selectedGame, setSelectedGame] = useState('all')
+  const [searchTerm, setSearchTerm] = useState('')
+  
   const totalPoints = useMemo(() => getTotalPoints(user.points), [user.points])
-
   // Load from localStorage after mount to prevent hydration issues
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY)
@@ -43,7 +58,81 @@ export default function CommunityPage() {
         setPosts(initialPosts)
       }
     }
-  }, [])
+
+    // Load leaderboard data
+    const savedLeaderboard = localStorage.getItem(LEADERBOARD_STORAGE_KEY)
+    if (savedLeaderboard) {
+      try {        const leaderboardData = JSON.parse(savedLeaderboard) as LeaderboardEntry[]
+        // Add current user if not in leaderboard
+        const currentUserInLeaderboard = leaderboardData.find(p => p.id === user.id)
+        if (!currentUserInLeaderboard) {
+          const userEntry: LeaderboardEntry = {
+            id: user.id,
+            name: user.name || 'Anonymous',
+            points: user.points,
+            badges: user.badges,
+            totalPoints: getTotalPoints(user.points)
+          }
+          leaderboardData.push(userEntry)
+        } else {
+          // Update current user's data
+          currentUserInLeaderboard.points = user.points
+          currentUserInLeaderboard.badges = user.badges
+          currentUserInLeaderboard.totalPoints = getTotalPoints(user.points)
+        }
+        setPlayers(leaderboardData)
+      } catch {
+        // Create initial leaderboard with current user
+        const userEntry: LeaderboardEntry = {
+          id: user.id,
+          name: user.name || 'Anonymous',
+          points: user.points,
+          badges: user.badges,
+          totalPoints: getTotalPoints(user.points)
+        }
+        setPlayers([userEntry])
+      }
+    } else {
+      // Create initial leaderboard with current user
+      const userEntry: LeaderboardEntry = {
+        id: user.id,
+        name: user.name || 'Anonymous',
+        points: user.points,
+        badges: user.badges,
+        totalPoints: getTotalPoints(user.points)
+      }
+      setPlayers([userEntry])
+    }
+  }, [user.id, user.name, user.points, user.badges])
+
+  // Save leaderboard data whenever it changes
+  useEffect(() => {
+    if (players.length > 0) {
+      localStorage.setItem(LEADERBOARD_STORAGE_KEY, JSON.stringify(players))
+    }
+  }, [players])
+
+  // Filtered and sorted players for display
+  const filteredPlayers = useMemo(() => {
+    let filtered = players.map(player => ({
+      ...player,
+      totalPoints: player.totalPoints || getTotalPoints(player.points),
+      gamePoints: selectedGame === 'all' 
+        ? getTotalPoints(player.points)
+        : (player.points[selectedGame] || 0)
+    }))
+
+    if (searchTerm) {
+      filtered = filtered.filter(p => 
+        p.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    }
+
+    return filtered.sort((a, b) => b.gamePoints - a.gamePoints)
+  }, [players, selectedGame, searchTerm])
+
+  // Top 5 players for display
+  const topPlayers = filteredPlayers.slice(0, 5)
 
 
   useEffect(() => {
@@ -101,13 +190,91 @@ export default function CommunityPage() {
         setError('Failed to post')
       }
     }
-  }
-  return (
+  }  return (
     <div id="main-content" className={styles.communityWrapper}>
       <div className={styles.mainContent}>
-        <h1 className={styles.pageTitle}>Community</h1>
+        <h1 className={styles.pageTitle}>Community & Leaderboard</h1>
         
+        {/* Leaderboard Section */}
+        <section className={styles.leaderboardSection}>
+          <h2 className={styles.sectionTitle}>🏆 Hero Rankings</h2>
+          
+          <div className={styles.gameTabs}>
+            <button
+              className={`${styles.gameTab} ${selectedGame === 'all' ? styles.active : ''}`}
+              onClick={() => setSelectedGame('all')}
+            >
+              All Games
+            </button>
+            {gameNames.map(game => (
+              <button
+                key={game}
+                className={`${styles.gameTab} ${selectedGame === game ? styles.active : ''}`}
+                onClick={() => setSelectedGame(game)}
+              >
+                {game.charAt(0).toUpperCase() + game.slice(1)}
+              </button>
+            ))}
+          </div>
 
+          <div className={styles.leaderboardCard}>
+            <div className={styles.searchContainer}>
+              <input
+                type="text"
+                placeholder="Search heroes..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className={styles.searchInput}
+              />
+            </div>
+
+            <div className={styles.playersGrid}>
+              {topPlayers.map((player, index) => {
+                const rank = index + 1
+                const isCurrentUser = player.id === user.id
+                const isTop = rank === 1
+                
+                return (
+                  <div
+                    key={player.id}
+                    className={`${styles.playerCard} ${isTop ? styles.topPlayer : ''} ${isCurrentUser ? styles.currentUser : ''}`}
+                  >
+                    <div className={styles.playerRank}>
+                      {rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank}
+                    </div>
+                    <div className={styles.playerInfo}>
+                      <div className={styles.playerName}>
+                        {player.name} {isCurrentUser && '(You)'}
+                      </div>
+                      <div className={styles.playerStats}>
+                        <span className={styles.points}>
+                          {player.gamePoints} pts
+                          {selectedGame !== 'all' && ` in ${selectedGame}`}
+                        </span>
+                        <div className={styles.badges}>
+                          {player.badges.slice(0, 3).map((badge, i) => (
+                            <span key={i} className={styles.badge}>🏅</span>
+                          ))}
+                          {player.badges.length > 3 && (
+                            <span className={styles.badgeCount}>+{player.badges.length - 3}</span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            <div className={styles.userSummary}>
+              <div className={styles.yourStats}>
+                <span>Your Rank: #{filteredPlayers.findIndex(p => p.id === user.id) + 1}</span>
+                <span>Total Points: {totalPoints}</span>
+                <span>Badges: {user.badges.length}</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <div className={styles.statsBar}>
           <span className={styles.points}>{totalPoints} pts</span>
@@ -116,13 +283,12 @@ export default function CommunityPage() {
           ))}</div>          <button
             type="button"
             className={styles.shareBtn}
-            onClick={async () => {
-              const badgeCount = user.badges.length
+            onClick={async () => {              const badgeCount = user.badges.length
               const badgeText = badgeCount > 0 ? ` and earned ${badgeCount} badge${badgeCount > 1 ? 's' : ''}` : ''
-                const shareData = {
-                title: 'StrawberryTech - AI Prompting Skills',
-                text: `I scored ${totalPoints} points learning AI prompting on StrawberryTech${badgeText}! 🍓 Join me and level up your AI skills!`,
-                url: 'https://strawberry-tech.vercel.app/community'
+              const shareData = {
+                title: 'BadhoHero - Overcome Laziness Through Action',
+                text: `I scored ${totalPoints} points building momentum on BadhoHero${badgeText}! 🦊 Join me and defeat laziness together!`,
+                url: 'https://badhohero.vercel.app/community'
               }
               
               try {
@@ -207,37 +373,29 @@ export default function CommunityPage() {
 
 export function Head() {
   return (
-    <>
-      <title>Community | StrawberryTech</title>
-      <meta
+    <>      <title>Community | BadhoHero</title>      <meta
         name="description"
-        content="Join the StrawberryTech community! Share your AI prompting progress and connect with other learners."
+        content="Join the BadhoHero community! Share your momentum-building progress and connect with others overcoming laziness."
       />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/community" />
+      <link rel="canonical" href="https://badhohero.vercel.app/community" />
         {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://strawberry-tech.vercel.app/community" />
-      <meta property="og:title" content="StrawberryTech Community - AI Prompting Skills" />
-      <meta property="og:description" content="Join thousands learning AI prompting skills through fun, interactive games. Share your progress and connect with other learners!" />      <meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
+      <meta property="og:type" content="website" />      <meta property="og:url" content="https://badhohero.vercel.app/community" />      <meta property="og:title" content="BadhoHero Community - Defeat Laziness Together" />
+      <meta property="og:description" content="Join thousands building momentum and defeating laziness through engaging action games. Share your progress and connect with fellow heroes!" /><meta property="og:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
       <meta property="og:image:width" content="1024" />
-      <meta property="og:image:height" content="1024" />
-      <meta property="og:image:alt" content="StrawberryTech Community - Share your AI learning progress" />
-      <meta property="og:site_name" content="StrawberryTech" />
+      <meta property="og:image:height" content="1024" />      <meta property="og:image:alt" content="BadhoHero Community - Share your momentum-building progress" />
+      <meta property="og:site_name" content="BadhoHero" />
       <meta property="og:locale" content="en_US" />
       
       {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:site" content="@strawberrytech" />
-      <meta property="twitter:creator" content="@strawberrytech" />
-      <meta property="twitter:url" content="https://strawberry-tech.vercel.app/community" />
-      <meta property="twitter:title" content="StrawberryTech Community - AI Prompting Skills" />
-      <meta property="twitter:description" content="Join thousands learning AI prompting skills through fun, interactive games. Share your progress and connect with other learners!" />      <meta property="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />
-      <meta property="twitter:image:alt" content="StrawberryTech Community - Share your AI learning progress" />
+      <meta property="twitter:card" content="summary_large_image" />      <meta property="twitter:site" content="@badhohero" />
+      <meta property="twitter:creator" content="@badhohero" />
+      <meta property="twitter:url" content="https://badhohero.vercel.app/community" />      <meta property="twitter:title" content="BadhoHero Community - Defeat Laziness Together" />
+      <meta property="twitter:description" content="Join thousands building momentum and defeating laziness through engaging action games. Share your progress and connect with fellow heroes!" /><meta property="twitter:image" content="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%206%2C%202025%2C%2011_20_14%20AM.png" />      <meta property="twitter:image:alt" content="BadhoHero Community - Share your momentum-building progress" />
       
       {/* Additional social sharing optimization */}
       <meta name="robots" content="index, follow" />
-      <meta name="author" content="StrawberryTech" />
-      <meta name="keywords" content="AI prompting community, AI learning progress, prompt engineering, AI skills sharing, interactive learning community" />
+      <meta name="author" content="BadhoHero" />
+      <meta name="keywords" content="overcome laziness community, motivation progress, personal development, habit building, procrastination support, Lead India, action games community" />
     </>
   )
 }

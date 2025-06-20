@@ -6,7 +6,7 @@ export default function HelpPage() {
       <h2>How to Play</h2>
       <img
         src="https://raw.githubusercontent.com/unnamedmistress/images/main/ChatGPT%20Image%20Jun%207%2C%202025%2C%2007_12_36%20PM.png"
-        alt="Home page strawberry mascot welcomes players at entrance of learning arcade with pastel tones."
+        alt="BadhoHero fox mascot - your guide to defeating laziness."
         className="brand-logo"
         style={{ width: '48px' }}
       />
@@ -22,9 +22,9 @@ export default function HelpPage() {
 export function Head() {
   return (
     <>
-      <title>How to Play | StrawberryTech</title>
+      <title>How to Play | BadhoHero</title>
       <meta name="description" content="Instructions for getting started with the games." />
-      <link rel="canonical" href="https://strawberry-tech.vercel.app/help" />
+      <link rel="canonical" href="https://badhohero.vercel.app/help" />
     </>
   )
 }
