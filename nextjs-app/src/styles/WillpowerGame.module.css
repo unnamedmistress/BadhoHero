@@ -419,7 +419,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
   padding: clamp(0.5rem, 2vw, 1rem);
   overscroll-behavior: contain;
 }
@@ -645,9 +645,10 @@
 }
 
 .outcomeMessage.success {
-  background: rgba(46, 213, 115, 0.2);
-  color: #2ed573;
-  border: 2px solid #2ed573;
+  background: #f0fdf4;
+  color: #065f46;
+  border: 2px solid #10b981;
+  font-weight: 600;
 }
 
 .outcomeMessage.late,

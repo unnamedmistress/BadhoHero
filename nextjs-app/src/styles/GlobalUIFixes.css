@@ -1,0 +1,312 @@
+/* Global UI/UX Fixes for BadhoHero Games */
+/* This file addresses: navigation z-index, success modal colors, and color contrast issues */
+
+/* ==============================
+   Z-INDEX HIERARCHY FIX
+   ============================== */
+
+/* Ensure proper stacking order across the application */
+:root {
+  --z-index-base: 0;
+  --z-index-game-content: 1;
+  --z-index-game-overlays: 10;
+  --z-index-tooltips: 100;
+  --z-index-modals: 5000;
+  --z-index-navigation: 9999;
+  --z-index-emergency: 10000;
+}
+
+/* Fix all game modals to appear above navigation */
+.modal-overlay,
+[class*="modal-overlay"],
+[class*="modalOverlay"],
+[class*="Modal"] {
+  z-index: var(--z-index-emergency) !important;
+}
+
+/* Specific modal fixes */
+.completion-overlay,
+[class*="completion-overlay"],
+.feedback-modal,
+[class*="feedback-modal"],
+[class*="feedbackModal"] {
+  z-index: var(--z-index-emergency) !important;
+}
+
+/* ==============================
+   SUCCESS/CORRECT ANSWER STYLING
+   ============================== */
+
+/* Global success colors - ensuring high contrast green */
+:root {
+  --success-bg: #10b981;
+  --success-bg-light: #d1fae5;
+  --success-bg-dark: #059669;
+  --success-text: #065f46;
+  --success-text-light: #ecfdf5;
+  --success-border: #10b981;
+  
+  --error-bg: #ef4444;
+  --error-bg-light: #fee2e2;
+  --error-bg-dark: #dc2626;
+  --error-text: #991b1b;
+  --error-text-light: #fef2f2;
+  --error-border: #ef4444;
+  
+  --warning-bg: #f59e0b;
+  --warning-bg-light: #fef3c7;
+  --warning-bg-dark: #d97706;
+  --warning-text: #92400e;
+  --warning-text-light: #fffbeb;
+  --warning-border: #f59e0b;
+}
+
+/* Success feedback styling - override all game success styles */
+.success,
+[class*="success"],
+.correct,
+[class*="correct"],
+.right,
+[class*="right"] {
+  background: var(--success-bg-light) !important;
+  color: var(--success-text) !important;
+  border: 2px solid var(--success-border) !important;
+  border-left: 4px solid var(--success-border) !important;
+}
+
+/* Success buttons and interactive elements */
+.success button,
+[class*="success"] button,
+.correct button,
+[class*="correct"] button {
+  background: var(--success-bg) !important;
+  color: white !important;
+  border: 1px solid var(--success-bg-dark) !important;
+}
+
+.success button:hover,
+[class*="success"] button:hover,
+.correct button:hover,
+[class*="correct"] button:hover {
+  background: var(--success-bg-dark) !important;
+}
+
+/* Error/incorrect styling for clarity */
+.error,
+[class*="error"],
+.incorrect,
+[class*="incorrect"],
+.wrong,
+[class*="wrong"] {
+  background: var(--error-bg-light) !important;
+  color: var(--error-text) !important;
+  border: 2px solid var(--error-border) !important;
+  border-left: 4px solid var(--error-border) !important;
+}
+
+/* Warning styling */
+.warning,
+[class*="warning"] {
+  background: var(--warning-bg-light) !important;
+  color: var(--warning-text) !important;
+  border: 2px solid var(--warning-border) !important;
+  border-left: 4px solid var(--warning-border) !important;
+}
+
+/* ==============================
+   TEXT CONTRAST IMPROVEMENTS
+   ============================== */
+
+/* Improve text readability across all games */
+.game-content,
+[class*="game-content"],
+[class*="gameContent"] {
+  color: #1f2937 !important;
+}
+
+/* Modal text improvements */
+.modal h1,
+.modal h2,
+.modal h3,
+[class*="modal"] h1,
+[class*="modal"] h2,
+[class*="modal"] h3 {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
+
+.modal p,
+[class*="modal"] p {
+  color: #374151 !important;
+  line-height: 1.6 !important;
+}
+
+/* Button text contrast */
+.btn-primary,
+[class*="btn-primary"],
+.button-primary,
+[class*="button-primary"] {
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.btn-secondary,
+[class*="btn-secondary"],
+.button-secondary,
+[class*="button-secondary"] {
+  color: #374151 !important;
+  background: #f9fafb !important;
+  border: 1px solid #d1d5db !important;
+  font-weight: 500 !important;
+}
+
+.btn-secondary:hover,
+[class*="btn-secondary"]:hover,
+.button-secondary:hover,
+[class*="button-secondary"]:hover {
+  background: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+/* ==============================
+   MOBILE RESPONSIVENESS FIXES
+   ============================== */
+
+/* Ensure all modals are properly sized on small screens */
+@media (max-width: 400px) {
+  .modal,
+  [class*="modal"] {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    margin: 1rem !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+  }
+  
+  .modal h1,
+  .modal h2,
+  [class*="modal"] h1,
+  [class*="modal"] h2 {
+    font-size: 1.25rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .modal p,
+  [class*="modal"] p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+  
+  .modal button,
+  [class*="modal"] button {
+    font-size: 0.9rem !important;
+    padding: 0.75rem 1rem !important;
+    min-height: 44px !important;
+    border-radius: 6px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal,
+  [class*="modal"] {
+    width: 98vw !important;
+    margin: 0.5rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  .modal h1,
+  .modal h2,
+  [class*="modal"] h1,
+  [class*="modal"] h2 {
+    font-size: 1.1rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .modal p,
+  [class*="modal"] p {
+    font-size: 0.85rem !important;
+  }
+}
+
+/* ==============================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================== */
+
+/* Focus states for better keyboard navigation */
+.success:focus,
+[class*="success"]:focus,
+.correct:focus,
+[class*="correct"]:focus {
+  outline: 3px solid var(--success-bg) !important;
+  outline-offset: 2px !important;
+}
+
+.error:focus,
+[class*="error"]:focus {
+  outline: 3px solid var(--error-bg) !important;
+  outline-offset: 2px !important;
+}
+
+.warning:focus,
+[class*="warning"]:focus {
+  outline: 3px solid var(--warning-bg) !important;
+  outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .success,
+  [class*="success"],
+  .correct,
+  [class*="correct"] {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 3px solid #008000 !important;
+  }
+  
+  .error,
+  [class*="error"] {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 3px solid #ff0000 !important;
+  }
+  
+  .warning,
+  [class*="warning"] {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 3px solid #ff8c00 !important;
+  }
+}
+
+/* ==============================
+   ANIMATION IMPROVEMENTS
+   ============================== */
+
+/* Smooth transitions for success states */
+.success,
+[class*="success"],
+.correct,
+[class*="correct"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.error,
+[class*="error"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .success,
+  [class*="success"],
+  .correct,
+  [class*="correct"],
+  .error,
+  [class*="error"],
+  .warning,
+  [class*="warning"] {
+    transition: none !important;
+  }
+}

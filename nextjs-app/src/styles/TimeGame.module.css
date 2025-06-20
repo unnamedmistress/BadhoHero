@@ -214,7 +214,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
   padding: clamp(0.5rem, 2vw, 1rem);
   overscroll-behavior: contain; /* Prevent background scrolling on mobile */
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */

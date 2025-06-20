@@ -131,6 +131,7 @@ export default function FoglandGame() {
   const [tiles, setTiles] = useState<FogTile[]>(FOG_TILES)
   const [currentTile, setCurrentTile] = useState<FogTile | null>(null)
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+  const [isSelectedAnswerCorrect, setIsSelectedAnswerCorrect] = useState<boolean | null>(null)
   const [showWhyCard, setShowWhyCard] = useState(false)
   const [score, setScore] = useState(0)
   const [gameComplete, setGameComplete] = useState(false)
@@ -155,21 +156,21 @@ export default function FoglandGame() {
       }, 1500)
     }
   }, [clearedTiles, totalTiles, showMidGameEncouragement])
-
   const handleTileClick = (tile: FogTile) => {
     if (tile.cleared) return
     setCurrentTile(tile)
     setSelectedAnswer(null)
+    setIsSelectedAnswerCorrect(null)
     setShowWhyCard(false)
     setShowIncorrectFeedback(false)
   }
-
   const handleAnswerSelect = (answerIndex: number) => {
     setSelectedAnswer(answerIndex)
     
     if (!currentTile) return
 
     const isCorrect = answerIndex === currentTile.correctAnswer
+    setIsSelectedAnswerCorrect(isCorrect)
     
     if (isCorrect) {
       const newScore = score + 20
@@ -196,16 +197,16 @@ export default function FoglandGame() {
       setShowIncorrectFeedback(true)
     }
   }
-
   const handleIncorrectRetry = () => {
     setShowIncorrectFeedback(false)
     setSelectedAnswer(null)
+    setIsSelectedAnswerCorrect(null)
   }
-
   const handleContinue = () => {
     setCurrentTile(null)
     setShowWhyCard(false)
     setSelectedAnswer(null)
+    setIsSelectedAnswerCorrect(null)
 
     // Check if all tiles are cleared
     const newClearedTiles = tiles.filter(tile => tile.cleared).length
@@ -388,17 +389,28 @@ export default function FoglandGame() {
           {currentTile.hint && (
             <p className={styles.hintText}>💡 Hint: {currentTile.hint}</p>
           )}
-          
-          <div className={styles.answersGrid}>
-            {currentTile.answers.map((answer, index) => (
-              <button
-                key={index}
-                className={`${styles.answerButton} ${selectedAnswer === index ? styles.selected : ''}`}
-                onClick={() => handleAnswerSelect(index)}
-              >
-                {String.fromCharCode(65 + index)}) {answer}
-              </button>
-            ))}
+            <div className={styles.answersGrid}>
+            {currentTile.answers.map((answer, index) => {
+              let buttonClass = styles.answerButton;
+              if (selectedAnswer === index) {
+                buttonClass += ` ${styles.selected}`;
+                if (isSelectedAnswerCorrect === true) {
+                  buttonClass += ` ${styles.correct}`;
+                } else if (isSelectedAnswerCorrect === false) {
+                  buttonClass += ` ${styles.incorrect}`;
+                }
+              }
+              
+              return (
+                <button
+                  key={index}
+                  className={buttonClass}
+                  onClick={() => handleAnswerSelect(index)}
+                >
+                  {String.fromCharCode(65 + index)}) {answer}
+                </button>
+              );
+            })}
           </div>
 
           <button

@@ -14,6 +14,7 @@ import ScrollToTop from '../components/ScrollToTop'
 import '../styles/index.css'
 import '../styles/App.css'
 import '../styles/GlobalResponsive.css'
+import '../styles/GlobalUIFixes.css'
 import '../styles/globals.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {  const description =

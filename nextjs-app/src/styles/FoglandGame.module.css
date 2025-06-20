@@ -351,6 +351,35 @@
   font-weight: 600;
 }
 
+/* Correct answer styling - green theme */
+.answerButton.selected.correct {
+  border-color: #10b981 !important;
+  background: #d1fae5 !important;
+  color: #065f46 !important;
+  font-weight: 600;
+}
+
+/* Incorrect answer styling - red theme (explicit for clarity) */
+.answerButton.selected.incorrect {
+  border-color: #ef4444 !important;
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+  font-weight: 600;
+}
+
+/* Disable hover effects when answer is selected */
+.answerButton.selected.correct:hover {
+  border-color: #10b981 !important;
+  background: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.answerButton.selected.incorrect:hover {
+  border-color: #ef4444 !important;
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
 .cancelButton {
   background: #6b7280;
   color: white;
@@ -562,5 +591,71 @@
   .fogTile {
     padding: 0.75rem;
     min-height: 100px;
+  }
+}
+
+/* Ultra-small screen optimizations */
+@media (max-width: 400px) {
+  .answerButton {
+    padding: 0.875rem 0.75rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .answerButton.selected.correct {
+    border-width: 2px;
+  }
+  
+  .answerButton.selected.incorrect {
+    border-width: 2px;
+  }
+  
+  .challengeModal {
+    width: 95vw;
+    max-width: 95vw;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .challengeTitle {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+  
+  .questionText {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .hintText {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .answerButton {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+  }
+  
+  .challengeModal {
+    width: 98vw;
+    margin: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .challengeTitle {
+    font-size: 1.1rem;
+    line-height: 1.1;
+  }
+  
+  .questionText {
+    font-size: 0.85rem;
+  }
+  
+  .hintText {
+    font-size: 0.75rem;
   }
 }
