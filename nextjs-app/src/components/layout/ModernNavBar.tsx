@@ -16,12 +16,11 @@ const navItems: NavItem[] = [
   {
     label: 'Games',
     icon: '🎮',
-    children: [
-      { label: 'Fogland Awakening', href: '/games/fogland', icon: '🌫️' },
+    children: [      { label: 'Fogland Awakening', href: '/games/fogland', icon: '🌫️' },
       { label: 'Willpower Warrior', href: '/games/willpower', icon: '🏆' },
       { label: 'Goal-Orb Discovery', href: '/games/goals', icon: '🎯' },
       { label: 'Time Tunnel Trials', href: '/games/time', icon: '⏰' },
-      { label: 'Confidence Cavern', href: '/games/confidence', icon: '�' },
+      { label: 'Confidence Cavern', href: '/games/confidence', icon: '🔥' },
       { label: 'Tree of Triumph', href: '/games/triumph', icon: '🌳' },
     ],
   },
