@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1100;
+  z-index: 9999;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -42,9 +42,8 @@
   color: var(--color-brand, #e91e63);
   font-weight: 700;
   font-size: 1.25rem;
-  letter-spacing: -0.025em;
-  transition: all 0.2s ease;
-  z-index: 1101;
+  letter-spacing: -0.025em;  transition: all 0.2s ease;
+  z-index: 9999;
 }
 
 .brand:hover {
@@ -167,10 +166,9 @@
   padding: 0.75rem;
   min-width: 220px;
   opacity: 0;
-  visibility: hidden;
-  transform: translateX(-50%) translateY(-10px);
+  visibility: hidden;  transform: translateX(-50%) translateY(-10px);
   transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  z-index: 1100;
+  z-index: 9997;
   animation: dropdownFadeIn 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
@@ -251,15 +249,16 @@
   height: 44px;
   background: transparent;
   border: none;
-  cursor: pointer;
-  padding: 8px;
+  cursor: pointer;  padding: 8px;
   position: relative;
-  z-index: 1101;
+  z-index: 9999;
   border-radius: 8px;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  /* Ensure adequate touch target size */
+  transition: background-color 0.2s ease, transform 0.1s ease;  /* Ensure adequate touch target size */
   min-width: 44px;
   min-height: 44px;
+  /* Ensure it's always clickable */
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 
 .mobileMenuButton:hover {
@@ -313,11 +312,11 @@
   transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
               opacity 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
               visibility 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-  z-index: 1102;
-  display: block;
-  visibility: hidden;
+  z-index: 9998;
+  display: block;  visibility: hidden;
   opacity: 0;
   overscroll-behavior: contain; /* Prevent body scroll on mobile */
+  isolation: isolate; /* Create new stacking context */
 }
 
 .mobileNav.open {

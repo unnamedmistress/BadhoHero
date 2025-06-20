@@ -291,6 +291,7 @@ export default function WillpowerWarrior() {
   const [currentScenario, setCurrentScenario] = useState<Scenario | null>(null)
   const [showScenarioFeedback, setShowScenarioFeedback] = useState(false)
   const [scenarioChoice, setScenarioChoice] = useState<any>(null)
+  const [scenariosShown, setScenariosShown] = useState<string[]>([]) // Track shown scenarios
   const [showSummary, setShowSummary] = useState(false)
   const [showWhyCard, setShowWhyCard] = useState(false)
   const [gameComplete, setGameComplete] = useState(false)
@@ -300,15 +301,25 @@ export default function WillpowerWarrior() {
     const shuffledActions = [...INITIAL_ACTIONS].sort(() => Math.random() - 0.5)
     setActions(shuffledActions)
   }, [])
-
   // Check for scenario triggers
   useEffect(() => {
-    if (gameState.actionsTaken.length > 0 && gameState.actionsTaken.length % 3 === 0 && !showScenario) {
-      const randomScenario = SCENARIOS[Math.floor(Math.random() * SCENARIOS.length)]
-      setCurrentScenario(randomScenario)
-      setShowScenario(true)
+    if (gameState.actionsTaken.length > 0 && 
+        gameState.actionsTaken.length % 3 === 0 && 
+        !showScenario && 
+        scenariosShown.length < SCENARIOS.length) {
+      
+      // Get scenarios that haven't been shown yet
+      const availableScenarios = SCENARIOS.filter(scenario => !scenariosShown.includes(scenario.id))
+      
+      if (availableScenarios.length > 0) {
+        const randomScenario = availableScenarios[Math.floor(Math.random() * availableScenarios.length)]
+        setCurrentScenario(randomScenario)
+        setShowScenario(true)
+        // Track that this scenario has been shown
+        setScenariosShown(prev => [...prev, randomScenario.id])
+      }
     }
-  }, [gameState.actionsTaken.length, showScenario])
+  }, [gameState.actionsTaken.length, showScenario, scenariosShown])
 
   const handleActionSelect = (action: GameAction) => {
     if (action.used || gameState.timeLeft < action.timeRequired) return
