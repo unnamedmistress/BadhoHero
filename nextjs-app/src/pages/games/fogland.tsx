@@ -285,28 +285,89 @@ export default function FoglandGame() {
         </div>
       </div>
     )
-  }
-  // Game completion
+  }  // Game completion
   if (gameComplete) {
-    return (      <CompletionModal
-        buttonHref="/games/willpower"
-        buttonLabel="Continue to Willpower Warrior →"
-      >
-        <h2>Fog Cleared! 🌟</h2>
-        <p>You scored {score} points and awakened your inner hero!</p>
-        <button 
-          onClick={() => {
-            setTiles(FOG_TILES.map(tile => ({ ...tile, cleared: false })))
-            setScore(0)
-            setGameComplete(false)
-            setCollectedCards([])
-            setShowIntro(true)
-          }}
-          style={{ marginRight: '1rem', padding: '0.5rem 1rem' }}
-        >
-          🔄 Replay
-        </button>
-      </CompletionModal>
+    return (
+      <div className={styles.modalOverlay}>
+        <div className={styles.completionModal}>
+          <div className={styles.foxAvatar}>
+            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
+          </div>
+          
+          <h2 className={styles.completionTitle}>Congratulations! You have cleared the fog of laziness.</h2>
+          
+          <blockquote className={styles.mainQuote}>
+            "Complete the work taken up. Visualize what's next and plan tomorrow's work as a leader."
+            <footer>- Lead India 2020 Resource Book</footer>
+          </blockquote>
+
+          <div className={styles.lessonRecap}>
+            <h3>Key Lessons:</h3>
+            <ul className={styles.recapList}>
+              <li>• Planning is your secret weapon against failure</li>
+              <li>• Your mind's strength turns obstacles into opportunities</li>
+              <li>• Small daily actions build the habits of heroes</li>
+            </ul>
+          </div>          <div className={styles.whyCardsSection}>
+            <h3>Your Collected WHY CARDS:</h3>
+            <div className={styles.cardsList}>
+              {collectedCards.map((card, index) => (
+                <div key={index} className={styles.cardSummary}>
+                  <h4>{card.whyCard.title}</h4>
+                  <p>"{card.whyCard.bookQuote}"</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.reflectionSection}>
+            <label className={styles.reflectionLabel}>
+              What's one habit or action from today's WHY CARDS you'll try this week?
+            </label>
+            <textarea 
+              className={styles.reflectionInput}
+              placeholder="Type your commitment here..."
+              rows={3}
+            />
+          </div>
+
+          <p className={styles.bookCredit}>
+            All lessons and quotes are from the <strong>Lead India 2020 Resource Book</strong>.
+          </p>
+
+          <div className={styles.completionActions}>
+            <button 
+              className={styles.journalButton}
+              onClick={() => {
+                // Here you could save to a journal system
+                alert('Reflection saved to your Hero Journal! 📝')
+              }}
+            >
+              Save to Hero Journal →
+            </button>
+            
+            <button 
+              className={styles.continueButton}
+              onClick={() => window.location.href = '/games/willpower'}
+            >
+              Continue to Willpower Warrior →
+            </button>
+            
+            <button 
+              onClick={() => {
+                setTiles(FOG_TILES.map(tile => ({ ...tile, cleared: false })))
+                setScore(0)
+                setGameComplete(false)
+                setCollectedCards([])
+                setShowIntro(true)
+              }}
+              className={styles.replayButton}
+            >
+              🔄 Replay
+            </button>
+          </div>
+        </div>
+      </div>
     )
   }
 
