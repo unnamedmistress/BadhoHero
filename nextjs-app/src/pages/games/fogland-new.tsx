@@ -315,39 +315,7 @@ export default function FoglandGame() {
             <em>"Complete the work taken up. Visualize what's next and plan tomorrow's work as a leader."</em>
             <br />- Lead India 2020 Resource Book
           </p>
-          
-          <div className={styles.collectedCardsSection}>
-            <h3>Your Collected WHY CARDS:</h3>
-            <div className={styles.cardsGrid}>
-              {collectedCards.map((card, index) => (
-                <div key={card.id} className={styles.miniCard}>
-                  <strong>{card.whyCard.title}</strong>
-                  <p>"{card.whyCard.bookQuote}"</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.reflectionInput}>
-            <label htmlFor="reflection">What's one habit or action from today's WHY CARDS you'll try this week?</label>
-            <textarea
-              id="reflection"
-              value={reflection}
-              onChange={(e) => setReflection(e.target.value)}
-              placeholder="Share your reflection..."
-              rows={3}
-              className={styles.reflectionTextarea}
-            />
-          </div>
-
-          <p className={styles.bookCredit}>All lessons and quotes are from the Lead India 2020 Resource Book.</p>
-
-          <button 
-            className={styles.continueButton}
-            onClick={handleReflectionSubmit}
-          >
-            Save to Hero Journal →
-          </button>
+    
         </div>
       </div>
     )

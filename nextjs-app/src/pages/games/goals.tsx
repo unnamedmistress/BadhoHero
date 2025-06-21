@@ -126,8 +126,7 @@ const SAMPLE_ORBS: Orb[] = [
       "Will take years",
       "Too expensive"
     ],
-    bestJustification: 1
-  },
+    bestJustification: 1  },
   {
     id: 8,
     name: "Improve at math",
@@ -139,6 +138,34 @@ const SAMPLE_ORBS: Orb[] = [
       "Need few weeks",
       "Needs steady practice",
       "Too hard"
+    ],
+    bestJustification: 2
+  },
+  {
+    id: 9,
+    name: "Clean my room today",
+    bestPortal: 'short',
+    assignedPortal: null,
+    justification: '',
+    justificationOptions: [
+      "Can finish in 1 hour",
+      "Will take weeks",
+      "Long-term project",
+      "Not important"
+    ],
+    bestJustification: 0
+  },
+  {
+    id: 10,
+    name: "Learn a new language",
+    bestPortal: 'long',
+    assignedPortal: null,
+    justification: '',
+    justificationOptions: [
+      "Can learn today",
+      "Need few months",
+      "Takes years of practice",
+      "Too difficult"
     ],
     bestJustification: 2
   }
@@ -323,9 +350,9 @@ export default function GoalsGame() {
     setFeedback([])
     setGameComplete(false)
   }
-
-  // Check if all orbs are placed
-  const allOrbsPlaced = orbs.every(orb => orb.assignedPortal !== null)
+  // Check if 6 orbs are placed (game completion requirement)
+  const requiredOrbsPlaced = orbs.filter(orb => orb.assignedPortal !== null).length >= 6
+  const allOrbsPlaced = orbs.every(orb => orb.assignedPortal !== null) // Keep for reference but use requiredOrbsPlaced for game logic
   // Touch event handlers for mobile drag and drop
   const [touchOrb, setTouchOrb] = useState<Orb | null>(null)
 
@@ -339,6 +366,26 @@ export default function GoalsGame() {
   const handleTouchEnd = () => {
     setTouchOrb(null)
     setDragOverPortal(null)
+  }
+
+  const handleRemoveOrb = (orbToRemove: Orb) => {
+    // Remove orb from portal and reset its assignment
+    setOrbs(prev => prev.map(orb => 
+      orb.id === orbToRemove.id 
+        ? { ...orb, assignedPortal: null, justification: '' }
+        : orb
+    ))
+
+    // Remove orb from portals
+    setPortals(prev => prev.map(portal => ({
+      ...portal,
+      orbs: portal.orbs.filter(orb => orb.id !== orbToRemove.id)
+    })))
+
+    // Move fox back
+    setFoxPosition(prev => Math.max(0, prev - 1))
+
+    notify("Orb removed! You can place it elsewhere.")
   }
 
   if (gameComplete) {
@@ -397,7 +444,7 @@ export default function GoalsGame() {
           <span style={{ fontSize: '4rem', lineHeight: 1, display: 'block', textAlign: 'center', margin: '1rem 0' }}>🦊</span>
           <h1>Goal-Orb Discovery</h1>
           <h2>Lakshya Sort</h2>
-          <p>Help the fox reach the festival by sorting goals into the right time portals!</p>
+          <p>You have 10 goal orbs, but only 6 slots! Choose wisely and sort goals using the SMARTY principle.</p>
           <button 
             onClick={startGame}
             className={styles.startButton}
@@ -412,11 +459,11 @@ export default function GoalsGame() {
   if (showInstructions) {
     return (
       <div className={styles.modalOverlay}>
-        <div className={styles.instructionsModal}>
-          <h2>How to Sort Goal Orbs</h2>
+        <div className={styles.instructionsModal}>          <h2>How to Sort Goal Orbs</h2>
           <div className={styles.instructionsList}>
-            <p>🎯 <strong>Drag each goal orb</strong> into the right portal</p>
+            <p>🎯 <strong>You have 10 goal orbs</strong> but only need to sort 6 to win!</p>
             <p>⚡ <strong>Each portal</strong> only fits two orbs!</p>
+            <p>🎭 <strong>Choose wisely</strong> - pick the 6 most important goals</p>
             <p>💭 <strong>After sorting,</strong> explain why you put it there</p>
             <p>📚 <strong>Use book wisdom</strong> and the SMARTY principle</p>
           </div>
@@ -533,11 +580,10 @@ export default function GoalsGame() {
                   <span className={styles.orbIcon}>🔮</span>
                   <span className={styles.orbText}>{orb.name}</span>
                 </div>
-              ))}
-              {orbs.filter(orb => !orb.assignedPortal).length === 0 && (
+              ))}              {orbs.filter(orb => !orb.assignedPortal).length <= 4 && (
                 <div className={styles.allOrbsPlaced}>
                   <span style={{ fontSize: '3rem', marginBottom: '1rem', display: 'block' }}>🎉</span>
-                  <p>All orbs sorted!</p>
+                  <p>6 orbs sorted!</p>
                   <p>Ready to check your plan?</p>
                 </div>
               )}
@@ -568,11 +614,16 @@ export default function GoalsGame() {
                       {portal.orbs.length}/{portal.maxOrbs}
                     </span>
                   </div>
-                  <div className={styles.portalContent}>
-                    {portal.orbs.map(orb => (
-                      <div key={orb.id} className={styles.placedOrb}>
+                  <div className={styles.portalContent}>                    {portal.orbs.map(orb => (
+                      <div 
+                        key={orb.id} 
+                        className={styles.placedOrb}
+                        onClick={() => handleRemoveOrb(orb)}
+                        title="Click to remove orb"
+                      >
                         <span className={styles.placedOrbIcon}>🔮</span>
                         <span className={styles.placedOrbText}>{orb.name}</span>
+                        <span className={styles.removeHint}>✕</span>
                       </div>
                     ))}
                     {portal.orbs.length < portal.maxOrbs && (
@@ -595,13 +646,12 @@ export default function GoalsGame() {
               className={styles.progressFill}
               style={{ width: `${(orbs.filter(orb => orb.assignedPortal).length / orbs.length) * 100}%` }}
             ></div>
-          </div>
-          <div className={styles.progressText}>
-            {orbs.filter(orb => orb.assignedPortal).length} of {orbs.length} orbs sorted
+          </div>          <div className={styles.progressText}>
+            {orbs.filter(orb => orb.assignedPortal).length} of 6 required orbs sorted
           </div>
         </div>
 
-        {allOrbsPlaced && (
+        {requiredOrbsPlaced && (
           <div className={styles.checkArea}>
             <button 
               onClick={checkPlan}

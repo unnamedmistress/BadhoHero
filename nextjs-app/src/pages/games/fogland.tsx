@@ -112,8 +112,6 @@ export default function FoglandGame() {
   const [gameComplete, setGameComplete] = useState(false)
   const [showIntro, setShowIntro] = useState(true)
   const [showInstructions, setShowInstructions] = useState(false)
-  const [showReflection, setShowReflection] = useState(false)
-  const [reflection, setReflection] = useState('')
   const [collectedCards, setCollectedCards] = useState<FogTile[]>([])
   const [showIncorrectFeedback, setShowIncorrectFeedback] = useState(false)
   const [incorrectMessage, setIncorrectMessage] = useState('')
@@ -159,11 +157,13 @@ export default function FoglandGame() {
       setShowIncorrectFeedback(true)
     }
   }
+
   const handleIncorrectRetry = () => {
     setShowIncorrectFeedback(false)
     setSelectedAnswer(null)
     setIsSelectedAnswerCorrect(null)
   }
+
   const handleContinue = () => {
     setCurrentTile(null)
     setShowWhyCard(false)
@@ -173,20 +173,12 @@ export default function FoglandGame() {
     // Check if all tiles are cleared
     const newClearedTiles = tiles.filter(tile => tile.cleared).length
     if (newClearedTiles === totalTiles) {
-      // Show reflection modal before completion
-      setShowReflection(true)
-    }
-  }
-  const handleReflectionSubmit = () => {
-    // Save reflection to user's journal (simplified for now)
-    // Update points and award badge
-    setPoints('fogland', score)
-    if (!user.badges.includes('fog-clearer')) {
-      addBadge('fog-clearer')
-    }
-    
-    setShowReflection(false)
-    setGameComplete(true)
+      // Award badge and points directly, skip reflection
+      setPoints('fogland', score)
+      if (!user.badges.includes('fog-clearer')) {
+        addBadge('fog-clearer')
+      }
+      setGameComplete(true)    }
   }
 
   // Onboarding Flow
@@ -234,67 +226,23 @@ export default function FoglandGame() {
             Start Clearing the Fog! →
           </button>
         </div>
-      </div>
-    )  }
+      </div>    )
+  }
 
-  // Reflection modal
-  if (showReflection) {
-    return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.reflectionModal}>          <div className={styles.foxAvatar}>
-            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
-          </div>
-          <h2 className={styles.reflectionTitle}>Congratulations! You have cleared the fog of laziness.</h2>
-          <p className={styles.mentorQuote}>
-            <em>"Complete the work taken up. Visualize what's next and plan tomorrow's work as a leader."</em>
-            <br />- Lead India 2020 Resource Book
-          </p>
-          
-          <div className={styles.collectedCardsSection}>
-            <h3>Your Collected WHY CARDS:</h3>
-            <div className={styles.cardsGrid}>
-              {collectedCards.map((card, index) => (
-                <div key={card.id} className={styles.miniCard}>
-                  <strong>{card.whyCard.title}</strong>
-                  <p>"{card.whyCard.bookQuote}"</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.reflectionInput}>
-            <label htmlFor="reflection">What's one habit or action from today's WHY CARDS you'll try this week?</label>
-            <textarea
-              id="reflection"
-              value={reflection}
-              onChange={(e) => setReflection(e.target.value)}
-              placeholder="Share your reflection..."
-              rows={3}
-              className={styles.reflectionTextarea}
-            />
-          </div>
-
-          <p className={styles.bookCredit}>All lessons and quotes are from the Lead India 2020 Resource Book.</p>
-
-          <button 
-            className={styles.continueButton}
-            onClick={handleReflectionSubmit}
-          >
-            Save to Hero Journal →
-          </button>
-        </div>
-      </div>
-    )
-  }  // Game completion
+  // Game completion
   if (gameComplete) {
     return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.completionModal}>
+      <div className={styles.modalOverlay}>        <div className={styles.completionModal}>
           <div className={styles.foxAvatar}>
             <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
           </div>
           
-          <h2 className={styles.completionTitle}>Congratulations! You have cleared the fog of laziness.</h2>
+          <div className={styles.badgeSection}>
+            <span className={styles.badge}>🏆</span>
+            <p className={styles.badgeText}>Fog Clearer Badge Earned!</p>
+          </div>
+          
+          <h2 className={styles.completionTitle}>You've Awakened Your Inner Hero!</h2>
           
           <blockquote className={styles.mainQuote}>
             "Complete the work taken up. Visualize what's next and plan tomorrow's work as a leader."
@@ -308,43 +256,13 @@ export default function FoglandGame() {
               <li>• Your mind's strength turns obstacles into opportunities</li>
               <li>• Small daily actions build the habits of heroes</li>
             </ul>
-          </div>          <div className={styles.whyCardsSection}>
-            <h3>Your Collected WHY CARDS:</h3>
-            <div className={styles.cardsList}>
-              {collectedCards.map((card, index) => (
-                <div key={index} className={styles.cardSummary}>
-                  <h4>{card.whyCard.title}</h4>
-                  <p>"{card.whyCard.bookQuote}"</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className={styles.reflectionSection}>
-            <label className={styles.reflectionLabel}>
-              What's one habit or action from today's WHY CARDS you'll try this week?
-            </label>
-            <textarea 
-              className={styles.reflectionInput}
-              placeholder="Type your commitment here..."
-              rows={3}
-            />
-          </div>
+          </div>         
 
           <p className={styles.bookCredit}>
             All lessons and quotes are from the <strong>Lead India 2020 Resource Book</strong>.
           </p>
 
           <div className={styles.completionActions}>
-            <button 
-              className={styles.journalButton}
-              onClick={() => {
-                // Here you could save to a journal system
-                alert('Reflection saved to your Hero Journal! 📝')
-              }}
-            >
-              Save to Hero Journal →
-            </button>
             
             <button 
               className={styles.continueButton}

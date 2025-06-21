@@ -80,18 +80,16 @@ const INITIAL_ACTIONS: GameAction[] = [
     bookQuote: 'Do exercises regularly! Build strong body.',
     category: 'productive',
     used: false
-  },
-  {
+  },  {
     id: 'eat-fruit',
     name: 'Eat Fruit',
     timeRequired: 5,
     energyChange: 2,
     feedback: 'Natural energy for a hero\'s morning!',
     bookQuote: 'Good food habits lead to good physical health and ultimately to a sound mind.',
-    isEssential: true,
     category: 'productive',
     used: false
-  },  {
+  },{
     id: 'eat-donut',
     name: 'Eat Donut',
     timeRequired: 5,
@@ -280,18 +278,15 @@ export default function WillpowerWarrior() {
     roundComplete: false,
     score: 0
   })
-  
-  const [actions, setActions] = useState<GameAction[]>(INITIAL_ACTIONS)
+    const [actions, setActions] = useState<GameAction[]>(INITIAL_ACTIONS)
   const [showInstructions, setShowInstructions] = useState(true)
   const [currentAction, setCurrentAction] = useState<GameAction | null>(null)
-  const [showActionFeedback, setShowActionFeedback] = useState(false)
   const [showScenario, setShowScenario] = useState(false)
   const [currentScenario, setCurrentScenario] = useState<Scenario | null>(null)
   const [showScenarioFeedback, setShowScenarioFeedback] = useState(false)
   const [scenarioChoice, setScenarioChoice] = useState<any>(null)
   const [scenariosShown, setScenariosShown] = useState<string[]>([]) // Track shown scenarios
   const [showSummary, setShowSummary] = useState(false)
-  const [showWhyCard, setShowWhyCard] = useState(false)
   const [gameComplete, setGameComplete] = useState(false)
 
   // Shuffle actions on component mount for variety
@@ -318,12 +313,11 @@ export default function WillpowerWarrior() {
       }
     }
   }, [gameState.actionsTaken.length, showScenario, scenariosShown])
-
   const handleActionSelect = (action: GameAction) => {
     if (action.used || gameState.timeLeft < action.timeRequired) return
     
+    // Show feedback inline and apply changes immediately
     setCurrentAction(action)
-    setShowActionFeedback(true)
     
     // Update game state
     setGameState(prev => ({
@@ -331,7 +325,7 @@ export default function WillpowerWarrior() {
       timeLeft: Math.max(0, prev.timeLeft - action.timeRequired),
       energy: Math.min(prev.maxEnergy, Math.max(0, prev.energy + action.energyChange)),
       actionsTaken: [...prev.actionsTaken, action],
-      hasEaten: prev.hasEaten || !!action.isEssential && action.id.includes('eat'),
+      hasEaten: prev.hasEaten || action.id.includes('eat'),
       hasPackedBag: prev.hasPackedBag || action.id === 'pack-bag',
       score: prev.score + (action.category === 'productive' ? 15 : action.category === 'neutral' ? 5 : -5)
     }))
@@ -340,16 +334,15 @@ export default function WillpowerWarrior() {
     setActions(prev => prev.map(a => 
       a.id === action.id ? { ...a, used: true } : a
     ))
-  }
 
-  const handleActionContinue = () => {
-    setShowActionFeedback(false)
-    setCurrentAction(null)
-    
-    // Check if round should end
-    if (gameState.timeLeft <= 0 || actions.filter(a => !a.used).length === 0) {
-      endRound()
-    }
+    // Clear current action after a delay to show feedback
+    setTimeout(() => {
+      setCurrentAction(null)
+      
+      // Check if round should end
+      if (gameState.timeLeft <= 0 || actions.filter(a => !a.used && gameState.timeLeft >= a.timeRequired).length === 0) {
+        endRound()
+      }    }, 2000)
   }
 
   const handleScenarioChoice = (choice: any) => {
@@ -383,23 +376,16 @@ export default function WillpowerWarrior() {
       notify('You need to eat something and pack your bag before leaving!')
     }
   }
-
   const handleSummaryContinue = () => {
-    setShowSummary(false)
-    setShowWhyCard(true)
-  }
-
-  const handleWhyCardContinue = () => {
-    // Award points and badge
+    // Award points and badge directly
     setPoints('willpower', gameState.score)
     if (!user.badges.includes('morning-warrior')) {
       addBadge('morning-warrior')
       notify('🏅 Morning Warrior Badge earned! You\'ve mastered the art of productive mornings!')
     }
     
-    setShowWhyCard(false)
-    setGameComplete(true)
-  }
+    setShowSummary(false)
+    setGameComplete(true)  }
 
   const playAgain = () => {
     setGameState({
@@ -487,40 +473,7 @@ export default function WillpowerWarrior() {
           </button>
         </div>
       </div>
-    )
-  }
-
-  // Action Feedback Modal
-  if (showActionFeedback && currentAction) {
-    return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.feedbackModal}>
-          <h3 className={styles.feedbackTitle}>{currentAction.name}</h3>
-          <div className={styles.impactDisplay}>
-            <span className={styles.timeImpact}>
-              Time: -{currentAction.timeRequired} min
-            </span>
-            <span className={`${styles.energyImpact} ${currentAction.energyChange >= 0 ? styles.positive : styles.negative}`}>
-              Energy: {currentAction.energyChange >= 0 ? '+' : ''}{currentAction.energyChange}
-            </span>
-          </div>
-          <p className={styles.feedbackText}>{currentAction.feedback}</p>
-          {currentAction.bookQuote && (
-            <blockquote className={styles.bookQuote}>
-              "{currentAction.bookQuote}"
-              <footer>- Lead India 2020 Resource Book</footer>
-            </blockquote>
-          )}
-          <button 
-            className={styles.continueButton}
-            onClick={handleActionContinue}
-          >
-            Continue →
-          </button>
-        </div>
-      </div>
-    )
-  }
+    )  }
 
   // Scenario Modal
   if (showScenario && currentScenario && !showScenarioFeedback) {
@@ -617,29 +570,11 @@ export default function WillpowerWarrior() {
                   <span className={styles.actionCost}>-{action.timeRequired}min, {action.energyChange >= 0 ? '+' : ''}{action.energyChange} energy</span>
                 </div>
               ))}
-            </div>
-          </div>
+            </div>          </div>
 
-          <button 
-            className={styles.continueButton}
-            onClick={handleSummaryContinue}
-          >
-            View WHY CARD →
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  // WHY CARD Modal
-  if (showWhyCard) {
-    return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.whyCardModal}>
-          <h2 className={styles.whyCardTitle}>Willpower Warrior Wisdom</h2>
-          <div className={styles.whyCardContent}>
-            <h3>Being a hero means noticing sneaky time-traps and making smart swaps!</h3>
-            <p className={styles.whyCardExplanation}>
+          <div className={styles.wisdomSection}>
+            <h4>🏆 Willpower Warrior Wisdom</h4>
+            <p className={styles.wisdomText}>
               Every morning is a battlefield between your goals and distractions. 
               Heroes recognize the difference between actions that serve their future 
               and those that steal their time and energy.
@@ -649,24 +584,16 @@ export default function WillpowerWarrior() {
               <footer>- Lead India 2020 Resource Book</footer>
             </blockquote>
           </div>
-          <div className={styles.whyCardButtons}>
-            <button 
-              className={styles.playAgainButton}
-              onClick={playAgain}
-            >
-              🔄 Try Another Morning
-            </button>
-            <button 
-              className={styles.continueButton}
-              onClick={handleWhyCardContinue}
-            >
-              Continue Journey →
-            </button>
-          </div>
+
+          <button 
+            className={styles.continueButton}
+            onClick={handleSummaryContinue}
+          >
+            Complete Challenge →
+          </button>
         </div>
       </div>
-    )
-  }
+    )  }
 
   // Game Complete
   if (gameComplete) {
@@ -727,8 +654,27 @@ export default function WillpowerWarrior() {
           {gameState.timeLeft <= 30 && gameState.timeLeft > 15 && "Time is ticking! Focus on what matters most."}
           {gameState.timeLeft <= 15 && gameState.timeLeft > 5 && "Hurry up! Make quick, smart decisions!"}
           {gameState.timeLeft <= 5 && "Almost out of time! Are you ready?"}
+        </div>      </div>
+
+      {currentAction && (
+        <div className={styles.inlineFeedback}>
+          <div className={styles.feedbackContent}>
+            <h4 className={styles.feedbackTitle}>{currentAction.name}</h4>
+            <div className={styles.impactDisplay}>
+              <span className={styles.timeImpact}>-{currentAction.timeRequired} min</span>
+              <span className={`${styles.energyImpact} ${currentAction.energyChange >= 0 ? styles.positive : styles.negative}`}>
+                {currentAction.energyChange >= 0 ? '+' : ''}{currentAction.energyChange} energy
+              </span>
+            </div>
+            <p className={styles.feedbackText}>{currentAction.feedback}</p>
+            {currentAction.bookQuote && (
+              <blockquote className={styles.inlineBookQuote}>
+                "{currentAction.bookQuote}"
+              </blockquote>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className={styles.actionsGrid}>
         {availableActions.map(action => (
