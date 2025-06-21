@@ -39,7 +39,7 @@
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: -0.025em;  transition: all 0.2s ease;
@@ -48,7 +48,18 @@
 
 .brand:hover {
   transform: scale(1.02);
-  color: var(--color-accent, #ff6b9d);
+  color: var(--color-accent, #FBC02D);
+}
+
+.brandEmoji {
+  font-size: 32px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(229, 115, 0, 0.2));
+}
+
+.brand:hover .brandEmoji {
+  transform: rotate(5deg) scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(229, 115, 0, 0.3));
 }
 
 .brandLogo {
@@ -57,18 +68,18 @@
   border-radius: 12px;
   object-fit: contain;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
+  box-shadow: 0 4px 12px rgba(229, 115, 0, 0.2);
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
 
 .brand:hover .brandLogo {
   transform: rotate(5deg) scale(1.05);
-  box-shadow: 0 8px 24px rgba(233, 30, 99, 0.3);
+  box-shadow: 0 8px 24px rgba(229, 115, 0, 0.3);
 }
 
 .brandText {
-  background: linear-gradient(135deg, var(--color-brand, #e91e63), var(--color-accent, #ff6b9d));
+  background: linear-gradient(135deg, var(--color-brand, #E57300), var(--color-accent, #FBC02D));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,7 +127,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-brand, #e91e63), var(--color-accent, #ff6b9d));
+  background: linear-gradient(90deg, var(--color-brand, #E57300), var(--color-accent, #FBC02D));
   transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
   transform: translateX(-50%);
 }
@@ -130,7 +141,7 @@
 
 .navLink.active,
 .navButton.active {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
   font-weight: 600;
 }
 
@@ -211,7 +222,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-brand, #e91e63), var(--color-accent, #ff6b9d));
+  background: linear-gradient(135deg, var(--color-brand, #E57300), var(--color-accent, #FBC02D));
   opacity: 0;
   transition: opacity 0.2s ease;
   border-radius: 12px;
@@ -224,12 +235,12 @@
 }
 
 .dropdownLink:hover {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
   transform: translateX(4px);
 }
 
 .dropdownLink.active {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
   font-weight: 600;
 }
 
@@ -274,7 +285,7 @@
   display: block;
   height: 2px;
   width: 24px;
-  background: var(--color-brand, #e91e63);
+  background: var(--color-brand, #E57300);
   margin: 3px 0;
   transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
   border-radius: 2px;
@@ -294,7 +305,7 @@
 }
 
 .mobileMenuButton:hover span {
-  background: var(--color-accent, #ff6b9d);
+  background: var(--color-accent, #FBC02D);
 }
 
 /* Mobile Navigation */
@@ -364,7 +375,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-brand, #e91e63), var(--color-accent, #ff6b9d));
+  background: linear-gradient(135deg, var(--color-brand, #E57300), var(--color-accent, #FBC02D));
   opacity: 0;
   transition: opacity 0.2s ease;
   border-radius: 16px;
@@ -380,12 +391,12 @@
 
 .mobileNavLink:hover,
 .mobileNavButton:hover {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
 }
 
 .mobileNavLink.active,
 .mobileNavButton.active {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
   font-weight: 600;
 }
 
@@ -437,7 +448,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--color-brand, #e91e63), var(--color-accent, #ff6b9d));
+  background: linear-gradient(135deg, var(--color-brand, #E57300), var(--color-accent, #FBC02D));
   opacity: 0;
   transition: opacity 0.2s ease;
   border-radius: 12px;
@@ -450,11 +461,11 @@
 }
 
 .mobileDropdownLink:hover {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
 }
 
 .mobileDropdownLink.active {
-  color: var(--color-brand, #e91e63);
+  color: var(--color-brand, #E57300);
   font-weight: 500;
 }
 
@@ -726,7 +737,7 @@
 .mobileDropdownLink:focus-visible,
 .mobileMenuButton:focus-visible,
 .brand:focus-visible {
-  outline: 3px solid var(--color-brand, #e91e63);
+  outline: 3px solid var(--color-brand, #E57300);
   outline-offset: 2px;
   border-radius: 8px;
   box-shadow: 0 0 0 6px rgba(233, 30, 99, 0.1);

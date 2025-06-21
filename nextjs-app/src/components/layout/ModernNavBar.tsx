@@ -136,14 +136,7 @@ export default function ModernNavBar() {
     >
       <div className={styles.navContainer}>        {/* Brand */}
         <Link href="/" className={styles.brand} onClick={handleLinkClick}>
-          <Image
-            src="/favicon-32x32.png"            alt="BadhoHero Logo"
-            width={40}
-            height={40}
-            className={styles.brandLogo}
-            priority
-            unoptimized
-          />
+          <span className={styles.brandEmoji}>🦊</span>
           <span className={styles.brandText}>BadhoHero</span>
         </Link>
 

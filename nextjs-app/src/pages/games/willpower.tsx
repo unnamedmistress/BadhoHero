@@ -91,14 +91,12 @@ const INITIAL_ACTIONS: GameAction[] = [
     isEssential: true,
     category: 'productive',
     used: false
-  },
-  {
+  },  {
     id: 'eat-donut',
     name: 'Eat Donut',
     timeRequired: 5,
     energyChange: 1,
     feedback: 'Tasty now, but sugar crashes come later...',
-    isEssential: true,
     category: 'tempting',
     used: false
   },

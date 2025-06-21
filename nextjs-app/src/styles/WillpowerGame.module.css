@@ -1,7 +1,7 @@
 /* Willpower Warrior: The Real Morning Dilemma - Game Styles */
 .gameContainer {
   min-height: 100vh;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+  background: linear-gradient(135deg, #E57300 0%, #FBC02D 50%, #388E3C 100%);
   padding: 1rem;
   font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   /* Add top margin to prevent navbar overlap */
@@ -144,7 +144,7 @@
 }
 
 .timeWarning {
-  color: #ff4757 !important;
+  color: #E57300 !important;
   animation: pulse 1s infinite;
 }
 
@@ -177,7 +177,7 @@
 
 .energyFill {
   height: 100%;
-  background: linear-gradient(90deg, #ff4757, #ffa502, #2ed573);
+  background: linear-gradient(90deg, #E57300, #FBC02D, #388E3C);
   transition: width 0.3s ease;
 }
 
@@ -199,7 +199,7 @@
 .scoreValue {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #ffd700;
+  color: #FBC02D;
 }
 
 /* Fox Guide */
@@ -232,7 +232,7 @@
   background: rgba(255, 255, 255, 0.9);
   padding: 0.75rem 1rem;
   border-radius: 20px;
-  color: #2c3e50;
+  color: #4E342E;
   font-weight: 500;
   max-width: 300px;
   position: relative;
@@ -287,26 +287,26 @@
 }
 
 .actionButton.productive {
-  border-left: 4px solid #2ed573;
+  border-left: 4px solid #388E3C;
 }
 
 .actionButton.neutral {
-  border-left: 4px solid #ffa502;
+  border-left: 4px solid #FBC02D;
 }
 
 .actionButton.tempting {
-  border-left: 4px solid #ff4757;
+  border-left: 4px solid #E57300;
 }
 
 .actionButton.tooSlow {
   background: rgba(255, 71, 87, 0.1);
-  border-left-color: #ff4757;
+  border-left-color: #E57300;
 }
 
 .actionName {
   font-size: 1rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #4E342E;
   margin-bottom: 0.5rem;
 }
 
@@ -327,19 +327,19 @@
 }
 
 .energyCost.positive {
-  color: #2ed573;
+  color: #388E3C;
 }
 
 .energyCost.negative {
-  color: #ff4757;
+  color: #E57300;
 }
 
 .essentialBadge {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #ffd700;
-  color: #2c3e50;
+  background: #FBC02D;
+  color: #4E342E;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.25rem 0.5rem;
@@ -354,7 +354,7 @@
 }
 
 .finishButton {
-  background: linear-gradient(135deg, #2ed573, #20b965);
+  background: linear-gradient(135deg, #388E3C, #388E3C);
   color: white;
   border: none;
   border-radius: 12px;
@@ -395,7 +395,7 @@
 }
 
 .checkItem.completed {
-  color: #2ed573;
+  color: #388E3C;
 }
 
 .checkIcon {
@@ -462,7 +462,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #ffd700;
+  border: 3px solid #FBC02D;
 }
 
 .instructionsTitle,
@@ -470,7 +470,7 @@
 .scenarioTitle,
 .summaryTitle,
 .whyCardTitle {
-  color: #2c3e50;
+  color: #4E342E;
   margin-bottom: clamp(0.75rem, 2vw, 1rem);
   font-size: clamp(1.25rem, 4vw, 1.5rem);
   font-weight: 700;
@@ -509,11 +509,11 @@
 }
 
 .energyImpact.positive {
-  color: #2ed573;
+  color: #388E3C;
 }
 
 .energyImpact.negative {
-  color: #ff4757;
+  color: #E57300;
 }
 
 .bookQuote {
@@ -545,7 +545,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 500;
-  color: #2c3e50;
+  color: #4E342E;
   font-size: clamp(0.875rem, 2.5vw, 1rem);
   line-height: 1.4;
   min-height: 44px;
@@ -592,7 +592,7 @@
 }
 
 .statValue {
-  color: #2c3e50;
+  color: #4E342E;
   font-weight: 700;
 }
 
@@ -601,7 +601,7 @@
 }
 
 .actionsSummary h4 {
-  color: #2c3e50;
+  color: #4E342E;
   margin-bottom: 0.75rem;
 }
 
@@ -623,17 +623,17 @@
 
 .actionSummaryItem.productive {
   background: rgba(46, 213, 115, 0.1);
-  border-left: 3px solid #2ed573;
+  border-left: 3px solid #388E3C;
 }
 
 .actionSummaryItem.neutral {
   background: rgba(255, 165, 2, 0.1);
-  border-left: 3px solid #ffa502;
+  border-left: 3px solid #FBC02D;
 }
 
 .actionSummaryItem.tempting {
   background: rgba(255, 71, 87, 0.1);
-  border-left: 3px solid #ff4757;
+  border-left: 3px solid #E57300;
 }
 
 .outcomeMessage {
@@ -654,16 +654,16 @@
 .outcomeMessage.late,
 .outcomeMessage.tired {
   background: rgba(255, 165, 2, 0.2);
-  color: #ffa502;
-  border: 2px solid #ffa502;
+  color: #FBC02D;
+  border: 2px solid #FBC02D;
 }
 
 .outcomeMessage.hungry,
 .outcomeMessage.unprepared,
 .outcomeMessage.disaster {
   background: rgba(255, 71, 87, 0.2);
-  color: #ff4757;
-  border: 2px solid #ff4757;
+  color: #E57300;
+  border: 2px solid #E57300;
 }
 
 .whyCardContent {
@@ -671,7 +671,7 @@
 }
 
 .whyCardContent h3 {
-  color: #2c3e50;
+  color: #4E342E;
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }

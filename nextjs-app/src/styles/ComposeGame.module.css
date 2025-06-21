@@ -12,7 +12,7 @@
 }
 
 .gameDescription h3 {
-  color: var(--color-brand, #ee3a57);
+  color: var(--color-brand, #E57300);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -46,7 +46,7 @@
 }
 
 .startButton {
-  background: var(--color-brand, #ee3a57);
+  background: var(--color-brand, #E57300);
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -59,7 +59,7 @@
 }
 
 .startButton:hover {
-  background: var(--color-deep-red, #c4324a);
+  background: var(--color-deep-red, #4E342E);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(238, 58, 87, 0.4);
 }
@@ -86,7 +86,7 @@
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--color-brand, #ee3a57), var(--color-accent, #ff7b7b));
+  background: linear-gradient(90deg, var(--color-brand, #E57300), var(--color-accent, #ff7b7b));
   border-radius: 6px;
   transition: width 0.3s ease;
 }
@@ -103,11 +103,11 @@
   padding: 2rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-left: 4px solid var(--color-brand, #ee3a57);
+  border-left: 4px solid var(--color-brand, #E57300);
 }
 
 .promptTitle {
-  color: var(--color-brand, #ee3a57);
+  color: var(--color-brand, #E57300);
   font-size: 1.4rem;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -127,7 +127,7 @@
 }
 
 .tips h4 {
-  color: var(--color-brand, #ee3a57);
+  color: var(--color-brand, #E57300);
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
@@ -149,7 +149,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-brand, #ee3a57);
+  color: var(--color-brand, #E57300);
   font-weight: bold;
 }
 
@@ -264,7 +264,7 @@
 .score {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--color-brand, #ee3a57);
+  color: var(--color-brand, #E57300);
   background: rgba(238, 58, 87, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -279,7 +279,7 @@
 }
 
 .completedTweets h4 {
-  color: var(--color-brand, #ee3a57);
+  color: var(--color-brand, #E57300);
   margin-bottom: 1rem;
   font-size: 1.1rem;
 }
@@ -296,7 +296,7 @@
   padding: 1rem;
   background: #f7f9fa;
   border-radius: 8px;
-  border-left: 3px solid var(--color-brand, #ee3a57);
+  border-left: 3px solid var(--color-brand, #E57300);
 }
 
 .tweetIcon {

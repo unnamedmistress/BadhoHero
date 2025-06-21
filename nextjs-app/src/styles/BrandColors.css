@@ -1,0 +1,111 @@
+/* BadhoHero Brand Colors - Updated Palette */
+/* Replacing strawberry colors with new brand palette */
+
+:root {
+  /* NEW BRAND PALETTE */
+  --brand-saffron-orange: #E57300;    /* Primary brand element */
+  --brand-k-green: #388E3C;           /* Symbolic earthy/green */
+  --brand-gold-yellow: #FBC02D;       /* Accents, banners, ribbons */
+  --brand-mid-grey: #9E9E9E;          /* Globe background */
+  --brand-dark-brown: #4E342E;        /* Text and outlines */
+  
+  /* PRIMARY COLORS (replacing strawberry) */
+  --color-brand: #E57300;              /* Was #ee3a57 */
+  --color-primary: #E57300;
+  --color-accent: #FBC02D;             /* Was #ff6b9d */
+  --color-secondary: #388E3C;
+  
+  /* SEMANTIC COLORS */
+  --color-success: #388E3C;            /* K-Green for success states */
+  --color-warning: #E57300;            /* Saffron Orange for warnings */
+  --color-error: #d32f2f;              /* Keep red for errors */
+  --color-info: #1976d2;               /* Keep blue for info */
+  
+  /* TEXT COLORS */
+  --color-text-primary: #4E342E;       /* Dark Brown/Purple */
+  --color-text-secondary: #9E9E9E;     /* Mid Grey */
+  --color-text-light: #ffffff;
+  --color-text-dark: #4E342E;
+  
+  /* BACKGROUND COLORS */
+  --color-background: #ffffff;
+  --color-background-secondary: #f5f5f5;
+  --color-background-accent: rgba(229, 115, 0, 0.1);    /* Light saffron */
+  --color-background-success: rgba(56, 142, 60, 0.1);   /* Light green */
+  
+  /* GRADIENTS */
+  --bg-gradient-brand: linear-gradient(135deg, #E57300 0%, #FBC02D 100%);
+  --bg-gradient-accent: linear-gradient(135deg, #FBC02D 0%, #388E3C 100%);
+  --bg-gradient-warm: linear-gradient(135deg, #E57300 0%, #FBC02D 50%, #388E3C 100%);
+  
+  /* BORDER COLORS */
+  --border-brand: #E57300;
+  --border-accent: #FBC02D;
+  --border-success: #388E3C;
+  --border-neutral: #9E9E9E;
+  
+  /* BUTTON COLORS */
+  --btn-primary-bg: #E57300;
+  --btn-primary-hover: #d66500;
+  --btn-primary-text: #ffffff;
+  
+  --btn-secondary-bg: #FBC02D;
+  --btn-secondary-hover: #f9a825;
+  --btn-secondary-text: #4E342E;
+  
+  --btn-success-bg: #388E3C;
+  --btn-success-hover: #2e7d32;
+  --btn-success-text: #ffffff;
+  
+  /* GAME-SPECIFIC COLORS */
+  --game-fog-primary: #E57300;         /* Saffron Orange */
+  --game-fog-secondary: #388E3C;       /* K-Green */
+  --game-fog-accent: #FBC02D;          /* Gold Yellow */
+  
+  --game-willpower-primary: #E57300;
+  --game-willpower-secondary: #388E3C;
+  --game-willpower-accent: #FBC02D;
+  
+  --game-goals-primary: #FBC02D;       /* Gold for goals */
+  --game-goals-secondary: #388E3C;
+  --game-goals-accent: #E57300;
+  
+  --game-confidence-primary: #E57300;
+  --game-confidence-secondary: #FBC02D;
+  --game-confidence-accent: #388E3C;
+  
+  --game-time-primary: #E57300;
+  --game-time-secondary: #FBC02D;
+  --game-time-accent: #388E3C;
+  
+  --game-triumph-primary: #FBC02D;     /* Gold for triumph */
+  --game-triumph-secondary: #E57300;
+  --game-triumph-accent: #388E3C;
+}
+
+/* LEGACY COLOR OVERRIDES */
+/* Override any remaining strawberry colors */
+:root {
+  --strawberry-red: #E57300 !important;        /* Override with Saffron Orange */
+  --strawberry-pink: #FBC02D !important;       /* Override with Gold Yellow */
+  --old-brand: #E57300 !important;             /* Override old brand color */
+}
+
+/* UTILITY CLASSES */
+.brand-saffron-orange { color: var(--brand-saffron-orange) !important; }
+.brand-k-green { color: var(--brand-k-green) !important; }
+.brand-gold-yellow { color: var(--brand-gold-yellow) !important; }
+.brand-mid-grey { color: var(--brand-mid-grey) !important; }
+.brand-dark-brown { color: var(--brand-dark-brown) !important; }
+
+.bg-brand-saffron-orange { background-color: var(--brand-saffron-orange) !important; }
+.bg-brand-k-green { background-color: var(--brand-k-green) !important; }
+.bg-brand-gold-yellow { background-color: var(--brand-gold-yellow) !important; }
+.bg-brand-mid-grey { background-color: var(--brand-mid-grey) !important; }
+.bg-brand-dark-brown { background-color: var(--brand-dark-brown) !important; }
+
+.border-brand-saffron-orange { border-color: var(--brand-saffron-orange) !important; }
+.border-brand-k-green { border-color: var(--brand-k-green) !important; }
+.border-brand-gold-yellow { border-color: var(--brand-gold-yellow) !important; }
+.border-brand-mid-grey { border-color: var(--brand-mid-grey) !important; }
+.border-brand-dark-brown { border-color: var(--brand-dark-brown) !important; }

@@ -49,20 +49,18 @@
   --bp-laptop: 1024px;
   --bp-desktop: 1200px;
   --bp-wide: 1400px;
-  
-  /* Game-specific color variables */
-  --color-brand: #ee3a57;
-  --color-accent: #6dbf4d;
-  --color-orange: #ff6b35;
-  --color-success: #4caf50;
-  --color-warning: #ff9800;
+    /* Game-specific color variables - Updated Brand Palette */
+  --color-brand: #E57300;        /* Saffron Orange (was #ee3a57) */
+  --color-accent: #FBC02D;       /* Gold Yellow (was #6dbf4d) */
+  --color-orange: #E57300;       /* Saffron Orange */
+  --color-success: #388E3C;      /* K-Green (was #4caf50) */
+  --color-warning: #E57300;      /* Saffron Orange (was #ff9800) */
   --color-error: #f44336;
   --color-info: #2196f3;
-  
-  /* Background gradients */
+    /* Background gradients - Updated Brand Palette */
   --bg-gradient-primary: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  --bg-gradient-success: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-  --bg-gradient-brand: linear-gradient(135deg, #ee3a57 0%, #c62d42 100%);
+  --bg-gradient-success: linear-gradient(135deg, #388E3C 0%, #2e7d32 100%);
+  --bg-gradient-brand: linear-gradient(135deg, #E57300 0%, #FBC02D 100%);
 }
 
 /* Global responsive typography */

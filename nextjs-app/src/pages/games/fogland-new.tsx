@@ -241,8 +241,7 @@ export default function FoglandGame() {
           <h2 className={styles.introTitle}>Welcome to Fogland Awakening!</h2>
           <p className={styles.introText}>
             Laziness is like a fog that hides your inner hero. Every time you clear a fog tile, 
-            you'll unlock a true lesson from the <strong>Lead India 2020 Resource Book</strong> 
-            about planning, habits, action, and positive attitude.
+            you'll unlock a true lesson about planning, habits, action, and positive attitude.
           </p>
           <button 
             className={styles.continueButton}
@@ -268,7 +267,6 @@ export default function FoglandGame() {
           <div className={styles.instructionsList}>
             <p>🎯 <strong>Tap any fog tile</strong> to face a challenge question</p>
             <p>💡 <strong>Answer wisely</strong> using Lead India principles</p>
-            <p>📜 <strong>Reveal WHY CARDS</strong> with real wisdom from the Resource Book</p>
             <p>🌟 <strong>Clear all tiles</strong> to awaken your inner hero</p>
           </div>
           <button 

@@ -3,21 +3,24 @@
   line-height: 1.5;
   font-weight: 400;
 
-
-  --color-purple: #f43f5e;
-  --color-orange: #ff6b00;
-  --color-lime: #a3e635;
-  --color-blue: #1e3a8a;
-  --color-purple-dark: #6d28d9;
-  /* Strawberry palette */
-
-  --color-brand: #ee3a57;
-  --color-background: #f8d7e1;
-  --color-accent: #6dbf4d;
-  --color-secondary: #f8b7b6;
-  --color-deep-red: #b41c2d;
-  --color-mint: #a8e6cf;
-  --color-yellow: #fef08a;
+  /* New Brand Palette */
+  --color-brand: #E57300;        /* Saffron Orange */
+  --color-accent: #FBC02D;       /* Gold Yellow */
+  --color-success: #388E3C;      /* K-Green */
+  --color-secondary: #9E9E9E;    /* Mid Grey */
+  --color-text-primary: #4E342E; /* Dark Brown/Purple */
+  
+  /* Legacy color mappings for compatibility */
+  --color-purple: #E57300;       /* Map to Saffron Orange */
+  --color-orange: #E57300;       /* Saffron Orange */
+  --color-lime: #388E3C;         /* K-Green */
+  --color-blue: #388E3C;         /* K-Green */
+  --color-purple-dark: #4E342E;  /* Dark Brown/Purple */
+  
+  --color-background: #ffffff;
+  --color-deep-red: #4E342E;     /* Dark Brown/Purple */
+  --color-mint: #388E3C;         /* K-Green */
+  --color-yellow: #FBC02D;       /* Gold Yellow */
   --color-text-dark: #333;
   /* legacy variable names */
   --color-purple: var(--color-brand);

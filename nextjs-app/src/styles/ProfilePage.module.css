@@ -8,7 +8,7 @@
   padding: 1rem;
 }
 
-/* Card container with Strawberry gradient */
+/* Card container with brand gradient */
 .profile-card {
   background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-secondary) 100%);
   border-radius: 16px;

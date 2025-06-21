@@ -130,7 +130,7 @@
 .fogTile:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  border-color: #ee3a57;
+  border-color: #E57300;
 }
 
 .foggyTile {
@@ -218,7 +218,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #ee3a57;
+  border: 3px solid #E57300;
 }
 
 .foxImageCheer {
@@ -277,7 +277,7 @@
 }
 
 .continueButton {
-  background: linear-gradient(90deg, #ee3a57, #dc2626);
+  background: linear-gradient(90deg, #E57300, #dc2626);
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -339,13 +339,13 @@
 }
 
 .answerButton:hover {
-  border-color: #ee3a57;
+  border-color: #E57300;
   background: #fef2f2;
   color: #dc2626;
 }
 
 .answerButton.selected {
-  border-color: #ee3a57;
+  border-color: #E57300;
   background: #fee2e2;
   color: #dc2626;
   font-weight: 600;
@@ -510,7 +510,7 @@
 
 .reflectionTextarea:focus {
   outline: none;
-  border-color: #ee3a57;
+  border-color: #E57300;
 }
 
 .bookCredit {

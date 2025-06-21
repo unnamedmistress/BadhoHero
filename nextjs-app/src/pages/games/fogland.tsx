@@ -8,7 +8,6 @@ import CompletionModal from '../../components/ui/CompletionModal'
 import ProgressBar from '../../components/ui/ProgressBar'
 import { UserContext } from '../../shared/UserContext'
 import type { UserContextType } from '../../shared/types/user'
-import { notify } from '../../shared/notify'
 import styles from '../../styles/FoglandGame.module.css'
 
 interface FogTile {
@@ -28,7 +27,7 @@ interface FogTile {
 const FOG_TILES: FogTile[] = [
   {
     id: 1,
-    question: "Which habit does the Resource Book call 'the energizer' to start your day?",
+    question: "Which habit is 'the energizer' to start your day?",
     hint: "'Smile unifies body, mind and soul'",
     answers: ["Yawning", "Complaining", "Smiling", "Stretching"],
     correctAnswer: 2,
@@ -41,7 +40,7 @@ const FOG_TILES: FogTile[] = [
   },
   {
     id: 2,
-    question: "What does the book call 'the secret behind success'?",
+    question: "What is'the secret behind success'?",
     answers: ["Having talent", "Failing to plan is planning to fail", "Working harder", "Being lucky"],
     correctAnswer: 1,
     whyCard: {
@@ -98,30 +97,6 @@ const FOG_TILES: FogTile[] = [
       bookQuote: "Act timely. Action appropriate to the situation can help to overcome obstacles."
     },
     cleared: false
-  },
-  {
-    id: 7,
-    question: "What does the book teach about completing tasks?",
-    answers: ["Finish when you feel like it", "Complete the work taken up", "Leave some for later", "Work only when perfect"],
-    correctAnswer: 1,
-    whyCard: {
-      title: "Completion Power",
-      explanation: "Finishing what you start builds unshakeable confidence and momentum for future victories.",
-      bookQuote: "Complete the work taken up. Visualize what's next and plan tomorrow's work as a leader."
-    },
-    cleared: false
-  },
-  {
-    id: 8,
-    question: "What makes a person truly strong according to Lead India?",
-    answers: ["Physical power", "Money and status", "Strong mind and character", "Having many friends"],
-    correctAnswer: 2,
-    whyCard: {
-      title: "True Strength",
-      explanation: "Real strength comes from within - a disciplined mind and strong character defeat laziness every time.",
-      bookQuote: "When MIND is strong, situation is an OPPORTUNITY. Build character, build strength."
-    },
-    cleared: false
   }
 ]
 
@@ -137,25 +112,15 @@ export default function FoglandGame() {
   const [gameComplete, setGameComplete] = useState(false)
   const [showIntro, setShowIntro] = useState(true)
   const [showInstructions, setShowInstructions] = useState(false)
-  const [showMidGameEncouragement, setShowMidGameEncouragement] = useState(false)
   const [showReflection, setShowReflection] = useState(false)
   const [reflection, setReflection] = useState('')
   const [collectedCards, setCollectedCards] = useState<FogTile[]>([])
   const [showIncorrectFeedback, setShowIncorrectFeedback] = useState(false)
   const [incorrectMessage, setIncorrectMessage] = useState('')
-
   const clearedTiles = tiles.filter(tile => tile.cleared).length
   const totalTiles = tiles.length
   const progress = (clearedTiles / totalTiles) * 100
 
-  // Check for mid-game encouragement
-  useEffect(() => {
-    if (clearedTiles === Math.floor(totalTiles / 2) && clearedTiles > 0 && !showMidGameEncouragement) {
-      setTimeout(() => {
-        setShowMidGameEncouragement(true)
-      }, 1500)
-    }
-  }, [clearedTiles, totalTiles, showMidGameEncouragement])
   const handleTileClick = (tile: FogTile) => {
     if (tile.cleared) return
     setCurrentTile(tile)
@@ -182,10 +147,7 @@ export default function FoglandGame() {
           ? { ...tile, cleared: true }
           : tile
       ))
-      
-      setCollectedCards(prev => [...prev, currentTile])
-      
-      notify("Excellent! The fog clears and wisdom emerges...")
+        setCollectedCards(prev => [...prev, currentTile])
       
       // Show why card after a brief delay
       setTimeout(() => {
@@ -215,17 +177,12 @@ export default function FoglandGame() {
       setShowReflection(true)
     }
   }
-
   const handleReflectionSubmit = () => {
     // Save reflection to user's journal (simplified for now)
-    if (reflection.trim()) {
-      notify('Your reflection has been saved to your Hero Journal!')
-    }
-      // Update points and award badge
+    // Update points and award badge
     setPoints('fogland', score)
     if (!user.badges.includes('fog-clearer')) {
       addBadge('fog-clearer')
-      notify('🏅 Fog Clearer Badge earned! You\'ve awakened from the laziness fog!')
     }
     
     setShowReflection(false)
@@ -242,8 +199,7 @@ export default function FoglandGame() {
           <h2 className={styles.introTitle}>Welcome to Fogland Awakening!</h2>
           <p className={styles.introText}>
             Laziness is like a fog that hides your inner hero. Every time you clear a fog tile, 
-            you'll unlock a true lesson from the <strong>Lead India 2020 Resource Book</strong> 
-            about planning, habits, action, and positive attitude.
+            you'll unlock a true lesson about planning, habits, action, and positive attitude.
           </p>
           <button 
             className={styles.continueButton}
@@ -269,7 +225,6 @@ export default function FoglandGame() {
           <div className={styles.instructionsList}>
             <p>🎯 <strong>Tap any fog tile</strong> to face a challenge question</p>
             <p>💡 <strong>Answer wisely</strong> using Lead India principles</p>
-            <p>📜 <strong>Reveal WHY CARDS</strong> with real wisdom from the Resource Book</p>
             <p>🌟 <strong>Clear all tiles</strong> to awaken your inner hero</p>
           </div>
           <button 
@@ -280,31 +235,7 @@ export default function FoglandGame() {
           </button>
         </div>
       </div>
-    )
-  }
-
-  // Mid-game encouragement
-  if (showMidGameEncouragement) {
-    return (
-      <div className={styles.modalOverlay}>
-        <div className={styles.encouragementModal}>          <div className={styles.foxAvatar}>
-            <span style={{ fontSize: '4rem', lineHeight: 1 }}>🦊</span>
-          </div>
-          <h2 className={styles.encouragementTitle}>You're halfway there!</h2>
-          <p className={styles.encouragementText}>
-            Remember: <em>"Failing to plan is planning to fail."</em> Every tile cleared is a step to your best self!
-          </p>
-          <p className={styles.bookCredit}>- Lead India 2020 Resource Book</p>
-          <button 
-            className={styles.continueButton}
-            onClick={() => setShowMidGameEncouragement(false)}
-          >
-            Continue Clearing →
-          </button>
-        </div>
-      </div>
-    )
-  }
+    )  }
 
   // Reflection modal
   if (showReflection) {
